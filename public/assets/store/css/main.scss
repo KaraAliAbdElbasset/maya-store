@@ -1,0 +1,162 @@
+$black: #000000;
+$background: #F7F7F7;
+$orange: #397298;
+$white: #FFFFFF;
+
+$radius-8: 8px;
+$radius-15: 15px;
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    font-family: 'Montserrat', sans-serif;
+    background-color: $background;
+
+    h1, h2, h3, h4, h5, h6 {
+        text-transform: capitalize;
+    }
+    
+
+    .bg-black {
+        background-color: $black;
+    }
+    .bg-background {
+        background-color: $background;
+    }
+    .bg-orange {
+        background-color: $orange;
+    }
+    .bg-white {
+        background-color: $white;
+    }
+
+
+    .text-black {
+        color: $black;
+    }
+    .text-blackground {
+        color: $background;
+    }
+    .text-orange {
+        color: $orange;
+    }
+    .text-white {
+        color: $white;
+    }
+
+
+    .py-75 {
+        padding-top: 75px;
+        padding-bottom: 75px;
+    }
+    .pt-75 {
+        padding-top: 75px;
+    }
+    .pb-75 {
+        padding-bottom: 75px;
+    }
+
+
+    .my-75 {
+        margin-top: 75px;
+        margin-bottom: 75px;
+    }
+    .mt-75 {
+        margin-top: 75px;
+    }
+    .mb-75 {
+        margin-bottom: 75px;
+    }
+
+    .btn {
+        font-weight: 600;
+    }
+
+
+    .cover {
+        border-radius: $radius-15;
+        background-image: url('../images/cover.png');
+        background-position: center;
+        background-size: cover;
+        h1 {
+            font-weight: 950;
+        }
+        .bg-black {
+            background-color: rgba($color: $black, $alpha: 0.7) !important;
+        }
+        .row {
+            min-height: 100%;
+            border-radius: $radius-15;
+        }
+    }
+
+    .border-start {
+        border-left: 4px solid $orange !important;
+    }
+
+    .card {
+        position: relative;
+        border-radius: $radius-15;
+    }
+
+    .category {
+        height: 250px;
+        .card-body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        } 
+        .content {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            border-radius: $radius-15;
+            background: $orange;
+            color: white;
+            opacity: 0;
+        }
+        &:hover .content {
+            opacity: 1;
+        }
+    }
+
+    .product {
+        .content {
+            transition: .5s ease;
+            opacity: 0;
+            height: 50%;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-bottom-left-radius: $radius-15;
+            border-bottom-right-radius: $radius-15;
+            background: rgba($color: $orange, $alpha: 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        &:hover .content {
+            opacity: 1;
+        }
+        &:hover img {
+            opacity: .5;
+        }
+        .product-image {
+            position: relative;
+            .product-discount {
+                position: absolute;
+                right: 20px;
+                top: 20px;
+            }
+        }
+    }
+
+    
+
+    
+}

@@ -1,246 +1,123 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
+
+    <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="icon" href="{{asset('assets/site/img/fav.png')}}" type="image/png" />
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- Title Icon -->
+    <link rel="icon" href="https://www.flaticon.com/svg/static/icons/svg/891/891462.svg"/>
 
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+        crossorigin="anonymous"
+    />
 
-    <title>{{config('settings.site_name')}}</title>
+    <!-- Font Import -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet"
+    />
 
-{{--    style--}}
-    <link rel="stylesheet" href="{{asset('assets/site/css/bootstrap.css')}}" />
-    <link rel="stylesheet" href="{{asset('assets/site/vendors/linericon/style.css')}}" />
-    <link rel="stylesheet" href="{{asset('assets/site/css/font-awesome.min.css')}}" />
-    <link rel="stylesheet" href="{{asset('assets/site/css/themify-icons.css')}}" />
-    <link rel="stylesheet" href="{{asset('assets/site/css/flaticon.css')}}" />
-    <link rel="stylesheet" href="{{asset('assets/site/vendors/owl-carousel/owl.carousel.min.css')}}" />
-    <link rel="stylesheet" href="{{asset('assets/site/vendors/lightbox/simpleLightbox.css')}}" />
-    <link rel="stylesheet" href="{{asset('assets/site/vendors/nice-select/css/nice-select.css')}}" />
-    <link rel="stylesheet" href="{{asset('assets/site/vendors/animate-css/animate.css')}}" />
-    <link rel="stylesheet" href="{{asset('assets/site/vendors/jquery-ui/jquery-ui.css')}}" />
-    <!-- main css -->
-    <link rel="stylesheet" href="{{asset('assets/admin/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{asset('assets/store/css/main.css')}}" />
 
-    <link rel="stylesheet" href="{{asset('assets/site/css/style.css')}}" />
-    <link rel="stylesheet" href="{{asset('assets/site/css/responsive.css')}}" />
+    <!-- Font Awesome CDN -->
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        rel="stylesheet"
+    />
+
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="{{asset('assets/store/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/store/css/owl.theme.default.min.css')}}">
+
+    <title>{{config('app.name')}}</title>
 </head>
-<body style=" padding-top: 160px; ">
-     @if(session()->has('product'))
-      <div class="modal fade" id="popupmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div>
-                <div class="modal-body p-0 row">
-                <div class="col-12 col-lg-5 ad p-0"> <img src="{{session()->get('product')->image_url}}" width="100%" height="100%" />
-                    
-                </img>
-                </div>
-                    <div class="details col-12 col-lg-7">
-                        <h2>votre commande: </h2>
 
-                        <h2>{{session()->get('product')->name}}</h2>
-                        <p><small class="para">{!! session()->get('product')->excerpt !!}</small></p>
-                         @if(session()->get('product')->old_price)
-                         <p><small class="para"> <del class="text-dark">{{session()->get('product')->old_price}} {{config('settings.currency_code')}}</del></small></p>
-                         @endif
-                        <p><small class="para"> {{session()->get('product')->price}} {{config('settings.currency_code')}}</small></p>
+<body>
 
-                        
-                     <a class="  text-center btn-block mx-2 col-11" type="button" class="close" data-dismiss="modal" aria-label="Close">Continuer mes achats</a>
-                     <a class="main_btn  text-center btn-block mx-2 mb-2 col-11" href="{{route('cart.checkout')}}">Valider ma commande</a>
-                    </div>
-                    
+@include('layouts.partials.headernav')
+
+
+@yield('content')
+
+
+<!-- Footer Start -->
+@include('layouts.partials.footer')
+<!-- Footer End -->
+
+<!-- Cart Modal Start -->
+<div
+    class="modal fade"
+    id="staticBackdrop"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-orange text-white">
+                <h5 class="modal-title" id="staticBackdropLabel">Produit ajouté avec succes</h5>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <i class="fas fa-check-circle text-success fa-6x"></i>
                 </div>
+            </div>
+            <div class="modal-footer">
+                <a href="cart.html" class="btn bg-orange text-white w-100">Aller au panier</a>
+                <button
+                    type="button"
+                    class="btn border border-dark text-orange w-100"
+                    data-bs-dismiss="modal">
+                    Continuer mes achats
+                </button>
             </div>
         </div>
     </div>
-    @endif
-    @include('layouts.partials.headernav')
-        @yield('banner_area')
-        @yield('content')
-    @include('layouts.partials.footer')
-    <script src="{{asset('assets/site/js/jquery-3.2.1.min.js')}}"></script>
-    <script src="{{asset('assets/site/js/popper.js')}}"></script>
-    <script src="{{asset('assets/site/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('assets/site/js/stellar.js')}}"></script>
-    <script src="{{asset('assets/site/vendors/lightbox/simpleLightbox.min.js')}}"></script>
-    <script src="{{asset('assets/site/vendors/nice-select/js/jquery.nice-select.min.js')}}"></script>
-    <script src="{{asset('assets/site/vendors/isotope/imagesloaded.pkgd.min.js')}}"></script>
-    <script src="{{asset('assets/site/vendors/isotope/isotope-min.js')}}"></script>
-    <script src="{{asset('assets/site/vendors/owl-carousel/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('assets/site/js/jquery.ajaxchimp.min.js')}}"></script>
-    <script src="{{asset('assets/site/vendors/counter-up/jquery.waypoints.min.js')}}"></script>
-    <script src="{{asset('assets/site/vendors/counter-up/jquery.counterup.js')}}"></script>
-    <script src="{{asset('assets/site/js/mail-script.js')}}"></script>
-    <script src="{{asset('assets/site/js/theme.js')}}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
-    
-    <script>
-    $(document).ready(function(){
-        $('.customer-logos').slick({
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 1000,
-            arrows: false,
-            dots: false,
-            pauseOnHover: true,
-            responsive: [{
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 3
-                }
-            }, {
-                breakpoint: 520,
-                settings: {
-                    slidesToShow: 3
-                }
-            }]
-        });
-    });
-     $(document).ready(function(){
-        $('.brands').slick({
-            slidesToShow: 6,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 1000,
-            arrows: false,
-            dots: false,
-            pauseOnHover: true,
-            responsive: [{
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 4
-                }
-            }, {
-                breakpoint: 520,
-                settings: {
-                    slidesToShow: 4
-                }
-            }]
-        });
-    });
-     $(document).ready(function(){
-        $('.categories').slick({
-            slidesToShow: 4,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 1000,
-            arrows: false,
-            dots: false,
-            pauseOnHover: true,
-            responsive: [{
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 3,
-                    centerPadding: '40px'
-                }
-            }, {
-                breakpoint: 520,
-                settings: {
-                    slidesToShow: 3,
-                    centerPadding: '40px'
+</div>
+<!-- Cart Modal End -->
 
-                }
-            }]
-        });
-    });
+<!-- Bootstrap Bundle with Popper -->
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"
+></script>
 
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script src="{{asset('assets/store/js/owl.carousel.min.js')}}"></script>
 
-    <!-- SweetAlert2 -->
-    <script src="{{asset('assets/admin/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
-    <script>
-        const Toast = Swal.mixin({
-            customClass: {
-            confirmButton: 'btn btn-success mx-auto',
-            cancelButton: 'btn btn-warning mx-auto' 
-                 },
-            buttonsStyling: false,
-            position: 'center',
-            width: 600,
-            height:400,
-
-            
-        });
-        @if(session()->has('error'))
-        Toast.fire({
-            icon: 'error',
-            title: '{{session('error')}}'
-        })
-        @endif
-
-        @error('email')
-        Toast.fire({
-            icon: 'error',
-            title: '{{$message}}'
-        })
-        @enderror
-
-       
-        
-    @if(session()->has('product'))
-   
-        $(document).ready(function() {
-            $('#popupmodal').modal();
-        });
-        
-    @endif
-        @if(session()->has('success panier'))
-        Toast.fire({
-            icon: 'success',
-            title: 'Votre Produit a été suprimé du panier',
-             showConfirmButton: false,
-             timer :2000
-        } ); 
-        @endif    
-    </script>
-   
-  <!-- Facebook Pixel Code -->
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '236702744741869');
-fbq('track', 'PageView');
+    $(document).ready(function(){
+        $(".owl-carousel").owlCarousel({
+            loop:true,
+            responsiveClass:true,
+            autoplay: 100,
+            responsive:{
+                0:{
+                    items:2,
+                },
+                600:{
+                    items:3,
+                },
+                1000:{
+                    items:6,
+                    loop:true
+                }
+            }
+        });
+    });
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=236702744741869&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Facebook Pixel Code -->
-<!-- 
-<!-- Load Facebook SDK for JavaScript
-      <div id="fb-root"></div>
-      <script>
-        window.fbAsyncInit = function() {
-          FB.init({
-            xfbml            : true,
-            version          : 'v9.0'
-          });
-        };
 
-        (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/fr_FR/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));</script>
-
-     
-      <div class="fb-customerchat"
-        attribution="setup_tool"
-        page_id="530829661198364">
-      </div> -->
-@stack('js')
 </body>
+
 </html>

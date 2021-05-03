@@ -1,114 +1,101 @@
 @extends('layouts.app')
 
-@section('banner_area')
-    <!--================Home Banner Area =================-->
-    <section class="banner_area">
-        <div class="banner_inner d-flex align-items-center">
-            <div class="container">
-                <div
-                    class="banner_content d-md-flex justify-content-between align-items-center"
-                >
-                    <div class="mb-3 mb-md-0">
-                        <h2>Contactez Nous</h2>
-                        <p>Service Client a votre écoute</p>
-                    </div>
-                    <div class="page_link">
-                        <a href="{{url('/')}}">Accueil</a>
-                        <a href="{{route('contact')}}">Contact</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--================End Home Banner Area =================-->
-
-@endsection
 
 @section('content')
 
-    <!-- ================ contact section start ================= -->
-    <section class="section_gap">
+    <section id="contact" class="py-5">
         <div class="container">
-       <div style="width: 100%"><iframe width="100%" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=480&amp;hl=en&amp;q=cit%C3%A9%20el%20manar+(el%20khroub)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
 
-
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="contact-title">Contact</h2>
-                    @if(session()->has('success'))
-                        <div class="alert alert-success">{{session('success')}}</div>
-                    @endif
-                </div>
-                <div class="col-lg-8 mb-4 mb-lg-0">
-                    <form class="form-contact contact_form" action="{{route('contact.send')}}" method="post" id="contactForm" novalidate="novalidate">
-                        @csrf
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <textarea class="form-control w-100 @error('message') is-invalid @enderror" name="message" id="message" cols="30" rows="5" placeholder="Message">{{old('message')}}</textarea>
-                                    @error('message')
-                                        <div class="invalid-feedback">{{$message}}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <input class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}" name="name" id="name" type="text" placeholder="votre nom">
-                                    @error('name')
-                                    <div class="invalid-feedback">{{$message}}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <input class="form-control @error('email') is-invalid @enderror" value="{{old('email')}}" name="email" id="email" type="email" placeholder="votre addresse email ">
-                                    @error('email')
-                                    <div class="invalid-feedback">{{$message}}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <input class="form-control @error('subject') is-invalid @enderror" value="{{old('subject')}}" name="subject" id="subject" type="text" placeholder="Sujet">
-                                    @error('subject')
-                                    <div class="invalid-feedback">{{$message}}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group mt-lg-3">
-                            <button type="submit" class="main_btn">Envoyer</button>
-                        </div>
-                    </form>
-
-
-                </div>
-
-                <div class="col-lg-4">
-                    <div class="media contact-info">
-                        <span class="contact-info__icon"><i class="ti-home"></i></span>
-                        <div class="media-body">
-                            <h3>Sidi Mabrouk Superieure</h3>
-                            <p>Constantine Algerie</p>
-                        </div>
-                    </div>
-                    <div class="media contact-info">
-                        <span class="contact-info__icon"><i class="ti-tablet"></i></span>
-                        <div class="media-body">
-                            <h3><a href="tel:454545654">+213 560 23 23 16</a></h3>
-                            <p>Du Samedi au jeudi de 9h a 16h</p>
-                        </div>
-                    </div>
-                    <div class="media contact-info">
-                        <span class="contact-info__icon"><i class="ti-email"></i></span>
-                        <div class="media-body">
-                            <h3><a href="mailto:support@7clics.com">support@7clics.com</a></h3>
-                            <p>Envoyez nous vos Messages!</p>
-                        </div>
-                    </div>
+            <div class="row text-center text-lg-start">
+                <div class="col-lg-6">
+                    <h1 class="fw-bold text-capitalize text-center text-lg-start">Contactez <span class="text-orange">Nous</span></h1>
+                    <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora sapiente molestiae quod ipsum totam fugiat, neque eveniet cumque placeat reiciendis et cum odit adipisci aut perspiciatis fugit soluta voluptatibus rerum.</p>
                 </div>
             </div>
+
+            <div class="row d-flex justify-content-between align-items-center mt-5">
+
+                <div class="col-12">
+                    <h2 class="fw-bold text-center text-lg-start border-start px-3">
+                        Informations de <span class="text-orange">contact</span>
+                    </h2>
+                </div>
+
+                <div class="col-lg-6">
+
+                    <form action="{{route('contact.send')}}" method="post" class="row mt-5" id="contact-form">
+                        @csrf
+                        <div class="col-lg-6 mb-3">
+                            <input type="text" name="name" class="form-control border-0 shadow-sm py-2 @error('name') is-invalid @enderror" value="{{old('name')}}" placeholder="Nom et prénom">
+                            @error('name')
+                                <div class="invalid-feedback">{{$message}}</div>
+                            @enderror
+                        </div>
+
+                        <div class="col-lg-6 mb-3">
+                            <input type="email" name="email" class="form-control border-0 shadow-sm py-2 @error('email') is-invalid @enderror" value="{{old('email')}}" placeholder="Adresse email">
+                            @error('email')
+                            <div class="invalid-feedback">{{$message}}</div>
+                            @enderror
+                        </div>
+
+                        <div class="col-lg-12 mb-3">
+                            <select name="subject" class="form-select border-0 shadow-sm py-2 @error('subject') is-invalid @enderror">
+                                <option value="Sujet 1" {{old('subject') === 'Sujet 1' ? 'selected' : ''}}>Sujet 1</option>
+                                <option value="Sujet 2" {{old('subject') === 'Sujet 2' ? 'selected' : ''}}>Sujet 2</option>
+                                <option value="Sujet 3" {{old('subject') === 'Sujet 3' ? 'selected' : ''}}>Sujet 3</option>
+                                <option value="Sujet 4" {{old('subject') === 'Sujet 4' ? 'selected' : ''}}>Sujet 4</option>
+                            </select>
+                            @error('subject')
+                            <div class="invalid-feedback">{{$message}}</div>
+                            @enderror
+                        </div>
+
+                        <div class="col-lg-12 mb-3">
+                            <textarea name="message" rows="3" class="form-control border-0 shadow-sm py-2 @error('message') is-invalid @enderror" placeholder="Message" required>{{old('message')}}</textarea>
+                            @error('message')
+                            <div class="invalid-feedback">
+                                {{$message}}
+                            </div>@enderror
+                        </div>
+
+                        <div class="col-12 col-lg-auto">
+                            <a href="javascript:void(0)" onclick="document.getElementById('contact-form').submit()" class="btn bg-orange text-white shadow-sm text-decoration-none px-5 mt-3 d-block">
+                                Envoyer
+                            </a>
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <div class="col-lg-5 mt-5 mt-lg-0 text-center text-lg-start">
+                    <p><i class="fas fa-map-marker-alt me-2 text-orange"></i>Constantine, Algérie.</p>
+                    <p><i class="fas fa-phone-alt me-2 text-orange"></i>00 (213) xxx xx xx xx</p>
+                    <p><i class="fas fa-at me-2 text-orange"></i>contact@sarl-cec.com</p>
+                    <p><i class="fas fa-globe-africa me-2 text-orange"></i>https://www.sarl-cec.com</p>
+                </div>
+
+            </div>
+
+            <div class="row d-flex justify-content-between align-items-center mt-5">
+
+                <div class="col-12">
+                    <h2 class="fw-bold text-center text-lg-start border-start px-3">
+                        Ou nous <span class="text-orange">Trouver</span>
+                    </h2>
+                </div>
+
+                <div class="col-lg-12 mt-5">
+
+                    <a href="javascript:void(0)" class="text-decoration-none">
+                        <img src="{{asset('assets/store/images/map.png')}}" alt="map" class="img-fluid">
+                    </a>
+
+                </div>
+
+            </div>
+
         </div>
     </section>
-    <!-- ================ contact section end ================= -->
 @endsection

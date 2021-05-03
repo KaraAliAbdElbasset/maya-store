@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\WebsiteController::class,'index'])->name('welcome');
+Route::get('/categories', [\App\Http\Controllers\WebsiteController::class,'categoryIndex'])->name('categories.index');
 Route::get('/shop', [\App\Http\Controllers\WebsiteController::class,'shop'])->name('shop');
 Route::get('/shop/{id}-{slug}', [\App\Http\Controllers\WebsiteController::class,'product'])->name('product');
 Route::post('newsletter',[\App\Http\Controllers\Admin\NewsLetterController::class,'store'])->name('newsletter.store');
@@ -27,9 +29,14 @@ Route::prefix('cart')->name('cart.')->group(static function(){
     Route::post('/clear',[\App\Http\Controllers\CartController::class,'clearCart'])->name('clear');
 });
 
+
+
 Route::get('/contact', [\App\Http\Controllers\ContactController::class,'index'])->name('contact');
 Route::post('/contact', [\App\Http\Controllers\ContactController::class,'send'])->name('contact.send');
 
 //Auth::routes();
+
+
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -12,7 +12,7 @@ class WebsiteController extends Controller
 {
     public function index()
     {
-        
+
         $categories =Category::whereNull('category_id')->get();
         $brand = Brand::all();
         $prod = Product::with('categories')->get();
@@ -34,5 +34,19 @@ class WebsiteController extends Controller
         $images = $p->images->pluck('url')->prepend($p->image_url);
         $prodbrand = $p->brand->first();
         $product=Product::where('brand_id','=',$prodbrand->id)->get();
-        return view('website.pages.product',compact('p','images','product','categories'));    }
+        return view('website.pages.product',compact('p','images','product','categories'));
+    }
+
+    public function categoryIndex()
+    {
+        if (\request()->has('search'))
+        {
+            $q = \request()->get('search');
+            $categories = Category::where('name','like','%'.$q.'%')->orderBy('created_at','desc')->paginate(12);
+
+        }else{
+            $categories = Category::orderBy('created_at','desc')->paginate(12);
+        }
+        return view('website.pages.categories',compact('categories'));
+    }
 }

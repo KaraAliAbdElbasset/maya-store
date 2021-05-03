@@ -1,221 +1,149 @@
-<style>
-   
+<!-- Informations Start -->
+<section id="infos" class="bg-orange text-white">
+    <div class="container px-0">
 
-.trigger {
-    background-color: green;
-    color: #fff
-}
-.thumbnail:hover {
-background-color: #f7c808;
-}
-.modal,
-.fade,
-.show {
-    padding-left: 15px;
-    padding-right: 15px
-}
+        <nav class="navbar navbar-expand-lg px-0">
+            <div class="container">
 
 
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation" >
+                    <i class="fas fa-bars text-orange"></i>
+                </button>
 
-.modal-content {
-    border: none;
-    background: transparent;
-    padding: 0 19px
-}
-.btn-outline-transparent {
-    color: rgba(0, 0, 0, 0);
-    background-color: transparent;
-    background-image: none;
-    border-color: #000000
-}
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
+                        <li class="nav-item me-0 me-lg-3">
+                            <div class="dropdown">
+                                <button class="btn text-white dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    DZD<img src="{{asset('assets/store/images/dz.png')}}" alt="flag" height="15" class="ms-2">
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#">FR</a></li>
+                                    <li><a class="dropdown-item" href="#">EN</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
 
-.close {
-    position: relative;
-    top: 48px;
-    left: 13px;
-    z-index: 1;
-    font-size: 30px;
-    font-weight: bold;
-    line-height: 1;
-    color: black
-}
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-center">
+                        <li class="nav-item me-0 me-lg-3">
+                            <input type="text" class="form-control border-0 rounded-pill px-3" placeholder="Recherche">
+                        </li>
+                    </ul>
 
-.modal-header {
-    border: none
-}
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
 
-.modal-header .close {
-    padding: 0rem 1rem !important;
-    margin: -1rem -1rem -1rem auto
-}
+                        <li class="nav-item me-0 me-lg-5">
+                            <a class="nav-link text-black fw-light cart" href="{{route('cart.index')}}">
+                                <i class="fas fa-shopping-cart me-2"></i><span class="bg-white text-orange rounded px-2 fw-bolder">1</span>
+                                <span class="ms-2 text-capitalize d-lg-none">Mon Panier</span>
+                            </a>
+                        </li>
+                        @guest
+                        <li class="nav-item me-0 me-lg-3">
+                            <a
+                                class="nav-link btn bg-white text-orange fw-bold rounded-pill px-3"
+                                href="{{route('login')}}"
+                            >Mon Compte</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link btn bg-white text-orange fw-bold rounded-pill px-3"
+                                href="{{route('register')}}"
+                            >Sinscrire</a
+                            >
+                        </li>
+                        @else
+                        <li class="nav-item">
+                            <a
+                                class="nav-link text-white rounded-pill"
+                                href="javascript:void(0)" onclick="document.getElementById('logout-form').submit()"
+                            >Deconnexion <i class="fas fa-sign-out-alt ms-2"></i></a
+                            >
+                        </li>
+                            <form action="{{route('logout')}}" method="post" id="logout-form">@csrf</form>
+                        @endguest
+                    </ul>
 
-.modal-body {
-    border: none;
-    background-color: white;
-    padding-bottom: 5px
-}
-
-.close.focus,
-.close:focus {
-    outline: 0;
-    box-shadow: none !important
-}
-
-.form-control {
-    width: 80%;
-    border: none;
-    border-radius: 20px;
-    box-shadow: 0px 0.5px 0px 0px #dae0e5 !important;
-    color: #63686c;
-    font-weight: bold;
-    font-size: 12px
-}
-.form-control2 {
-    width: 80%;
-    border: none;
-    border-radius: 20px;
-    box-shadow: 0px 0.5px 0px 0px #dae0e5 !important;
-    color: #63686c;
-    font-weight: bold;
-    font-size: 12px
-}
-
-.form-control.focus {
-    border: none;
-    border-color: #fff;
-    border-bottom: 1px solid #000;
-    outline: 0;
-    box-shadow: 0 0 0 0 rgba(0, 123, 255, .25)
-}
-
-@media (min-width:599px) {
-    .modal-dialog {
-        max-width: 47rem
-    }
-
-    .details {
-        padding: 60px 0 40px 50px
-    }
-
-    .text-muted a {
-        color: #c0bfbf;
-        font-weight: bold;
-        text-decoration: underline
-    }
-
-    small.para {
-        font-weight: bold;
-        font-size: 14px;
-        color: #63686c
-    }
-}
-
-
-</style>
-
-
- <!--================Header Menu Area =================-->
-
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" >
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        <span class="navbar-toggler-icon"></span>
-        <span class="navbar-toggler-icon"></span>
-
-    </button>
-    <a class="navbar-brand" href="{{url('/')}}"> <img src="{{asset('assets/site/img/logo.png')}}"  height="75px" width="150px"/></a>
-     
-   
-    <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item {{request()->is('/') ? 'active' : ''}}">
-                <a class="nav-link " href="{{url('/')}}">Accueil <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item {{request()->is('shop*') ? 'active' : ''}}">
-                <a class="nav-link " href="{{route('shop')}}">Boutique</a>
-            </li>
-           @if(request()->is('/') || request()->is('shop*'))
-            <li class="dropdown">
-        <a class="  nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-          Catégories
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <ul class="mx-auto">
-           @foreach($categories as $c)
-                      @if(!$c->category_id)
-                      <li class=" thumbnail mx-auto" >
-                      <a  class=" text-dark mx-auto" href="{{route('shop',[
-                                                                        'category' => $c->id,
-                                                                        'brand' => request('brand'),
-                                                                        'sort' => request('sort'),
-                                                                        'per_page' => request('per_page'),
-                                                                        ])}}">{{$c->name}}</a></li>
-                      @endif
-            @endforeach
-            </ul>
-        </div>
-        </li>
-        @endif
-         <li class="nav-item {{request()->is('contact*') ? 'active' : ''}}">
-                <a class="nav-link " href="{{route('contact')}}">Contact</a>
-            </li>
-        </ul>
-     </div>
-        <span><a href="{{route('cart.index')}}" class="icons">
-                    <i class="fa " style="font-size:24px;color:#f7c808!important;">&#xf07a;</i>
-                    
-                    <span class='badge badge-warning' id='lblCartCount'> {{session()->has('cart') ? session('cart')->getTotalQty() : 0}} </span>
-    </a>
-       <button class="btn btn-outline-transparent my-2 my-sm-0 ml-2" data-toggle="modal" data-target="#exampleModal"> <i class="fa" style="font-size:24px;color:#f7c808!important;">&#xf007;</i></button>
-        </span>
-       
-        <span class="navbar-text mx-auto" >
-            
-            <form class="form-inline col" action="{{route('shop')}}" method="get">
-                <input type="text" name="search" placeholder="nom du produit" value="{{request('search')}}" class="form-control col-6" >
-                <button type="submit" class="btn btn-outline-transparent"><i style="font-size:24px;color:#f7c808!important;" class="fa fa-search col-4"></i></button>
-            </form>
-        </span>
-
-   
-   
-</nav>
-
-
-
- 
- <!--================MODAL START =================-->
- 
- 
- 
- 
- 
- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div>
-                <div class="modal-body p-0 row">
-                    <div class="col-12 col-lg-5 ad p-0"> <img src="{{asset('assets/site/img/banner/7Clics Banner 7clics.jpg')}}" width="100%" height="100%" /> </div>
-                    <div class="details col-12 col-lg-7">
-                        <h2>Restez Branché en un clic</h2>
-                        <p><small class="para">Inscrivez vous pour<br> recevoir nos nouvautés</small></p>
-                       
-                            <form method="post" action="{{route('newsletter.store')}}">
-                            @csrf                            
-                            <input type="email" class="form-control" placeholder="email@exemple.com" name="email" required>  
-                          <div class="form-group mt-3 pt-3 mb-5">
-                       <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">S'inscrire</button>
-                       </div>
-                       </form>
-                       </div> 
-                      
-                    </div>
                 </div>
+
             </div>
-        </div>
+        </nav>
+
     </div>
+</section>
+<!-- Informations End -->
 
 
-  <!--================Header Menu Area =================-->
+<!-- Navbar Start -->
+<section id="navbar" class="bg-white text-capitalize shadow-sm">
+    <div class="container px-0">
 
+        <nav class="navbar navbar-expand-lg px-0">
+            <div class="container">
+
+                <a class="navbar-brand" href="{{route('welcome')}}">
+                    <img src="{{asset('assets/store/images/logo.svg')}}" alt="logo" height="30" />
+                </a>
+
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation" >
+                    <i class="fas fa-bars text-orange"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
+                        <li class="nav-item me-0 me-lg-3">
+                            <a
+                                class="nav-link text-black fw-light"
+                                href="{{route('welcome')}}"
+                            >Accueil</a
+                            >
+                        </li>
+                        <li class="nav-item me-0 me-lg-3">
+                            <a
+                                class="nav-link text-black fw-light"
+                                href="{{route('shop')}}"
+                            >Produits</a
+                            >
+                        </li>
+                        <li class="nav-item me-0 me-lg-3">
+                            <a
+                                class="nav-link text-black fw-light"
+                                href="{{route('categories.index')}}"
+                            >Catégories</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link text-black fw-light"
+                                href="{{route('contact')}}"
+                            >Contact</a
+                            >
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </nav>
+
+    </div>
+</section>
+<!-- Navbar End -->

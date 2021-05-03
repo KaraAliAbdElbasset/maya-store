@@ -1,0 +1,176 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #F7F7F7;
+}
+
+body h1, body h2, body h3, body h4, body h5, body h6 {
+  text-transform: capitalize;
+}
+
+body .bg-black {
+  background-color: #000000;
+}
+
+body .bg-background {
+  background-color: #F7F7F7;
+}
+
+body .bg-orange {
+  background-color: #397298;
+}
+
+body .bg-white {
+  background-color: #FFFFFF;
+}
+
+body .text-black {
+  color: #000000;
+}
+
+body .text-blackground {
+  color: #F7F7F7;
+}
+
+body .text-orange {
+  color: #397298;
+}
+
+body .text-white {
+  color: #FFFFFF;
+}
+
+body .py-75 {
+  padding-top: 75px;
+  padding-bottom: 75px;
+}
+
+body .pt-75 {
+  padding-top: 75px;
+}
+
+body .pb-75 {
+  padding-bottom: 75px;
+}
+
+body .my-75 {
+  margin-top: 75px;
+  margin-bottom: 75px;
+}
+
+body .mt-75 {
+  margin-top: 75px;
+}
+
+body .mb-75 {
+  margin-bottom: 75px;
+}
+
+body .btn {
+  font-weight: 600;
+}
+
+body .cover {
+  border-radius: 15px;
+  background-image: url("../images/cover.png");
+  background-position: center;
+  background-size: cover;
+}
+
+body .cover h1 {
+  font-weight: 950;
+}
+
+body .cover .bg-black {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+body .cover .row {
+  min-height: 100%;
+  border-radius: 15px;
+}
+
+body .border-start {
+  border-left: 4px solid #397298 !important;
+}
+
+body .card {
+  position: relative;
+  border-radius: 15px;
+}
+
+body .category {
+  height: 250px;
+}
+
+body .category .card-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body .category .content {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  background: #397298;
+  color: white;
+  opacity: 0;
+}
+
+body .category:hover .content {
+  opacity: 1;
+}
+
+body .product .content {
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+  opacity: 0;
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background: rgba(57, 114, 152, 0.7);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+}
+
+body .product:hover .content {
+  opacity: 1;
+}
+
+body .product:hover img {
+  opacity: .5;
+}
+
+body .product .product-image {
+  position: relative;
+}
+
+body .product .product-image .product-discount {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+/*# sourceMappingURL=main.css.map */
