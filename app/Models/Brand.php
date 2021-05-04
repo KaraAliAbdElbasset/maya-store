@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Brand extends Model
 {
@@ -17,6 +18,10 @@ class Brand extends Model
 
     public function getImageUrlAttribute()
     {
+        if (Str::contains($this->image,'http'))
+        {
+            return  $this->image;
+        }
         return isset($this->image) ? asset('storage/'.$this->image) : asset('assets/admin/dist/img/default-150x150.png') ;
     }
 

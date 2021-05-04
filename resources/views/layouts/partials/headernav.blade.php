@@ -43,7 +43,8 @@
 
                         <li class="nav-item me-0 me-lg-5">
                             <a class="nav-link text-black fw-light cart" href="{{route('cart.index')}}">
-                                <i class="fas fa-shopping-cart me-2"></i><span class="bg-white text-orange rounded px-2 fw-bolder">1</span>
+                                <i class="fas fa-shopping-cart me-2"></i><span class="bg-white text-orange rounded px-2 fw-bolder">{{session()->has('cart') ? session('cart')->getTotalQty() : 0}}
+                                </span>
                                 <span class="ms-2 text-capitalize d-lg-none">Mon Panier</span>
                             </a>
                         </li>

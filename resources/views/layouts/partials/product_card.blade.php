@@ -1,43 +1,48 @@
- 
- 
-  <a style="display: initial;border-radius:25px!important" href="{{$p->path()}}">
-      
-  <div class="single-product bshadow mt-0" style="border-radius:25px!important">
-        
-        
-    <div class="product-img rounded-top">
-        <img class="img-fluid w-100"  src="{{$p->image_url}}" alt="product image" style="border-radius:25px!important" >
-               @if($p->old_price)
-                       
-                         <div class="corner-ribbon top-left  yellow shadow"> <del class="text-white">@price($p->old_price) {{config('settings.currency_code')}}</del></div>
-                @endif
-                </img>
-        <div class="p_icon">
-            
-            <a  class="aav" href="{{$p->path()}}">
-                <i class="ti-eye"></i>
-            </a>
-            <a class="aav" href="javascript:void(0)" onclick="document.getElementById('form-card-add-{{$p->id}}').submit()">
-                <i class="ti-shopping-cart"></i>
-            </a>
-           
-        </div>
-    </div>
-    
-    <div class="product-btm " style="border-radius:25px!important">
-        <a href="{{$p->path()}}" class="d-block">
-            <h4 class="text-truncate mx-auto" style="max-width: 400px;font-size: 13px;" title="{{$p->name}}">{{$p->name}}</h4>
-        </a>
-        <div class="mt-2">
-            <span class="mr-4" style="font-size: 15px;">@price($p->price) {{config('settings.currency_code')}}</span>
 
-           
+<div class="col-lg-3 mt-0 mt-5 mt-lg-0">
+
+    <div class="card product border-0">
+
+        <div class="product-image">
+            <img src="{{$p->image_url}}"  alt="img" class="img-fluid"/>
+            @if($p->discount)
+                <span class="badge bg-orange rounded-2 product-discount">- {{$p->discount}}%</span>
+            @endif
         </div>
-        
+
+        <div class="content">
+
+            <a href="javascript:void(0)" onclick="document.getElementById('form-card-add-{{$p->id}}').submit()"  class="btn bg-white text-orange rounded-0 text-capitalize w-25 py-3 rounded-2 shadow-sm">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+            <a href="#" class="btn bg-white text-orange rounded-0 text-capitalize w-25 py-3 rounded-2 shadow-sm">
+                <i class="fas fa-search"></i>
+            </a>
+
+        </div>
 
     </div>
+
+    <div class="px-3 product-infos">
+
+        <div class="product-title">
+            <p class="mb-0 mt-4 text-truncate">
+                <a href="{{$p->path()}}" class="text-decoration-none text-black" title="{{$p->name}}">{{$p->name}}</a>
+            </p>
+        </div>
+
+        <div class="product-price mt-2">
+            <span class="me-2 text-orange fw-bold">@price($p->price)  {{config('settings.currency_code')}}</span>
+            @if($p->old_price)
+                <span class="text-muted text-decoration-line-through ms-1">@price($p->old_price) {{config('settings.currency_code')}}</span>
+            @endif
+        </div>
+
+    </div>
+
+
+    <form action="{{route('cart.store',$p->id)}}" method="post" id="form-card-add-{{$p->id}}"> @csrf
+        <input type="hidden" name="qty" value="1">
+    </form>
 </div>
-</a>
-<form action="{{route('cart.store',$p->id)}}" method="post" id="form-card-add-{{$p->id}}"> @csrf
-    <input type="hidden" name="qty" value="1">
-</form>
+

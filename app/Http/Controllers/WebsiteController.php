@@ -13,11 +13,11 @@ class WebsiteController extends Controller
     public function index()
     {
 
-        $categories =Category::whereNull('category_id')->get();
-        $brand = Brand::all();
-        $prod = Product::with('categories')->get();
-        $catwp =Category::with('products')->get();
-        return view('welcome',compact('brand','categories','prod','catwp'));
+        $categories =Category::where('featured',true)->limit(8)->get();
+        $brands = Brand::all();
+        $l_products  = Product::latest()->limit(8)->get();
+        $top_products = Product::orderBy('popularity','desc')->limit(8)->get();
+        return view('welcome',compact('brands','categories','l_products','top_products'));
     }
 
     public function shop(ProductContract $product)

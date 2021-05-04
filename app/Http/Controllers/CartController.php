@@ -40,9 +40,8 @@ class CartController extends Controller
 
         $cart->add($product,\request("qty"));
         session()->put("cart",$cart);
-        session()->flash("success","Product has been added To Your Cart");
+        session()->flash("cart-success","Product has been added To Your Cart");
         session()->flash("product",$product);
-
 
         return redirect()->back();
 

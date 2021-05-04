@@ -13,15 +13,20 @@ class Product extends Model
     protected $fillable = [
         'name',
         'excerpt',
-        'description','key_words',
+        'description',
+        'key_words',
         'seo_description',
         'image',
         'price',
-        'fournisseur',
+//        'fournisseur',
         'old_price',
         'popularity',
         'inspired',
-        'featured', 'is_active', 'qte', 'brand_id'];
+        'featured',
+        'is_active',
+        'qte',
+        'brand_id'
+    ];
 
     protected $casts = [
         'price'     => 'double',
@@ -42,14 +47,29 @@ class Product extends Model
         return $query;
     }
 
-    protected $appends = ['image_url'];
+    protected $appends = ['image_url','discount'];
 
     public function getImageUrlAttribute()
     {
+        if (Str::contains($this->image,'http'))
+        {
+            return  $this->image;
+        }
+
         return isset($this->image) ?
             asset('storage/'.$this->image) :
             asset('assets/admin/dist/img/default-150x150.png');
     }
+    public function getDiscountAttribute()
+    {
+        if (!$this->old_price || $this->old_price === $this->price)
+        {
+            return  null;
+        }
+
+        return (int)(100 - ($this->price * 100)/$this->old_price);
+    }
+
 
     public function brand(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
@@ -75,12 +95,12 @@ class Product extends Model
     {
         return $q->where('featured',true);
     }
-    
+
      public function scopeLatest($q)
     {
         return $q->orderBy('created_at','desc');
     }
-    
+
     public function path()
     {
         return route('product',['id'=>$this->id,'slug'=>Str::slug($this->name)]);

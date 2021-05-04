@@ -13,15 +13,15 @@ class SettingSeeder extends Seeder
     protected $settings = [
         [
             'key'                       =>  'site_name',
-            'value'                     =>  '7Clics',
+            'value'                     =>  'SARL CEC',
         ],
         [
             'key'                       =>  'contact_email',
-            'value'                     =>  'contact@7clics.com',
+            'value'                     =>  'contact@SARL-CEC.com',
         ],
         [
             'key'                       =>  'default_email_address',
-            'value'                     =>  'info@7clics.com',
+            'value'                     =>  'info@SARL-CEC.com',
         ],
         [
             'key'                       =>  'phone_1',

@@ -31,55 +31,24 @@
 
             <div class="row mt-5">
 
-                <div class="col-lg-3 mt-2 mt-lg-0">
-                    <div class="card category border-0" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{asset('assets/store/images/category.png')}}');">
-                        <div class="card-body text-white">
-                            <h3 class="font-weight-bold my-3">Consommable</h3>
-                        </div>
-                        <div class="content card-body">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi aut ipsam modi odio amet harum nulla similique, odit nobis assumenda vero illo, ea, voluptate recusandae porro voluptatum perferendis adipisci consectetur.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 mt-2 mt-lg-0">
-                    <div class="card category border-0" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{asset('assets/store/images/category.png')}}');">
-                        <div class="card-body text-white">
-                            <h3 class="font-weight-bold my-3">Imprimantes</h3>
-                        </div>
-                        <div class="content card-body">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi aut ipsam modi odio amet harum nulla similique, odit nobis assumenda vero illo, ea, voluptate recusandae porro voluptatum perferendis adipisci consectetur.
+                @foreach($categories as $cat)
+                    <div class="col-lg-3 my-2 mt-lg-0">
+                        <div class="card category border-0" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{$cat->image_url}}');">
+                            <div class="card-body text-white">
+                                <h3 class="font-weight-bold my-3">{{$cat->name}}</h3>
+                            </div>
+                            <div class="content card-body">
+                                {{$cat->description}}
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-lg-3 mt-2 mt-lg-0">
-                    <div class="card category border-0" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{asset('assets/store/images/category.png')}}');">
-                        <div class="card-body text-white">
-                            <h3 class="font-weight-bold my-3">Écrans</h3>
-                        </div>
-                        <div class="content card-body">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi aut ipsam modi odio amet harum nulla similique, odit nobis assumenda vero illo, ea, voluptate recusandae porro voluptatum perferendis adipisci consectetur.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 mt-2 mt-lg-0">
-                    <div class="card category border-0" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{asset('assets/store/images/category.png')}}');">
-                        <div class="card-body text-white">
-                            <h3 class="font-weight-bold my-3">Stations De Travail</h3>
-                        </div>
-                        <div class="content card-body">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi aut ipsam modi odio amet harum nulla similique, odit nobis assumenda vero illo, ea, voluptate recusandae porro voluptatum perferendis adipisci consectetur.
-                        </div>
-                    </div>
-                </div>
+                @endforeach
 
             </div>
 
             <div class="row mt-5 d-flex justify-content-center justify-content-lg-end">
                 <div class="col-auto">
-                    <a href="#" class="text-orange fw-bold text-decoration-underline text-capitalize">Voir tout</a>
+                    <a href="{{route('categories.index')}}" class="text-orange fw-bold text-decoration-underline text-capitalize">Voir tout</a>
                 </div>
             </div>
 
@@ -98,162 +67,9 @@
 
             <div class="row mt-0 mt-lg-5">
 
-
-                <div class="col-lg-3 mt-0 mt-5 mt-lg-0">
-
-                    <div class="card product border-0">
-
-                        <div class="product-image">
-                            <img src="{{asset('assets/store/images/product.png')}}"  alt="img" class="img-fluid"/>
-                            <span class="badge bg-orange rounded-2 product-discount">- 15%</span>
-                        </div>
-
-                        <div class="content">
-
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn bg-white text-orange rounded-0 text-capitalize w-25 py-3 rounded-2 shadow-sm">
-                                <i class="fas fa-shopping-cart"></i>
-                            </a>
-
-                            <a href="#" class="btn bg-white text-orange rounded-0 text-capitalize w-25 py-3 rounded-2 shadow-sm">
-                                <i class="fas fa-search"></i>
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                    <div class="px-3 product-infos">
-
-                        <div class="product-title">
-                            <p class="mb-0 mt-4 text-truncate">
-                                <a href="product_detail.html" class="text-decoration-none text-black">Lorem ipsum dolor sit amet dolor sit amet</a>
-                            </p>
-                        </div>
-
-                        <div class="product-price mt-2">
-                            <span class="me-2 text-orange fw-bold">9900 DA</span><span class="text-muted text-decoration-line-through ms-1">12900 DA</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="col-lg-3 mt-0 mt-5 mt-lg-0">
-
-                    <div class="card product border-0">
-
-                        <div class="product-image">
-                            <img src="{{asset('assets/store/images/product.png')}}"  alt="img" class="img-fluid"/>
-                            <span class="badge bg-orange rounded-2 product-discount">- 15%</span>
-                        </div>
-
-                        <div class="content">
-
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn bg-white text-orange rounded-0 text-capitalize w-25 py-3 rounded-2 shadow-sm">
-                                <i class="fas fa-shopping-cart"></i>
-                            </a>
-
-                            <a href="#" class="btn bg-white text-orange rounded-0 text-capitalize w-25 py-3 rounded-2 shadow-sm">
-                                <i class="fas fa-search"></i>
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                    <div class="px-3 product-infos">
-
-                        <div class="product-title">
-                            <p class="mb-0 mt-4 text-truncate">
-                                <a href="product_detail.html" class="text-decoration-none text-black">Lorem ipsum dolor sit amet dolor sit amet</a>
-                            </p>
-                        </div>
-
-                        <div class="product-price mt-2">
-                            <span class="me-2 text-orange fw-bold">9900 DA</span><span class="text-muted text-decoration-line-through ms-1">12900 DA</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="col-lg-3 mt-0 mt-5 mt-lg-0">
-
-                    <div class="card product border-0">
-
-                        <div class="product-image">
-                            <img src="{{asset('assets/store/images/product.png')}}"  alt="img" class="img-fluid"/>
-                            <span class="badge bg-orange rounded-2 product-discount">- 15%</span>
-                        </div>
-
-                        <div class="content">
-
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn bg-white text-orange rounded-0 text-capitalize w-25 py-3 rounded-2 shadow-sm">
-                                <i class="fas fa-shopping-cart"></i>
-                            </a>
-
-                            <a href="#" class="btn bg-white text-orange rounded-0 text-capitalize w-25 py-3 rounded-2 shadow-sm">
-                                <i class="fas fa-search"></i>
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                    <div class="px-3 product-infos">
-
-                        <div class="product-title">
-                            <p class="mb-0 mt-4 text-truncate">
-                                <a href="product_detail.html" class="text-decoration-none text-black">Lorem ipsum dolor sit amet dolor sit amet</a>
-                            </p>
-                        </div>
-
-                        <div class="product-price mt-2">
-                            <span class="me-2 text-orange fw-bold">9900 DA</span><span class="text-muted text-decoration-line-through ms-1">12900 DA</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="col-lg-3 mt-0 mt-5 mt-lg-0">
-
-                    <div class="card product border-0">
-
-                        <div class="product-image">
-                            <img src="{{asset('assets/store/images/product.png')}}"  alt="img" class="img-fluid"/>
-                            <span class="badge bg-orange rounded-2 product-discount">- 15%</span>
-                        </div>
-
-                        <div class="content">
-
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn bg-white text-orange rounded-0 text-capitalize w-25 py-3 rounded-2 shadow-sm">
-                                <i class="fas fa-shopping-cart"></i>
-                            </a>
-
-                            <a href="#" class="btn bg-white text-orange rounded-0 text-capitalize w-25 py-3 rounded-2 shadow-sm">
-                                <i class="fas fa-search"></i>
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                    <div class="px-3 product-infos">
-
-                        <div class="product-title">
-                            <p class="mb-0 mt-4 text-truncate">
-                                <a href="product_detail.html" class="text-decoration-none text-black">Lorem ipsum dolor sit amet dolor sit amet</a>
-                            </p>
-                        </div>
-
-                        <div class="product-price mt-2">
-                            <span class="me-2 text-orange fw-bold">9900 DA</span><span class="text-muted text-decoration-line-through ms-1">12900 DA</span>
-                        </div>
-
-                    </div>
-
-                </div>
+                @foreach($l_products as $lp)
+                    @include('layouts.partials.product_card',['p' => $lp])
+                @endforeach
 
             </div>
 
@@ -278,162 +94,10 @@
 
             <div class="row mt-0 mt-lg-5">
 
+                @foreach($top_products as $tp)
+                    @include('layouts.partials.product_card',['p' => $tp])
+                @endforeach
 
-                <div class="col-lg-3 mt-0 mt-5 mt-lg-0">
-
-                    <div class="card product border-0">
-
-                        <div class="product-image">
-                            <img src="{{asset('assets/store/images/product.png')}}"  alt="img" class="img-fluid"/>
-                            <span class="badge bg-orange rounded-2 product-discount">- 15%</span>
-                        </div>
-
-                        <div class="content">
-
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn bg-white text-orange rounded-0 text-capitalize w-25 py-3 rounded-2 shadow-sm">
-                                <i class="fas fa-shopping-cart"></i>
-                            </a>
-
-                            <a href="#" class="btn bg-white text-orange rounded-0 text-capitalize w-25 py-3 rounded-2 shadow-sm">
-                                <i class="fas fa-search"></i>
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                    <div class="px-3 product-infos">
-
-                        <div class="product-title">
-                            <p class="mb-0 mt-4 text-truncate">
-                                <a href="product_detail.html" class="text-decoration-none text-black">Lorem ipsum dolor sit amet dolor sit amet</a>
-                            </p>
-                        </div>
-
-                        <div class="product-price mt-2">
-                            <span class="me-2 text-orange fw-bold">9900 DA</span><span class="text-muted text-decoration-line-through ms-1">12900 DA</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="col-lg-3 mt-0 mt-5 mt-lg-0">
-
-                    <div class="card product border-0">
-
-                        <div class="product-image">
-                            <img src="{{asset('assets/store/images/product.png')}}"  alt="img" class="img-fluid"/>
-                            <span class="badge bg-orange rounded-2 product-discount">- 15%</span>
-                        </div>
-
-                        <div class="content">
-
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn bg-white text-orange rounded-0 text-capitalize w-25 py-3 rounded-2 shadow-sm">
-                                <i class="fas fa-shopping-cart"></i>
-                            </a>
-
-                            <a href="#" class="btn bg-white text-orange rounded-0 text-capitalize w-25 py-3 rounded-2 shadow-sm">
-                                <i class="fas fa-search"></i>
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                    <div class="px-3 product-infos">
-
-                        <div class="product-title">
-                            <p class="mb-0 mt-4 text-truncate">
-                                <a href="product_detail.html" class="text-decoration-none text-black">Lorem ipsum dolor sit amet dolor sit amet</a>
-                            </p>
-                        </div>
-
-                        <div class="product-price mt-2">
-                            <span class="me-2 text-orange fw-bold">9900 DA</span><span class="text-muted text-decoration-line-through ms-1">12900 DA</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="col-lg-3 mt-0 mt-5 mt-lg-0">
-
-                    <div class="card product border-0">
-
-                        <div class="product-image">
-                            <img src="{{asset('assets/store/images/product.png')}}"  alt="img" class="img-fluid"/>
-                            <span class="badge bg-orange rounded-2 product-discount">- 15%</span>
-                        </div>
-
-                        <div class="content">
-
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn bg-white text-orange rounded-0 text-capitalize w-25 py-3 rounded-2 shadow-sm">
-                                <i class="fas fa-shopping-cart"></i>
-                            </a>
-
-                            <a href="#" class="btn bg-white text-orange rounded-0 text-capitalize w-25 py-3 rounded-2 shadow-sm">
-                                <i class="fas fa-search"></i>
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                    <div class="px-3 product-infos">
-
-                        <div class="product-title">
-                            <p class="mb-0 mt-4 text-truncate">
-                                <a href="product_detail.html" class="text-decoration-none text-black">Lorem ipsum dolor sit amet dolor sit amet</a>
-                            </p>
-                        </div>
-
-                        <div class="product-price mt-2">
-                            <span class="me-2 text-orange fw-bold">9900 DA</span><span class="text-muted text-decoration-line-through ms-1">12900 DA</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="col-lg-3 mt-0 mt-5 mt-lg-0">
-
-                    <div class="card product border-0">
-
-                        <div class="product-image">
-                            <img src="{{asset('assets/store/images/product.png')}}"  alt="img" class="img-fluid"/>
-                            <span class="badge bg-orange rounded-2 product-discount">- 15%</span>
-                        </div>
-
-                        <div class="content">
-
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn bg-white text-orange rounded-0 text-capitalize w-25 py-3 rounded-2 shadow-sm">
-                                <i class="fas fa-shopping-cart"></i>
-                            </a>
-
-                            <a href="#" class="btn bg-white text-orange rounded-0 text-capitalize w-25 py-3 rounded-2 shadow-sm">
-                                <i class="fas fa-search"></i>
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                    <div class="px-3 product-infos">
-
-                        <div class="product-title">
-                            <p class="mb-0 mt-4 text-truncate">
-                                <a href="product_detail.html" class="text-decoration-none text-black">Lorem ipsum dolor sit amet dolor sit amet</a>
-                            </p>
-                        </div>
-
-                        <div class="product-price mt-2">
-                            <span class="me-2 text-orange fw-bold">9900 DA</span><span class="text-muted text-decoration-line-through ms-1">12900 DA</span>
-                        </div>
-
-                    </div>
-
-                </div>
 
             </div>
 
@@ -458,12 +122,10 @@
 
             <div class="row mt-0 mt-lg-5">
                 <div class="owl-carousel">
-                    <img src="{{asset('assets/store/images/brand.png')}}" alt="brand" class="img-fluid">
-                    <img src="{{asset('assets/store/images/brand.png')}}" alt="brand" class="img-fluid">
-                    <img src="{{asset('assets/store/images/brand.png')}}" alt="brand" class="img-fluid">
-                    <img src="{{asset('assets/store/images/brand.png')}}" alt="brand" class="img-fluid">
-                    <img src="{{asset('assets/store/images/brand.png')}}" alt="brand" class="img-fluid">
-                    <img src="{{asset('assets/store/images/brand.png')}}" alt="brand" class="img-fluid">
+                    @foreach($brands as $b)
+                        <img src="{{$b->image_url}}" alt="{{$b->name}}" title="{{$b->name}}" class="img-fluid">
+                    @endforeach
+
                 </div>
             </div>
 

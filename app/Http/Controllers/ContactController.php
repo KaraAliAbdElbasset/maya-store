@@ -23,7 +23,7 @@ class ContactController extends Controller
         ]);
 
         Mail::to(config('settings.contact_mail')?? 'contact@7clic.com')->send(new ContactMail($data));
-        session()->flash('success','Mail Has Been Sent Successfully');
+        session()->flash('success','Contact Mail Has Been Sent Successfully');
         return redirect()->route('contact');
     }
 }

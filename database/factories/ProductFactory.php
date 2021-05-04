@@ -18,11 +18,25 @@ class ProductFactory extends Factory
      * Define the model's default state.
      *
      * @return array
+     * @throws \Exception
      */
     public function definition()
     {
+        $price = random_int(1000,1500);
         return [
-            //
+            'name' => $this->faker->words(6,true),
+            'excerpt' => $this->faker->sentence,
+            'description' => $this->faker->paragraph(5,true),
+            'image' => asset('assets/test/'.random_int(1,15).'.jpg'),
+            'price' => $price,
+//        'fournisseur',
+            'old_price' => $price + random_int(0,500),
+            'popularity' => random_int(0,100),
+            'inspired' => random_int(0,1),
+            'featured' => random_int(0,1),
+            'is_active' => random_int(0,1),
+            'qte' => random_int(0,100),
+            'brand_id' => random_int(1,10),
         ];
     }
 }

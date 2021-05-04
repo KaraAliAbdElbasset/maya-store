@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Category extends Model
 {
@@ -18,6 +19,10 @@ class Category extends Model
 
     public function getImageUrlAttribute()
     {
+        if (Str::contains($this->image,'http'))
+        {
+            return  $this->image;
+        }
         return isset($this->image) ? asset('storage/'.$this->image) : asset('assets/admin/dist/img/default-150x150.png');
     }
     public function parent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -25,7 +30,7 @@ class Category extends Model
 
         return $this->belongsTo(self::class,'category_id','id')->withDefault(['name' => 'Main category']);
     }
-    
+
     public function products(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
         return $this->belongsToMany(Product::class);

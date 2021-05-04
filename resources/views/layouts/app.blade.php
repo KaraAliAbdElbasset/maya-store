@@ -73,7 +73,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="cart.html" class="btn bg-orange text-white w-100">Aller au panier</a>
+                <a href="{{route('cart.index')}}" class="btn bg-orange text-white w-100">Aller au panier</a>
                 <button
                     type="button"
                     class="btn border border-dark text-orange w-100"
@@ -96,7 +96,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script src="{{asset('assets/store/js/owl.carousel.min.js')}}"></script>
 
+<script src="{{asset('assets/admin/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
+
 <script>
+
     $(document).ready(function(){
         $(".owl-carousel").owlCarousel({
             loop:true,
@@ -115,6 +118,10 @@
                 }
             }
         });
+        @if(session('cart-success'))
+            $('#staticBackdrop').modal('show')
+        @endif
+
     });
 </script>
 
