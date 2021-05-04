@@ -32,7 +32,7 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
         rel="stylesheet"
     />
-
+    @stack('css')
     <!-- Owl Carousel -->
     <link rel="stylesheet" href="{{asset('assets/store/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/store/css/owl.theme.default.min.css')}}">
@@ -124,7 +124,7 @@
 
     });
 </script>
-
+@stack('js')
 </body>
 
 </html>

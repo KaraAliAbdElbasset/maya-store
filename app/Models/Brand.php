@@ -25,4 +25,9 @@ class Brand extends Model
         return isset($this->image) ? asset('storage/'.$this->image) : asset('assets/admin/dist/img/default-150x150.png') ;
     }
 
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
 }

@@ -48,4 +48,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return isset($this->pic) ? asset('storage/'.$this->pic) : asset('assets/admin/dist/img/default-150x150.png');
     }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }

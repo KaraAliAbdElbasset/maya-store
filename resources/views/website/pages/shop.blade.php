@@ -2,144 +2,98 @@
 
 
 @section('content')
-      <!--================Home Banner Area =================-->
+      <!-- Products Start -->
+      <section id="products" class="py-5">
 
+          <div class="container">
 
-                    <div class="h2 text-center mb-0" style="  background: #f6f6f6;
-    z-index: 1;">
+              <div class="row">
 
-                        <a href="{{route('shop')}}" class="text-dark">Boutique</a>
-                    </div>
+                  <div class="col-lg-3">
 
+                      <div class="card border-0 shadow-sm bg-white">
+                          <div class="card-body">
+                              <h4 class="text-orange text-capitalize mt-2">Catégories</h4>
+                              <hr class="text-orange my-4">
+                              @foreach($categories as $c)
+                              <p class="text-capitalize">{{$c->name}}<span class="ms-2 text-orange">({{$c->products_count}})</span></p>
+                              @endforeach
 
-    <!--================End Home Banner Area =================-->
-    <section class="cat_product_area section_gap">
-        <div class="container">
-            <div class="row flex-row-reverse">
-                <div class="col-lg-9">
-                    <form action="{{route('shop')}}" id="formFilter">
-                        <input type="hidden" name="category" value="{{request('category')}}">
-                        <input type="hidden" name="brand" value="{{request('brand')}}">
-                        <div class="product_top_bar">
-                            <div class="left_dorp">
-                                <select class="sorting filter" name="sort" onchange="document.getElementById('formFilter').submit()">
-                                    <option disabled  >Trier par ...</option>
-                                     <option  selected value="created_at" {{request('sort') === 'created_at' ? 'selected' :''}} >Nouveautés</option>
-                                    <option value="name" {{request('sort') === 'name' ? 'selected' :''}} >Trier par nom</option>
-                                    <option value="price" {{request('sort') === 'price' ? 'selected' :''}}>Trier par prix</option>
-                                    <option value="qte" {{request('sort') === 'qte' ? 'selected' :''}}>Trier par quantité</option>
-                                    <option value="popularity" {{request('sort') === 'popularity' ? 'selected' :''}}>Trier par popolarité</option>
-                                </select>
+                          </div>
+                      </div>
 
-                                <input type="text" name="search" placeholder="nom du produit" value="{{request('search')}}" class="show filter mx-auto ">
-                                <button type="submit" class="search btn mx-auto"><i class="fa fa-search"></i></button>
-                            </div>
+                      <div class="card border-0 shadow-sm bg-white mt-3">
+                          <div class="card-body">
+                              <h4 class="text-orange text-capitalize mt-2">Marques</h4>
+                              <hr class="text-orange my-4">
+                              @foreach($brands as $b)
+                                  <p class="text-capitalize">{{$b->name}}<span class="ms-2 text-orange">({{$b->products_count}})</span></p>
+                              @endforeach
 
+                          </div>
+                      </div>
 
-                        </div>
-                    </form>
-                    <div class="latest_product_inner">
-                        <div class="row">
+                  </div>
 
-                            @foreach($products as $p)
-                            <div class="col-6 col-lg-3 col-md-3 mx-auto ">
-                                @include('layouts.partials.product_card',compact('p'))
-                            </div>
-                            @endforeach
+                  <div class="col-lg-9 products">
 
-                        </div>
-                    </div>
+                      <form action="" class="row d-flex justify-content-between mt-3 mt-lg-0" id="formFilter">
+                          @if(request()->has('category'))
+                              <input type="hidden" name="category" value="{{request('category')}}">
+                          @endif
+                          @if(request()->has('brand'))
+                              <input type="hidden" name="brand" value="{{request('brand')}}">
+                          @endif
+                          <div class="col-lg-5 mb-3 mb-lg-0">
+                              <select class="form-select py-2 border-0 shadow-sm" name="sort" onchange="document.getElementById('formFilter').submit()">
+                                  <option disabled  >Trier par ...</option>
+                                  <option  selected value="created_at" {{request('sort') === 'created_at' ? 'selected' :''}} >Nouveautés</option>
+                                  <option value="name" {{request('sort') === 'name' ? 'selected' :''}} >Trier par nom</option>
+                                  <option value="price" {{request('sort') === 'price' ? 'selected' :''}}>Trier par prix</option>
+                                  <option value="qte" {{request('sort') === 'qte' ? 'selected' :''}}>Trier par quantité</option>
+                                  <option value="popularity" {{request('sort') === 'popularity' ? 'selected' :''}}>Trier par popolarité</option>
+                              </select>
+                          </div>
 
-                     <div  class="container mx-auto mt-2">{{$products->onEachSide(2)->links()}}</div>
-                </div>
-                 <div class="col-lg-3">
-                    <div class="left_sidebar_area">
-                        <aside class="left_widgets p_filter_widgets">
-                            <div class="l_w_title">
-                                <h3>Categories</h3>
-                                <a href="{{route('shop')}}" class="text-dark">voir tout</a>
-                            </div>
-                            <div class="widgets_inner">
-                                <ul class="">
-                                    @foreach($categories as $c)
-                                    @if($c->children->count()>0)
-                                        <li @if($c->id == request('category')) class="active" @endif >
-                                         <span  class="text-body"  data-toggle="collapse" data-target="#cc" > <i class="fa fa-chevron-circle-right text-primary"></i> {{$c->name}} </span>
-                                                                         <ul  id='cc'>
-                                                                         <li ><a href="{{route('shop',[
-                                                                        'category' => $c->id,
-                                                                        'brand' => request('brand'),
-                                                                        'sort' => request('sort'),
-                                                                        'per_page' => request('per_page'),
-                                                                        ])}}" style="
-                                                                        display: inline-block;
-                                                                        text-align: left;" class="ml-3 text-body"><i class="fa fa-circle  text-primary"></i> Toutes</a></li>
+                          <div class="col-lg-6 mb-3 mb-lg-0">
+                              <input type="text" name="search" value="{{request('search')}}" class="form-control py-2 border-0 shadow-sm" placeholder="Nom du produit">
+                          </div>
 
+                          <div class="col-12 col-lg-auto d-block d-lg-flex">
+                              <a href="javascript:void(0)"
+                                 onclick="document.getElementById('formFilter').submit()"
+                                 class="btn bg-orange text-white text-decoration-none shadow-sm d-block">
+                                  <i class="fas fa-search"></i>
+                              </a>
+                          </div>
 
-                                                                            @foreach($c->children as $cc)
+                      </form>
 
-                                                                            <li> <a href="{{route('shop',[
-                                                                        'category' => $cc->id,
-                                                                        'brand' => request('brand'),
-                                                                        'sort' => request('sort'),
-                                                                        'per_page' => request('per_page'),
-                                                                        ])}}" style="
-                                                                        display: inline-block;
-                                                                        text-align: left;" class="ml-3 text-body"> <i class="fa fa-circle  text-warning"></i> {{$cc->name}}</a></li>
-                                                                            @endforeach
-                                                                        </ul>
-                                        </li>
-                                     @else
-                                      <li @if($c->id == request('category')) class="active" @endif >
-                                      <a  class="text-body"
+                      <div class="row">
 
+                          @foreach($products as $p)
 
+                              @include('layouts.partials.product_card',['p' => $p,'col'=>4])
 
-                                                                        href="{{route('shop',[
-                                                                        'category' => $c->id,
-                                                                        'brand' => request('brand'),
-                                                                        'sort' => request('sort'),
-                                                                        'per_page' => request('per_page'),
-                                                                        ])}}"><i class="fa fa-chevron-circle-right text-primary"></i> {{$c->name}}</a>
-                                        </li>
+                          @endforeach
 
-                                     @endif
+                      </div>
 
+                      <div class="row mt-5">
+                          <nav class="">
+                              <ul class="pagination justify-content-center">
+                                  {{$products->links()}}
+                              </ul>
+                          </nav>
+                      </div>
 
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </aside>
+                  </div>
 
-                        <aside class="left_widgets p_filter_widgets">
-                            <div class="l_w_title">
-                                <h3>Marques</h3>
-                            </div>
-                            <div class="widgets_inner">
-                                <ul class="list">
-                                    @foreach($brands as $b)
-                                    <li @if($b->id == request('brand')) class="active" @endif>
-                                        <a href="{{route('shop',[
-                                                                      'category' => request('category'),
-                                                                        'brand' => $b->id,
-                                                                        'order' => request('sort'),
-                                                                        'per_page' => request('per_page'),
-                                                                        ])}}">{{$b->name}}</a>
-                                    </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </aside>
+              </div>
 
-
-
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
+          </div>
+      </section>
+      <!-- Products End -->
 
 @endsection
 

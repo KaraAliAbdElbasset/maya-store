@@ -22,9 +22,10 @@ class WebsiteController extends Controller
 
     public function shop(ProductContract $product)
     {
-        $categories =Category::with('children')->get();
+        $categories = Category::where('category_id','<>',null)->withCount('products')->get('id','name');
+        $brands = Brand::withCount('products')->orderBy('name','asc')->get('id','name');
         $products = $product->findByFilter(\request()->get('per_page')??18,['categories','brand'],['active','latest']);
-        return view('website.pages.shop',compact('products','categories'));
+        return view('website.pages.shop',compact('products','categories','brands'));
     }
 
     public function product($id,ProductContract $product)
@@ -42,7 +43,7 @@ class WebsiteController extends Controller
         if (\request()->has('search'))
         {
             $q = \request()->get('search');
-            $categories = Category::where('name','like','%'.$q.'%')->orderBy('created_at','desc')->paginate(12);
+            $categories = Category::where('name','like','%'.$q.'%')->orderBy('created_at','desc')->paginate(12)->withQueryString();
 
         }else{
             $categories = Category::orderBy('created_at','desc')->paginate(12);

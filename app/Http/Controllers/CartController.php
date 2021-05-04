@@ -57,7 +57,13 @@ class CartController extends Controller
             'items.*.gt' => 'The product qty must be greater than 0.'
         ]);
 
-        $cart = new Cart(session()->get("cart"));
+        if (!session()->has('cart'))
+        {
+            session()->forget('cart');
+            return redirect()->route('welcome');
+        }
+
+        $cart = new Cart(session()->get('cart'));
         $cart->update($data["items"]);
 
         session()->put("cart",$cart);
@@ -134,19 +140,19 @@ class CartController extends Controller
             });
             $data['total_qty'] = $c->getTotalQty();
             $data['total_price'] = $c->getTotalPrice();
-            $order = Order::create($data);
+            $order = auth()->user()->orders()->create($data);
             $order->products()->attach($items->all());
 //            mail to  admin
-            Mail::to(config('settings.default_email_address'))->send(new AdminOrderMail($order));
+//            Mail::to(config('settings.default_email_address'))->send(new AdminOrderMail($order));
 //            mail to client
-            if ($order->email){
-                Mail::to($order->email)->send(new ClientOrderMail($order));
-            }
+//            if ($order->email){
+//                Mail::to($order->email)->send(new ClientOrderMail($order));
+//            }
 
             session()->forget('cart');
             cache()->forget('NewestOrderCountCache');
             session()->flash('success','Order Has Been Created Successfully');
-            return redirect('/');
+            return redirect('/home');
         }catch (\Exception $exception)
         {
             session()->flash('error',$exception->getMessage().'Oops! Something went wrong');

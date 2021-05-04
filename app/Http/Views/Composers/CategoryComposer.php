@@ -12,11 +12,10 @@ class CategoryComposer
 {
     public function compose(View $view): View
     {
-            $categories = cache()->remember('categoryCache', 60 * 60 * 24 * 30, static function () {
-//                return Category::with('children')->whereNull('category_id')->orderBy('name','asc')->get();
-
+            $main_cats = cache()->remember('categoryCache', 60 * 60 * 24 * 30, static function () {
+                return Category::whereNull('category_id')->orderBy('name','asc')->get(['id','name']);
             });
 
-        return $view->with(['categories'=>$categories]);
+        return $view->with(['main_cats'=>$main_cats]);
     }
 }

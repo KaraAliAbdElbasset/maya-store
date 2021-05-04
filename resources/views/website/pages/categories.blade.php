@@ -41,11 +41,7 @@
             <div class="row mt-5">
                 <nav class="">
                     <ul class="pagination justify-content-center">
-                        <li class="page-item mx-2"><a class="page-link bg-white text-orange border-0 rounded" href="#">1</a></li>
-                        <li class="page-item mx-2"><a class="page-link bg-white text-orange border-0 rounded" href="#">2</a></li>
-                        <li class="page-item mx-2" aria-current="page"><a class="page-link bg-orange text-white border-0 rounded shadow-sm" href="#">3</a></li>
-                        <li class="page-item mx-2"><a class="page-link bg-white text-orange border-0 rounded" href="#">4</a></li>
-                        <li class="page-item mx-2"><a class="page-link bg-white text-orange border-0 rounded" href="#">5</a></li>
+                        {{$categories->links()}}
                     </ul>
                 </nav>
             </div>

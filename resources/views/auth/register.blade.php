@@ -8,7 +8,7 @@
             <div class="col-lg-5">
                 <div class="card shadow-sm border-0 bg-white py-5 px-0 px-lg-5">
                     <div class="card-body">
-                        <form action="{{route('register')}}" method="post" class="row" >
+                        <form action="{{url('/register')}}" method="post" class="row" >
                             @csrf
                             <div class="col-12 text-center mb-5">
                                 <img src="{{asset('assets/store/images/logo.svg')}}" alt="logo" width="80%">

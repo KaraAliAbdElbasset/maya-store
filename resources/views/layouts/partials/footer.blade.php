@@ -9,37 +9,62 @@
                     <span class="fw-bold">CEC</span>
                 </h4>
                 <div class="mb-4">
-                    <a href="#" class="text-decoration-none text-white"
-                    ><i class="fab fa-facebook fa-2x"></i
-                        ></a>
-                    <a href="#" class="text-decoration-none text-white mx-4"
-                    ><i class="fab fa-instagram fa-2x"></i
-                        ></a>
-                    <a href="#" class="text-decoration-none text-white"
-                    ><i class="fab fa-pinterest fa-2x"></i
-                        ></a>
+                    @if(config('settings.social_facebook'))
+                    <a href="{{config('settings.social_facebook')}}" class="text-decoration-none text-white">
+                        <i class="fab fa-facebook fa-2x"></i>
+                    </a>
+                    @endif
+                        @if(config('settings.social_instagram'))
+                            <a href="{{config('settings.social_instagram')}}" class="text-decoration-none text-white mx-4">
+                                <i class="fab fa-instagram fa-2x"></i>
+                            </a>
+                        @endif
+                        @if(config('settings.social_twitter'))
+                            <a href="{{config('settings.social_twitter')}}" class="text-decoration-none text-white mx-4">
+                                <i class="fab fa-twitter fa-2x"></i>
+                            </a>
+                        @endif
+                        @if(config('settings.social_linkedin'))
+                            <a href="{{config('settings.social_linkedin')}}" class="text-decoration-none text-white mx-4">
+                                <i class="fab fa-linkedin fa-2x"></i>
+                            </a>
+                        @endif
+                        @if(config('settings.social_youtube'))
+                            <a href="{{config('settings.social_youtube')}}" class="text-decoration-none text-white mx-4">
+                                <i class="fab fa-youtube fa-2x"></i>
+                            </a>
+                        @endif
+{{--                    <a href="#" class="text-decoration-none text-white"--}}
+{{--                    ><i class="fab fa-pinterest fa-2x"></i--}}
+{{--                        ></a>--}}
                 </div>
-                <p><i class="fas fa-phone-alt me-2"></i>0555 66 77 88</p>
-                <p class="text-lowercase">
-                    <i class="fas fa-at me-2"></i>contact@sarl-cec.com
+                @if(config('settings.phone_1'))
+                <p>
+                    <i class="fas fa-phone-alt me-2"></i>
+                    {{config('settings.phone_1')}}
                 </p>
+                @endif
+                @if(config('settings.contact_email'))
+                    <p class="text-lowercase">
+                        <i class="fas fa-at me-2"></i>{{config('settings.contact_email')}}
+                    </p>
+                @endif
+                @if(config('settings.address'))
                 <p class="text-capitalize">
-                    <i class="fas fa-map-marker-alt me-2"></i>Constantine, Algérie.
+                    <i class="fas fa-map-marker-alt me-2"></i>{{config('settings.address')}}.
                 </p>
+                @endif
             </div>
             <div class="col-lg-3">
                 <p class="text-uppercase fw-bold mb-4 mt-5 mt-lg-0">
                     Nos selections
                 </p>
+                @foreach($main_cats as $mc)
                 <p>
-                    <a href="#" class="text-decoration-none text-white">Catégorie 1</a>
+                    <a href="{{route('shop',['category' => $mc->id])}}" class="text-decoration-none text-white">{{$mc->name}}</a>
                 </p>
-                <p>
-                    <a href="#" class="text-decoration-none text-white">Catégorie 2</a>
-                </p>
-                <p>
-                    <a href="#" class="text-decoration-none text-white">Catégorie 3</a>
-                </p>
+                @endforeach
+
             </div>
             <div class="col-lg-3">
                 <p class="text-uppercase fw-bold mb-4 mt-5 mt-lg-0">Aide</p>
@@ -61,7 +86,7 @@
                     <a href="#" class="text-decoration-none text-white">A propos</a>
                 </p>
                 <p>
-                    <a href="#" class="text-decoration-none text-white">Contact</a>
+                    <a href="{{route('contact')}}" class="text-decoration-none text-white">Contact</a>
                 </p>
             </div>
         </div>

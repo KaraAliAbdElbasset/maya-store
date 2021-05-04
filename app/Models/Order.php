@@ -23,4 +23,11 @@ class Order extends Model
     {
         return $this->belongsToMany(Product::class)->withPivot(['qty','price','total'])->withTimestamps();
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+
 }
