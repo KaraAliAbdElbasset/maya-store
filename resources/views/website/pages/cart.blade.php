@@ -34,7 +34,7 @@
 
                         <div class="table w-100">
                             <div class="table-responsive">
-                                <table class="table align-middle mt-5">
+                                <table class="table align-middle mt-4">
                                     <thead class="bg-orange text-white">
                                     <tr>
                                         <th scope="col">Produits</th>
@@ -65,7 +65,7 @@
                                                            id="{{$key}}"
                                                            value="{{$i['qty']}}"
                                                            title="Quantité:"
-                                                           class="form-control border-0 shadow-sm py-2"
+                                                           class="form-control py-2 text-center"
                                                            placeholder="Quantité" style="width: 20px;">
                                                     <button
                                                         onclick="let result = document.getElementById('{{$key}}');
@@ -101,7 +101,7 @@
                                         <td colspan="3">
 
                                         </td>
-                                        <td class="text-center " ><a href="{{route('cart.clear')}}" class="btn bg-orange text-white shadow-sm text-decoration-none px-5 my-3 d-block text-capitalize">Clear cart</a></td>
+                                        <td class="text-center " ><a href="{{route('cart.clear')}}" class="btn bg-orange text-white shadow-sm text-decoration-none px-5 my-3 d-block text-capitalize">Vider le panier</a></td>
                                     </tr>
 
                                     </tbody>
@@ -227,7 +227,9 @@
 
                         </form>
                         @else
-                            <a href="{{route('login')}}">login to continue</a>
+                            <div class="alert alert-warning border-0 shadow-sm mt-4 py-4" role="alert">
+                                <i class="fas fa-info-circle me-2"></i>Vous devez vous <a href="{{route('login')}}" class="text-primary">connecter</a> pour continuer
+                            </div>
                         @endif
                     </div>
 

@@ -51,14 +51,14 @@
                         @guest
                         <li class="nav-item me-0 me-lg-3">
                             <a
-                                class="nav-link btn bg-white text-orange fw-bold rounded-pill px-3"
+                                class="nav-link btn bg-white text-orange px-3"
                                 href="{{route('login')}}"
                             >Mon Compte</a
                             >
                         </li>
                         <li class="nav-item">
                             <a
-                                class="nav-link btn bg-white text-orange fw-bold rounded-pill px-3"
+                                class="nav-link btn bg-white text-orange px-3"
                                 href="{{route('register')}}"
                             >Sinscrire</a
                             >

@@ -16,7 +16,11 @@
                               <h4 class="text-orange text-capitalize mt-2">Catégories</h4>
                               <hr class="text-orange my-4">
                               @foreach($categories as $c)
-                              <p class="text-capitalize">{{$c->name}}<span class="ms-2 text-orange">({{$c->products_count}})</span></p>
+                              <p class="text-capitalize">
+                                  <a href="javascript:void(0)" class="text-decoration-none text-dark">
+                                      {{$c->name}}<span class="ms-2 text-orange">({{$c->products_count}})</span>
+                                  </a>
+                              </p>
                               @endforeach
 
                           </div>
@@ -27,7 +31,9 @@
                               <h4 class="text-orange text-capitalize mt-2">Marques</h4>
                               <hr class="text-orange my-4">
                               @foreach($brands as $b)
-                                  <p class="text-capitalize">{{$b->name}}<span class="ms-2 text-orange">({{$b->products_count}})</span></p>
+                                  <a href="javascript:void(0)" class="text-decoration-none text-dark">
+                                      <p class="text-capitalize">{{$b->name}}<span class="ms-2 text-orange">({{$b->products_count}})</span></p>
+                                  </a>
                               @endforeach
 
                           </div>

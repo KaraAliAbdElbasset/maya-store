@@ -47,3 +47,7 @@ Route::get('/order/{id}', [App\Http\Controllers\HomeController::class, 'orderSho
 Route::get('/test', function (){
     return view('test');
 })->name('test');
+
+
+
+Route::view('/profile/edit','website.pages.profileEdit');

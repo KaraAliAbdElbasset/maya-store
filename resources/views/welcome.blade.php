@@ -32,15 +32,17 @@
             <div class="row mt-5">
 
                 @foreach($categories as $cat)
-                    <div class="col-lg-3 my-2 mt-lg-0">
-                        <div class="card category border-0" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{$cat->image_url}}');">
-                            <div class="card-body text-white">
-                                <h3 class="font-weight-bold my-3">{{$cat->name}}</h3>
+                    <div class="col-lg-3 my-2 mt-lg-0 text-center">
+                        <a href="javascript:void(0)" class="text-decoration-none">
+                            <div class="card category border-0" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{$cat->image_url}}');">
+                                <div class="card-body text-white">
+                                    <h3 class="font-weight-bold my-3">{{$cat->name}}</h3>
+                                </div>
+                                <div class="content card-body">
+                                    {{$cat->description}}
+                                </div>
                             </div>
-                            <div class="content card-body">
-                                {{$cat->description}}
-                            </div>
-                        </div>
+                        </a>
                     </div>
                 @endforeach
 
@@ -123,7 +125,9 @@
             <div class="row mt-0 mt-lg-5">
                 <div class="owl-carousel">
                     @foreach($brands as $b)
-                        <img src="{{$b->image_url}}" alt="{{$b->name}}" title="{{$b->name}}" class="img-fluid">
+                        <div class="ratio ratio-16x9">
+                            <img src="{{$b->image_url}}" alt="{{$b->name}}" title="{{$b->name}}" class="img-fluid">
+                        </div>
                     @endforeach
 
                 </div>
