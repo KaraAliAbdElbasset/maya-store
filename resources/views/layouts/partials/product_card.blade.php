@@ -1,4 +1,4 @@
-<div class="{{request()->is('shop*') ? 'col-lg-4 mt-0 mt-5' : 'col-lg-3 mt-0 mt-3 mt-lg-0'}}">
+<div class="{{request()->is(['shop']) ? 'col-lg-4 mt-0 mt-5' : 'col-lg-3 mt-0 mt-3 mt-lg-0'}}">
 
     <div class="card product border-0">
 

@@ -31,11 +31,15 @@ class WebsiteController extends Controller
     public function product($id,ProductContract $product)
     {
         $categories =Category::with('children')->get();
-        $p = $product->findOneBy(['id'=>$id],['categories','brand','images']);
-        $images = $p->images->pluck('url')->prepend($p->image_url);
-        $prodbrand = $p->brand->first();
-        $product=Product::where('brand_id','=',$prodbrand->id)->get();
-        return view('website.pages.product',compact('p','images','product','categories'));
+        $p = $product->findOneBy(['id'=>$id],['categories:id,name','brand:id,name','images']);
+//        $images = $p->images->pluck('url')->prepend($p->image_url);
+        $product = Product::where('brand_id','=',$p->brand_id)
+            ->orWhereHas('categories',function ($q) use ($p){
+                $q->whereIn('id',$p->categories->pluck('id'));
+            })
+            ->limit(8)
+            ->get();
+        return view('website.pages.product',compact('p','product','categories'));
     }
 
     public function categoryIndex()
