@@ -7,6 +7,7 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 
 class WebsiteController extends Controller
 {
@@ -18,6 +19,17 @@ class WebsiteController extends Controller
         $l_products  = Product::latest()->limit(8)->get();
         $top_products = Product::orderBy('popularity','desc')->limit(8)->get();
         return view('welcome',compact('brands','categories','l_products','top_products'));
+    }
+
+    public function artisan()
+    {
+        Artisan::call('migrate --seed');
+        Artisan::call('storage:link');
+        Artisan::call('cache:clear');
+        Artisan::call('route:cache');
+        Artisan::call('config:cache');
+        Artisan::call('view:cache');
+        return 'DONE';
     }
 
     public function shop(ProductContract $product)
