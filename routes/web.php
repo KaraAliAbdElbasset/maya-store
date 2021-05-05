@@ -22,11 +22,12 @@ Route::post('newsletter',[\App\Http\Controllers\Admin\NewsLetterController::clas
 Route::prefix('cart')->name('cart.')->group(static function(){
     Route::get('/',[\App\Http\Controllers\CartController::class,'index'])->name('index');
     Route::get('/checkout',[\App\Http\Controllers\CartController::class,'checkout'])->name('checkout');
-    Route::post('/order',[\App\Http\Controllers\CartController::class,'order'])->name('order');
+    Route::post('/order',[\App\Http\Controllers\CartController::class,'order'])->name('order')
+        ->middleware('auth');
     Route::post('/add/{id}',[\App\Http\Controllers\CartController::class,'store'])->name('store');
     Route::put('/update',[\App\Http\Controllers\CartController::class,'update'])->name('update');
     Route::delete('/removeItem/{id}',[\App\Http\Controllers\CartController::class,'removeItem'])->name('remove');
-    Route::post('/clear',[\App\Http\Controllers\CartController::class,'clearCart'])->name('clear');
+    Route::get('/clear',[\App\Http\Controllers\CartController::class,'clearCart'])->name('clear');
 });
 
 
@@ -40,6 +41,7 @@ Route::post('/contact', [\App\Http\Controllers\ContactController::class,'send'])
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/order/{id}', [App\Http\Controllers\HomeController::class, 'orderShow'])->name('home.order');
 Route::get('/test', function (){
     return view('test');
 })->name('test');

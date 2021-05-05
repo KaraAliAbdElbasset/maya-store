@@ -97,6 +97,13 @@
                                         <td class="text-center">@price(session('cart')->getTotalPrice()) {{config('settings.currency_code')}}</td>
                                     </tr>
 
+                                    <tr>
+                                        <td colspan="3">
+
+                                        </td>
+                                        <td class="text-center " ><a href="{{route('cart.clear')}}" class="btn bg-orange text-white shadow-sm text-decoration-none px-5 my-3 d-block text-capitalize">Clear cart</a></td>
+                                    </tr>
+
                                     </tbody>
 
                                 </table>
@@ -147,8 +154,8 @@
 
                     <div class="col-lg-12">
                         @auth
-                            <form action="javascript:void(0)" class="row justify-content-end mt-5">
-
+                            <form action="{{route('cart.order')}}" method="POST" class="row justify-content-end mt-5" id="order-form">
+                                @csrf
                             <div class="col-lg-4 mb-3">
                                 <input type="text"
                                        name="name"
@@ -206,13 +213,14 @@
                             </div>
 
                             <div class="col-lg-4 mb-3">
-                                <select class="form-select border-0 shadow-sm py-2">
+                                <select class="form-select border-0 shadow-sm py-2 @error('city') is-invalid @enderror" name="city">
                                     <option value="constantine">Constantine</option>
                                 </select>
+                                @error('city') <div class="invalid-feedback">{{$message}}</div> @enderror
                             </div>
 
                             <div class="col-12 col-lg-auto">
-                                <a href="confirmation.html" class="btn bg-orange text-white shadow-sm text-decoration-none px-5 mt-3 d-block text-capitalize">
+                                <a href="javascript:void(0)" onclick="document.getElementById('order-form').submit()" class="btn bg-orange text-white shadow-sm text-decoration-none px-5 mt-3 d-block text-capitalize">
                                     Valider ma commande
                                 </a>
                             </div>
@@ -235,7 +243,6 @@
 
     <script>
         const deleteForm = id => {
-            console.log('adazdaz')
             createForm(id).submit();
         }
         const createForm = id => {

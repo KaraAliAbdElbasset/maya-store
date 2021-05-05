@@ -118,13 +118,11 @@ class CartController extends Controller
   public function order(Request $request)
     {
         $data = $request->validate([
-            'first_name' => 'required|string|max:100',
-            'last_name' => 'required|string|max:100',
+            'name' => 'required|string|max:100',
             'email' => 'sometimes|nullable|email',
             'address' => 'required|string|max:200',
             'phone' => 'required|string|max:50',
             'city' => 'required|string|max:50',
-            'province' => 'required|string|max:50',
         ]);
         try {
             $c = new Cart(session('cart'));

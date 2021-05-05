@@ -23,6 +23,8 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet"
     />
+    <link rel="stylesheet" href="{{asset('assets/admin/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
+
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{asset('assets/store/css/main.css')}}" />
@@ -122,8 +124,30 @@
             $('#staticBackdrop').modal('show')
         @endif
 
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+
+        @if(session()->has('error'))
+        Toast.fire({
+            icon: 'error',
+            title: '{{session('error')}}'
+        })
+        @endif
+
+        @if(session()->has('success'))
+        Toast.fire({
+            icon: 'success',
+            title: '{{session('success')}}'
+        })
+        @endif
+
     });
 </script>
+
 @stack('js')
 </body>
 

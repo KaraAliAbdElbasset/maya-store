@@ -9,15 +9,9 @@ class Order extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'first_name','last_name','email','address','phone','total_price','total_qty','state','city','province'
+        'name','email','address','phone','total_price','total_qty','state','city'
     ];
 
-    protected $appends = ['name'];
-
-    public function getNameAttribute()
-    {
-        return ucfirst($this->first_name).' '.ucfirst($this->last_name);
-    }
 
     public function products()
     {

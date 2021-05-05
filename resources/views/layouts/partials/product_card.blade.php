@@ -14,7 +14,7 @@
             <a href="javascript:void(0)" onclick="document.getElementById('form-card-add-{{$p->id}}').submit()"  class="btn bg-white text-orange rounded-0 text-capitalize w-25 py-3 rounded-2 shadow-sm">
                 <i class="fas fa-shopping-cart"></i>
             </a>
-            <a href="#" class="btn bg-white text-orange rounded-0 text-capitalize w-25 py-3 rounded-2 shadow-sm">
+            <a href="{{$p->path()}}" class="btn bg-white text-orange rounded-0 text-capitalize w-25 py-3 rounded-2 shadow-sm">
                 <i class="fas fa-search"></i>
             </a>
 

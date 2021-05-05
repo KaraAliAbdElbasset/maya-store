@@ -36,20 +36,34 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <th class="text-center">1</th>
-                                        <td class="text-center">28-02-2021</td>
-                                        <td class="text-center">7500.00 DZD</td>
-                                        <td class="text-center text-success">Livré</td>
-                                        <td class="text-center"><a href="#" class="text-decoration-none text-black"><i class="fas fa-eye"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <th class="text-center">2</th>
-                                        <td class="text-center">31-03-2021</td>
-                                        <td class="text-center">15000.00 DZD</td>
-                                        <td class="text-center text-warning">En cours de livraison</td>
-                                        <td class="text-center"><a href="#" class="text-decoration-none text-black"><i class="fas fa-eye"></i></a></td>
-                                    </tr>
+                                    @forelse($orders as $o)
+                                        <tr>
+                                            <th class="text-center">{{$o->id}}</th>
+                                            <td class="text-center">{{$o->created_at->format('d-m-Y')}}</td>
+                                            <td class="text-center">@price($o->total_price) {{config('settings.currency_code')}}</td>
+                                            @switch($o->state)
+                                                @case('validated')
+                                                <td class="text-center text-success">Livré</td>
+                                                @break
+
+                                                @case('pending')
+                                                <td class="text-center text-warning">En cours de livraison</td>
+                                                @break
+
+                                                @case('canceled')
+                                                <td class="text-center text-warning">Annulé</td>
+                                                @break
+                                            @endswitch
+                                            <td class="text-center"><a href="{{route('home.order',$o->id)}}" class="text-decoration-none text-black"><i class="fas fa-eye"></i></a></td>
+
+                                        </tr>
+
+                                    @empty
+                                        <tr>
+                                            <th colspan="5" class="text-center">Vous n'avez pas encore de commande</th>
+                                        </tr>
+                                    @endforelse
+
                                     </tbody>
                                 </table>
                             </div>
