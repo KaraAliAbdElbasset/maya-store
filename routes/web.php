@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\WebsiteController::class,'index'])->name('welcome');
 Route::get('/artisan', [\App\Http\Controllers\WebsiteController::class,'artisan'])->name('artisan');
+Route::get('/cache', [\App\Http\Controllers\WebsiteController::class,'cache'])->name('cache');
 Route::get('/categories', [\App\Http\Controllers\WebsiteController::class,'categoryIndex'])->name('categories.index');
 Route::get('/shop', [\App\Http\Controllers\WebsiteController::class,'shop'])->name('shop');
 Route::get('/shop/{id}-{slug}', [\App\Http\Controllers\WebsiteController::class,'product'])->name('product');

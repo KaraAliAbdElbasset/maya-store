@@ -25,6 +25,12 @@ class WebsiteController extends Controller
     {
         Artisan::call('migrate:fresh --seed');
         Artisan::call('storage:link');
+
+        return 'DONE';
+    }
+
+    public function cache()
+    {
         Artisan::call('cache:clear');
         Artisan::call('route:cache');
         Artisan::call('config:cache');
