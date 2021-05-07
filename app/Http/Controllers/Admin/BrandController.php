@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Contracts\BrandContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BrandRequest;
+use App\Models\Category;
 use Exception;
 
 class BrandController extends Controller
@@ -24,7 +25,8 @@ class BrandController extends Controller
 
     public function create()
     {
-        return view('admin.brands.create');
+        $categories = Category::orderBy('name','asc')->get();
+        return view('admin.brands.create',compact('categories'));
     }
 
     public function store(BrandRequest $request)
@@ -34,7 +36,7 @@ class BrandController extends Controller
             session()->flash('success','Brand Has Been Created Successfully');
             cache()->forget('brandCache');
             return redirect()->route('admin.brands.index');
-        }catch (Exception $exception)
+        }catch (\Exception $exception)
         {
             session()->flash('error','Oops! Something Went Wrong, Please Try Again');
             return redirect()->route('admin.admins.index');
@@ -50,7 +52,9 @@ class BrandController extends Controller
     public function edit($id)
     {
         $b = $this->b->findById($id);
-        return view('admin.brands.edit',compact('b'));
+        $categories = Category::orderBy('name','asc')->get();
+
+        return view('admin.brands.edit',compact('b','categories'));
     }
 
     public function update($id,BrandRequest $request)
