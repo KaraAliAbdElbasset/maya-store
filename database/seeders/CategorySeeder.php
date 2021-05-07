@@ -20,5 +20,6 @@ class CategorySeeder extends Seeder
 
 
         Category::factory(50)->create(['category_id' => random_int(1,10)]);
+
     }
 }

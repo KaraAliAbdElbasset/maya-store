@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Form;
 use Illuminate\Database\Seeder;
 
 class FormSeeder extends Seeder
@@ -13,6 +14,6 @@ class FormSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Form::factory(10)->create();
     }
 }

@@ -22,7 +22,8 @@ class FunctionalityFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->words(2),
+            'category_id' => random_int(11,60)
         ];
     }
 }

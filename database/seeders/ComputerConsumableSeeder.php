@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\ComputerConsumable;
 use Illuminate\Database\Seeder;
 
 class ComputerConsumableSeeder extends Seeder
@@ -13,6 +14,6 @@ class ComputerConsumableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        ComputerConsumable::factory(10)->create();
     }
 }

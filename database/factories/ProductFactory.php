@@ -29,14 +29,16 @@ class ProductFactory extends Factory
             'description' => $this->faker->paragraph(5,true),
             'image' => asset('assets/test/'.random_int(1,15).'.jpg'),
             'price' => $price,
-//        'fournisseur',
             'old_price' => $price + random_int(0,500),
             'popularity' => random_int(0,100),
-            'inspired' => random_int(0,1),
-            'featured' => random_int(0,1),
             'is_active' => random_int(0,1),
             'qte' => random_int(0,100),
             'brand_id' => random_int(1,10),
+            'type_id' => random_int(1,10),
+            'form_id' => random_int(1,10),
+            'functionality_id' => random_int(1,10),
+            'consumable_id' => random_int(1,10),
+            'computerConsumable_id' => random_int(1,10),
         ];
     }
 }

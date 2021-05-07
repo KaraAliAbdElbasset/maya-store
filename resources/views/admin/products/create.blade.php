@@ -14,8 +14,8 @@
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item "><a href="{{route('admin.dashboard')}}">tableau de bord</a></li>
-                <li class="breadcrumb-item "><a href="{{route('admin.products.index')}}">produits</a></li>
+                <li class="breadcrumb-item "><a href="{{route('admin.dashboard')}}">dasboard</a></li>
+                <li class="breadcrumb-item "><a href="{{route('admin.products.index')}}">products</a></li>
                 <li class="breadcrumb-item active">Create</li>
             </ol>
         </div>
@@ -30,7 +30,7 @@
                 <div class="col-md-6">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Informations General </h3>
+                            <h3 class="card-title">General Information  </h3>
 
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -40,41 +40,56 @@
                         <div class="card-body">
 
                             <div class="form-group">
-                                <label for="name">nom</label>
+                                <label for="name">name</label>
                                 <input type="text" id="name" name="name" value="{{old('name')}}" class="form-control @error('name') is-invalid @enderror" required>
                                 @error('name')
                                 <div class="invalid-feedback">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="excerpt">description breve</label>
+                                <label for="excerpt">short description </label>
                                 <textarea name="excerpt" placeholder="..." id="excerpt" class="form-control @error('excerpt') is-invalid @enderror">{{old('excerpt')}}</textarea>
                                 @error('excerpt')
                                 <div class="invalid-feedback">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="qte">Quantité</label>
+                                <label for="qte">Quantity</label>
                                 <input type="number" id="qte" name="qte" value="{{old('qte')}}" class="form-control @error('qte') is-invalid @enderror" required>
                                 @error('qte')
                                 <div class="invalid-feedback">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="price">Prix</label>
+                                <label for="price">price</label>
                                 <input type="number" id="price" name="price" value="{{old('price')}}" class="form-control @error('price') is-invalid @enderror" required>
                                 @error('price')
                                 <div class="invalid-feedback">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
-                            <label for="fournisseur">Fournisseur du produit</label>
-                            <input type="text" id="fournisseur" name="fournisseur" value="{{old('fournisseur')}}" class="form-control @error('fournisseur') is-invalid @enderror" required>
-                            @error('fournisseur')
-                            <div class="invalid-feedback">{{$message}}</div>
-                            @enderror
-                        </div>
+                                <label for="categories">Categories</label>
+                                <select multiple name="categories[]" id="categories" class="form-control select2 @error('categories') is-invalid @enderror">
+                                    @foreach($categories as $c)
+                                        <option value="{{$c->id}}" {{in_array($c->id, old('categories') ?? [], true) ? 'selected' : ''}}>{{$c->name}}</option>
+                                    @endforeach
+                                </select>
+                                @error('categories')
+                                <div class="invalid-feedback">{{$message}}</div>
+                                @enderror
+                            </div>
 
+                            <div class="form-group">
+                                <label for="brand_id">brand</label>
+                                <select name="brand_id" id="brand_id" class="form-control select2 @error('brand_id') is-invalid @enderror">
+                                    @foreach($brands as $b)
+                                        <option value="{{$b->id}}" {{$b->id === old('brand_id') ? 'selected' : ''}}>{{$b->name}}</option>
+                                    @endforeach
+                                </select>
+                                @error('brand_id')
+                                <div class="invalid-feedback">{{$message}}</div>
+                                @enderror
+                            </div>
                             <div class="form-group">
                                 <label for="description">Description</label>
                                 <textarea name="description" placeholder="..." id="description" class="form-control @error('description') is-invalid @enderror">{{old('description')}}</textarea>
@@ -91,7 +106,7 @@
                 <div class="col-md-6">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Informations General </h3>
+                            <h3 class="card-title">Search Information  </h3>
 
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -99,28 +114,67 @@
                             </div>
                         </div>
                         <div class="card-body">
+
                             <div class="form-group">
-                                <label for="brand_id">marque</label>
-                                <select name="brand_id" id="brand_id" class="form-control select2 @error('brand_id') is-invalid @enderror">
-                                    @foreach($brands as $b)
-                                        <option value="{{$b->id}}" {{$b->id === old('brand_id') ? 'selected' : ''}}>{{$b->name}}</option>
+                                <label for="type_id">types</label>
+                                <select name="type_id" id="type_id" class="form-control select2 @error('type_id') is-invalid @enderror">
+                                    @foreach($types as $t)
+                                        <option value="{{$t->id}}" {{$t->id === old('brand_id') ? 'selected' : ''}}>{{$t->name}}</option>
                                     @endforeach
                                 </select>
-                                @error('brand_id')
+                                @error('type_id')
                                 <div class="invalid-feedback">{{$message}}</div>
                                 @enderror
                             </div>
+
                             <div class="form-group">
-                                <label for="categories">Categories</label>
-                                <select multiple name="categories[]" id="categories" class="form-control select2 @error('categories') is-invalid @enderror">
-                                    @foreach($categories as $c)
-                                        <option value="{{$c->id}}" {{in_array($c->id, old('categories') ?? [], true) ? 'selected' : ''}}>{{$c->name}}</option>
+                                <label for="form_id">forms</label>
+                                <select name="form_id" id="form_id" class="form-control select2 @error('form_id') is-invalid @enderror">
+                                    @foreach($forms as $fr)
+                                        <option value="{{$fr->id}}" {{$fr->id === old('form_id') ? 'selected' : ''}}>{{$fr->name}}</option>
                                     @endforeach
                                 </select>
-                                @error('categories')
+                                @error('form_id')
                                 <div class="invalid-feedback">{{$message}}</div>
                                 @enderror
                             </div>
+
+                            <div class="form-group">
+                                <label for="functionality_id">functionalities</label>
+                                <select name="functionality_id" id="functionality_id" class="form-control select2 @error('functionality_id') is-invalid @enderror">
+                                    @foreach($functionalities as $f)
+                                        <option value="{{$f->id}}" {{$f->id === old('functionality_id') ? 'selected' : ''}}>{{$f->name}}</option>
+                                    @endforeach
+                                </select>
+                                @error('functionality_id')
+                                <div class="invalid-feedback">{{$message}}</div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="computerConsumable_id">computer consumables</label>
+                                <select name="computerConsumable_id" id="computerConsumable_id" class="form-control select2 @error('computerConsumable_id') is-invalid @enderror">
+                                    @foreach($computerConsumables as $cc)
+                                        <option value="{{$cc->id}}" {{$cc->id === old('computerConsumable_id') ? 'selected' : ''}}>{{$cc->name}}</option>
+                                    @endforeach
+                                </select>
+                                @error('computerConsumable_id')
+                                <div class="invalid-feedback">{{$message}}</div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="consumable_id">consumables</label>
+                                <select name="consumable_id" id="consumable_id" class="form-control select2 @error('consumable_id') is-invalid @enderror">
+                                    @foreach($consumables as $c)
+                                        <option value="{{$c->id}}" {{$c->id === old('consumable_id') ? 'selected' : ''}}>{{$c->name}}</option>
+                                    @endforeach
+                                </select>
+                                @error('consumable_id')
+                                <div class="invalid-feedback">{{$message}}</div>
+                                @enderror
+                            </div>
+
                             <div class="form-group">
                                 <div>
                                     <label for="pic">Image</label>
@@ -135,22 +189,22 @@
                                          alt="Brand picture">
                                 </div>
                             </div>
+{{--                            <div class="form-group">--}}
+{{--                                <label for="featured">Featured ? </label>--}}
+{{--                                <input type="checkbox" name="featured" id="featured" {{old('featured') ? 'checked' : ''}} value="on"  data-bootstrap-switch>--}}
+{{--                                @error('featured')--}}
+{{--                                <div class="invalid-feedback">{{$message}}</div>--}}
+{{--                                @enderror--}}
+{{--                            </div>--}}
+{{--                            <div class="form-group">--}}
+{{--                                <label for="inspired">inspiré ? </label>--}}
+{{--                                <input type="checkbox" name="inspired" id="inspired" {{old('inspired') ? 'checked' : ''}} value="on"  data-bootstrap-switch>--}}
+{{--                                @error('inspired')--}}
+{{--                                <div class="invalid-feedback">{{$message}}</div>--}}
+{{--                                @enderror--}}
+{{--                            </div>--}}
                             <div class="form-group">
-                                <label for="featured">en vedette ? </label>
-                                <input type="checkbox" name="featured" id="featured" {{old('featured') ? 'checked' : ''}} value="on"  data-bootstrap-switch>
-                                @error('featured')
-                                <div class="invalid-feedback">{{$message}}</div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="inspired">inspiré ? </label>
-                                <input type="checkbox" name="inspired" id="inspired" {{old('inspired') ? 'checked' : ''}} value="on"  data-bootstrap-switch>
-                                @error('inspired')
-                                <div class="invalid-feedback">{{$message}}</div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="is_active">etat </label>
+                                <label for="is_active">state </label>
                                 <input type="checkbox" name="is_active" id="is_active" {{old('featured') ? 'checked' : ''}} value="on"  data-bootstrap-switch>
                                 @error('is_active')
                                 <div class="invalid-feedback">{{$message}}</div>

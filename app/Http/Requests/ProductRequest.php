@@ -25,11 +25,15 @@ class ProductRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:200',
-            'fournisseur' => 'required|string|max:200',
             'excerpt' => 'required|string|max:200',
             'description' => 'sometimes|nullable|string',
             'description_seo' => 'sometimes|nullable|string|max:200',
             'brand_id' => 'required|numeric|gt:0',
+            'form_id' => 'sometimes|nullable|numeric|gt:0',
+            'type_id' => 'sometimes|nullable|numeric|gt:0',
+            'functionality_id' => 'sometimes|nullable|numeric|gt:0',
+            'consumable_id' => 'sometimes|nullable|numeric|gt:0',
+            'computerConsumable_id' => 'sometimes|nullable|numeric|gt:0',
             'categories' => 'sometimes|nullable|array',
             'categories.*' => 'required|numeric|gt:0',
             'qte' => 'required|numeric|gte:0',

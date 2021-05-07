@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Functionality;
 use Illuminate\Database\Seeder;
 
 class FunctionalitySeeder extends Seeder
@@ -13,6 +14,6 @@ class FunctionalitySeeder extends Seeder
      */
     public function run()
     {
-        //
+        Functionality::factory(10)->create();
     }
 }

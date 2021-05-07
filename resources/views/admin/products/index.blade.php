@@ -51,15 +51,11 @@
                         <tr>
                             <th>#</th>
                             <th>Image</th>
-                            <th>Nom</th>
-                            <th>Fournisseur</th>
-                            {{--                            <th>Product SKU</th>--}}
-                            <th>Marque</th>
+                            <th>Name</th>
+                            <th>Brand</th>
                             <th>Categories</th>
-                            <th>En vedette?</th>
-                            <th>Etat</th>
-                            <th>Inspiré ?</th>
-                            <th>date de creation</th>
+                            <th>State</th>
+                            <th>Created at</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -69,7 +65,6 @@
                                 <td>{{$key+1}}</td>
                                 <td><img src="{{$p->image_url}}" class=" img-fluid  img-thumbnail" width="80px" height="40px"  alt="{{$p->name }} picture"></td>
                                 <td>{{$p->name}}</td>
-                                <td>{{$p->fournisseur}}</td>
 
                                 {{--                                <td>{{$p->sku}}</td>--}}
                                 <td>
@@ -81,9 +76,7 @@
                                     @endforeach
                                 </td>
 
-                                <td><span class="badge @if($p->featured) badge-success @else badge-danger @endif">@if($p->featured) Featured @else No @endif</span></td>
                                 <td><span class="badge @if($p->is_active) badge-success @else badge-danger @endif">@if($p->is_active) active @else inactive @endif</span></td>
-                                <td><span class="badge @if($p->inspired) badge-success @else badge-danger @endif">@if($p->inspired) Inspired @else No @endif</span></td>
                                 <td>{{$p->created_at->format('d-m-Y')}}</td>
                                 <td>
                                     <a href="{{route('admin.products.edit',$p->id)}}" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
