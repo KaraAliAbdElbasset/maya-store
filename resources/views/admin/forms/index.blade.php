@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title','Brands Index')
+@section('title','Forms Index')
 
 @push('css')
     <link rel="stylesheet" href="{{asset('assets/admin/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
@@ -12,12 +12,12 @@
 @section('header')
     <div class="row mb-2">
         <div class="col-sm-6">
-            <h1>Category</h1>
+            <h1>Form</h1>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item "><a href="{{route('admin.dashboard')}}">Tableau</a></li>
-                <li class="breadcrumb-item active">Categories</li>
+                <li class="breadcrumb-item "><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
+                <li class="breadcrumb-item active">forms</li>
             </ol>
         </div>
     </div>
@@ -28,11 +28,11 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Liste des categories</h3>
+                    <h3 class="card-title">forms list</h3>
                     <div class="card-tools">
                         <form action="">
                             <div class="input-group input-group-sm" style="width: 150px;">
-                                <input type="text" name="search" class="form-control float-right" value="{{request('search')}}" placeholder="Search">
+                                <input form="text" name="search" class="form-control float-right" value="{{request('search')}}" placeholder="Search">
 
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
@@ -44,58 +44,40 @@
                 <!-- /.card-header -->
                 <div class="card-body">
                     <div class="d-flex justify-content-start">
-                        <a href="{{route('admin.categories.create')}}" title="Create New Brand" class="btn btn-info"><i class="fas fa-plus"></i></a>
+                        <a href="{{route('admin.forms.create')}}" title="Create New Brand" class="btn btn-info"><i class="fas fa-plus"></i></a>
                     </div>
                     <table id="table" class="table table-bordered table-hover">
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Image</th>
-                            <th>Nom</th>
-                            <th>Categorie Parente</th>
-                            <th>Sous categorie</th>
-                            <th>En vedette ?</th>
-                            <th>Date de creation</th>
+                            <th>name</th>
+                            <th>category</th>
+                            <th>created at</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($categories as $key=>$c)
+                        @foreach($forms as $key=>$f)
                             <tr>
                                 <td>{{$key+1}}</td>
-                                <td><img src="{{$c->image_url}}" class=" img-fluid  img-thumbnail" width="80px" height="40px"  alt="{{$c->name }} picture"></td>
-                                <td>{{$c->name}}</td>
-                                @if($c->category_id === null)
-                                    <td><span class="badge badge-secondary">{{$c->parent->name}}</span></td>
-                                @else
-                                    <td><span class="badge badge-info"><a class="not-active" href="{{route('admin.categories.show',$c->category_id)}}">{{$c->parent->name}}</a></span></td>
-                                @endif
-
+                                <td>{{$f->name}}</td>
+                                <td>{{$f->category->name}}</td>
+                                <td>{{$f->created_at->format('d-m-Y')}}</td>
                                 <td>
-                                    @forelse($c->children as $child)
-                                        <span class="badge badge-info "><a class="not-active" href="{{route('admin.categories.show',$child->id)}}">{{$child->name}}</a></span>
-                                    @empty
-                                        <span class="badge badge-secondary">None</span>
-                                    @endforelse
-                                </td>
-
-                                <td><span class="badge @if($c->featured) badge-success @else badge-danger @endif">@if($c->featured) oui @else No @endif</span></td>
-                                <td>{{$c->created_at->format('d-m-Y')}}</td>
-                                <td>
-                                    <a href="{{route('admin.categories.edit',$c->id)}}" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
-                                    <a href="{{route('admin.categories.show',$c->id)}}" class="btn btn-sm btn-info"><i class="fa fa-eye"></i></a>
-                                    <a href="javascript:void(0)" class="btn btn-sm btn-danger" onclick="deleteForm({{$c->id}})"><i class="fa fa-trash"></i></a>
+                                    <a href="{{route('admin.forms.edit',$f->id)}}" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
+                                    <a href="javascript:void(0)" class="btn btn-sm btn-danger" onclick="deleteForm({{$f->id}})"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
-                        <tfoot>
+                        <tfoot >
                         <tr >
-                            <td colspan="8">
+                            <td colspan="5">
                                 <div class="d-flex justify-content-center">
-                                    {{$categories->links()}}
+                                    {{$forms->links()}}
                                 </div>
-                            </td></tr>
+                            </td>
+                        </tr>
                         </tfoot>
                     </table>
                 </div>
@@ -165,7 +147,7 @@
         const createForm = id => {
             let f = document.createElement("form");
             f.setAttribute('method',"post");
-            f.setAttribute('action',`/admin/categories/${id}`);
+            f.setAttribute('action',`/admin/forms/${id}`);
 
             let i1 = document.createElement("input"); //input element, text
             i1.setAttribute('type',"hidden");

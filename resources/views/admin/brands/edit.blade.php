@@ -53,6 +53,17 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="category_id">category</label>
+                                <select name="category_id" class="form-control select2" id="category_id">
+                                    @foreach($categories as $c)
+                                        <option value="{{$c->id}}" {{$c->id === old('category_id',$b->category_id) ? 'selected' : ''}}>{{$c->name}}</option>
+                                    @endforeach
+                                </select>
+                                @error('category_id')
+                                <div class="invalid-feedback">{{$message}}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
                                 <div>
                                     <label for="pic">logo de la marque</label>
                                     <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="pic" accept="image/*">

@@ -36,10 +36,10 @@ class BrandRepository implements \App\Contracts\BrandContract
     /**
      * @inheritDoc
      */
-    public function findByFilter($per_page = 10)
+    public function findByFilter($per_page = 10,array $relations = [])
     {
         return app(Pipeline::class)
-            ->send(Brand::orderBy('created_at','desc')->newQuery())
+            ->send(Brand::with($relations)->orderBy('created_at','desc')->newQuery())
             ->through([
                 \App\QueryFilter\Search::class
             ])

@@ -82,8 +82,14 @@
                             </tr>
                         @endforeach
                         </tbody>
-                        <tfoot class="d-flex justify-content-center">
-                        {{$orders->links()}}
+                        <tfoot >
+                        <tr >
+                            <td colspan="5">
+                                <div class="d-flex justify-content-center">
+                                    {{$orders->links()}}
+                                </div>
+                            </td>
+                        </tr>
                         </tfoot>
                     </table>
                 </div>

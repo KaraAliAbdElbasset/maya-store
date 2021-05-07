@@ -81,8 +81,14 @@
                                 </table>
                             </div>
                             <!-- /.card-body -->
-                            <div class="card-footer d-flex justify-content-center">
-                                {{$emails->links()}}
+                            <div>
+                                <tr >
+                                    <td colspan="5">
+                                        <div class="d-flex justify-content-center">
+                                            {{$emails->links()}}
+                                        </div>
+                                    </td>
+                                </tr>
                             </div>
                             <!-- /.card-footer-->
                         </div>

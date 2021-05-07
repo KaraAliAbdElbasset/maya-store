@@ -29,12 +29,42 @@ class CreateProductsTable extends Migration
             $table->boolean('is_active')->default(false);
             $table->bigInteger('popularity')->default(0);
             $table->integer('qte');
+
             $table->foreignId('brand_id')
                 ->references('id')
                 ->on('brands')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->timestamps();
+
+            $table->foreignId('type_id')
+                ->nullable()
+                ->constrained()
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->foreignId('form_id')
+                ->nullable()
+                ->constrained()
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->foreignId('consumable_id')
+                ->nullable()
+                ->constrained()
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->foreignId('computerConsumable_id')
+                ->nullable()
+                ->constrained()
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->foreignId('functionality_id')
+                ->nullable()
+                ->constrained()
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
 
             $table->index(['name','featured','is_active','qte','brand_id','popularity']);
         });
@@ -49,6 +79,11 @@ class CreateProductsTable extends Migration
     {
         Schema::table('products', static function (Blueprint $table) {
             $table->dropForeign('products_brand_id_foreign');
+            $table->dropForeign('products_type_id_foreign');
+            $table->dropForeign('products_form_id_foreign');
+            $table->dropForeign('products_consumable_id_foreign');
+            $table->dropForeign('products_computerConsumable_id_foreign');
+            $table->dropForeign('products_functionality_id_foreign');
         });
         Schema::dropIfExists('products');
     }

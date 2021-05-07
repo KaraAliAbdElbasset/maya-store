@@ -20,7 +20,7 @@ class TypeController extends Controller
      */
     public function index()
     {
-        $types = Type::latest()->paginate(10);
+        $types = Type::with('category')->latest()->paginate(10);
         return view('admin.types.index',['types' => $types]);
     }
 
@@ -72,7 +72,7 @@ class TypeController extends Controller
     public function edit(Type $type)
     {
         $categories = Category::orderBy('name','asc')->get();
-        return view('admin.types.create',compact('type','categories'));
+        return view('admin.types.edit',compact('type','categories'));
     }
 
     /**

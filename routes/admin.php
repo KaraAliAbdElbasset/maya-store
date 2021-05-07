@@ -26,8 +26,14 @@ Route::middleware('auth:admin')->group(static function(){
     });
 
     Route::resource('categories',App\Http\Controllers\Admin\CategoryController::class);
-    Route::resource('orders',App\Http\Controllers\Admin\OrderController::class)->except(['edit','create','store']);
+    Route::resource('types',App\Http\Controllers\Admin\TypeController::class)->except('show');
+    Route::resource('forms',App\Http\Controllers\Admin\FormController::class)->except('show');
+    Route::resource('consumables',App\Http\Controllers\Admin\ConsumableController::class)->except('show');
+    Route::resource('computerConsumables',App\Http\Controllers\Admin\ComputerConsumableController::class)->except('show');
+    Route::resource('functionalities',App\Http\Controllers\Admin\FunctionalityController::class)->except('show');
     Route::resource('brands',App\Http\Controllers\Admin\BrandController::class);
+
+    Route::resource('orders',App\Http\Controllers\Admin\OrderController::class)->except(['edit','create','store']);
     Route::resource('products',App\Http\Controllers\Admin\ProductController::class);
     Route::post('products/image/upload',[App\Http\Controllers\Admin\ImageController::class,'store'])->name('products.images.upload');
     Route::get('products/{image}/delete',[App\Http\Controllers\Admin\ImageController::class,'destroy'])->name('products.images.delete');

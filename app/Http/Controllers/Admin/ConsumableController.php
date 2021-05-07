@@ -20,7 +20,7 @@ class ConsumableController extends Controller
      */
     public function index()
     {
-        $consumables = Consumable::latest()->paginate(10);
+        $consumables = Consumable::with('category')->latest()->paginate(10);
         return view('admin.consumables.index',['consumables' => $consumables]);
     }
 
@@ -72,7 +72,7 @@ class ConsumableController extends Controller
     public function edit(Consumable $consumable)
     {
         $categories = Category::orderBy('name','asc')->get();
-        return view('admin.consumables.create',compact('consumable','categories'));
+        return view('admin.consumables.edit',compact('consumable','categories'));
     }
 
     /**

@@ -26,6 +26,7 @@ class BrandRequest extends FormRequest
         $rules =  [
             'name' => 'required|string|max:100|unique:brands,name',
             'image' => 'sometimes|nullable|file|image|max:5000',
+            'category_id' => 'required|integer|gt:0|exists:categories,id',
             'description' => 'sometimes|nullable|string|max:200',
         ];
 

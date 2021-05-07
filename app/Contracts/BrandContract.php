@@ -27,9 +27,10 @@ interface BrandContract
 
     /**
      * @param int $per_page
+     * @param array $relations
      * @return mixed
      */
-    public function findByFilter($per_page = 10);
+    public function findByFilter($per_page = 10,array $relations = []);
 
     /**
      * @param array $data

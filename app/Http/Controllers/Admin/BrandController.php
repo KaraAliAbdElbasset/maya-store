@@ -19,7 +19,7 @@ class BrandController extends Controller
 
     public function index()
     {
-        $brands = $this->b->findByFilter();
+        $brands = $this->b->findByFilter(10);
         return view("admin.brands.index",compact('brands'));
     }
 

@@ -20,7 +20,7 @@ class FunctionalityController extends Controller
      */
     public function index()
     {
-        $functionalities = Functionality::latest()->paginate(10);
+        $functionalities = Functionality::with('category')->latest()->paginate(10);
         return view('admin.functionalities.index',['functionalities' => $functionalities]);
     }
 
@@ -72,7 +72,7 @@ class FunctionalityController extends Controller
     public function edit(Functionality $functionality)
     {
         $categories = Category::orderBy('name','asc')->get();
-        return view('admin.functionalities.create',compact('functionality','categories'));
+        return view('admin.functionalities.edit',compact('functionality','categories'));
     }
 
     /**

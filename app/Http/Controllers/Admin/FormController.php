@@ -20,7 +20,7 @@ class FormController extends Controller
      */
     public function index()
     {
-        $forms = Form::latest()->paginate(10);
+        $forms = Form::with('category')->latest()->paginate(10);
         return view('admin.forms.index',['forms' => $forms]);
     }
 
@@ -72,7 +72,7 @@ class FormController extends Controller
     public function edit(Form $form)
     {
         $categories = Category::orderBy('name','asc')->get();
-        return view('admin.forms.create',compact('form','categories'));
+        return view('admin.forms.edit',compact('form','categories'));
     }
 
     /**

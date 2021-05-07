@@ -93,10 +93,12 @@
                             </tr>
                         @endforeach
                         </tbody>
-                        <tfoot class="d-flex justify-content-center">
-                            {{$products->links()}}
-                        </tfoot>
+
                     </table>
+
+                    <div class="d-flex justify-content-center">
+                        {{$products->links()}}
+                    </div>
                 </div>
                 <!-- /.card-body -->
             </div>

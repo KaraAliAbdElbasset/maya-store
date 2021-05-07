@@ -20,7 +20,7 @@ class ComputerConsumableController extends Controller
      */
     public function index()
     {
-        $computerConsumables = ComputerConsumable::latest()->paginate(10);
+        $computerConsumables = ComputerConsumable::with('category')->latest()->paginate(10);
         return view('admin.computerConsumables.index',['computerConsumables' => $computerConsumables]);
     }
 
@@ -72,7 +72,7 @@ class ComputerConsumableController extends Controller
     public function edit(ComputerConsumable $computerConsumable)
     {
         $categories = Category::orderBy('name','asc')->get();
-        return view('admin.computerConsumables.create',compact('computerConsumable','categories'));
+        return view('admin.computerConsumables.edit',compact('computerConsumable','categories'));
     }
 
     /**
