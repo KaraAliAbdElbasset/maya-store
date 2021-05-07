@@ -11,21 +11,10 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'excerpt',
-        'description',
-        'key_words',
-        'seo_description',
-        'image',
-        'price',
-//        'fournisseur',
-        'old_price',
-        'popularity',
-        'inspired',
-        'featured',
-        'is_active',
-        'qte',
-        'brand_id'
+        'name', 'excerpt', 'description', 'key_words', 'seo_description', 'image',
+        'price', 'old_price', 'popularity', 'inspired', 'featured', 'is_active', 'qte',
+        'brand_id', 'type_id', 'form_id', 'consumable_id', 'computerConsumable_id',
+        'functionality_id',
     ];
 
     protected $casts = [
@@ -74,6 +63,31 @@ class Product extends Model
     public function brand(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Brand::class);
+    }
+
+    public function type(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Type::class);
+    }
+
+    public function form(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Form::class);
+    }
+
+    public function computerConsumable(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(ComputerConsumable::class);
+    }
+
+    public function consumable(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Consumable::class);
+    }
+
+    public function functionality(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Functionality::class);
     }
 
     public function categories(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
