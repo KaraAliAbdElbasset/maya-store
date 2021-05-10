@@ -68,11 +68,41 @@
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview" style="display: {{request()->is(['admin/categories*','admin/brands*','admin/products*'])? 'block' : 'none'}} ">
+                    <ul class="nav nav-treeview" style="display: {{request()->is(['admin/categories*','admin/brands*','admin/products*','admin/forms*','admin/types*','admin/functionalities*','admin/consumables*','admin/computerConsumables*'])? 'block' : 'none'}} ">
                         <li class="nav-item ">
                             <a href="{{route('admin.brands.index')}}" class="nav-link {{request()->is('admin/brands*')? 'active' : ''}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>marques </p>
+                            </a>
+                        </li>
+                          <li class="nav-item ">
+                            <a href="{{route('admin.forms.index')}}" class="nav-link {{request()->is('admin/forms*')? 'active' : ''}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>forms </p>
+                            </a>
+                        </li>
+                          <li class="nav-item ">
+                            <a href="{{route('admin.types.index')}}" class="nav-link {{request()->is('admin/types*')? 'active' : ''}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>types </p>
+                            </a>
+                        </li>
+                          <li class="nav-item ">
+                            <a href="{{route('admin.functionalities.index')}}" class="nav-link {{request()->is('admin/functionalities*')? 'active' : ''}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>functionalities </p>
+                            </a>
+                        </li>
+                          <li class="nav-item ">
+                            <a href="{{route('admin.consumables.index')}}" class="nav-link {{request()->is('admin/consumables*')? 'active' : ''}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>consumables </p>
+                            </a>
+                        </li>
+                          <li class="nav-item ">
+                            <a href="{{route('admin.computerConsumables.index')}}" class="nav-link {{request()->is('admin/computerConsumables*')? 'active' : ''}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Computer Consumables </p>
                             </a>
                         </li>
                         <li class="nav-item">
