@@ -34,6 +34,8 @@ class WebsiteController extends Controller
         Artisan::call('cache:clear');
         Artisan::call('route:cache');
         Artisan::call('config:cache');
+
+        Artisan::call('view:clear');
         Artisan::call('view:cache');
         return 'DONE';
     }
