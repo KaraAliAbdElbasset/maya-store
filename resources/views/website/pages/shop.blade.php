@@ -8,7 +8,9 @@
           <div class="container">
 
               <div class="row">
-
+                  @if(isset($category))
+                    @include('layouts.partials.filter',['category' => $category])
+                  @else
                   <div class="col-lg-3">
 
                       <div class="card border-0 shadow-sm bg-white">
@@ -17,7 +19,7 @@
                               <hr class="text-orange my-4">
                               @foreach($categories as $c)
                               <p class="text-capitalize">
-                                  <a href="javascript:void(0)" class="text-decoration-none text-dark">
+                                  <a href="{{route('shop',['category' => $c->id])}}" class="text-decoration-none text-dark">
                                       {{$c->name}}<span class="ms-2 text-orange">({{$c->products_count}})</span>
                                   </a>
                               </p>
@@ -26,21 +28,9 @@
                           </div>
                       </div>
 
-                      <div class="card border-0 shadow-sm bg-white mt-3">
-                          <div class="card-body">
-                              <h4 class="text-orange text-capitalize mt-2">Marques</h4>
-                              <hr class="text-orange my-4">
-                              @foreach($brands as $b)
-                                  <a href="javascript:void(0)" class="text-decoration-none text-dark">
-                                      <p class="text-capitalize">{{$b->name}}<span class="ms-2 text-orange">({{$b->products_count}})</span></p>
-                                  </a>
-                              @endforeach
-
-                          </div>
-                      </div>
 
                   </div>
-
+                  @endif
                   <div class="col-lg-9 products">
 
                       <form action="" class="row d-flex justify-content-between mt-3 mt-lg-0" id="formFilter">
@@ -107,5 +97,13 @@
 
     <script src="{{asset('assets/site/vendors/counter-up/jquery.waypoints.min.js')}}"></script>
     <script src="{{asset('assets/site/vendors/counter-up/jquery.counterup.js')}}"></script>
+
+    <script>
+        $('#filter-form-side-bar input[type=checkbox]').each(function (){
+            $(this).change(function (){
+                $('#filter-form-side-bar').submit()
+            })
+        })
+    </script>
 
 @endpush

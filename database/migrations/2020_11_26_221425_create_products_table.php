@@ -56,7 +56,7 @@ class CreateProductsTable extends Migration
 
             $table->foreignId('computerConsumable_id')
                 ->nullable()
-                ->constrained()
+                ->constrained('computer_consumables')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
@@ -66,6 +66,7 @@ class CreateProductsTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
+            $table->timestamps();
             $table->index(['name','featured','is_active','qte','brand_id','popularity']);
         });
     }

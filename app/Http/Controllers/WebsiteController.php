@@ -40,9 +40,21 @@ class WebsiteController extends Controller
 
     public function shop(ProductContract $product)
     {
+
+        $products = $product->findByFilter(\request()->get('per_page')??18,['categories','brand'],['active','latest']);
+        if (\request()->has('category')){
+            $category = Category::with(
+                ['brands','types','forms','functionalities','consumables','computerConsumables','brands']
+            )->find(\request('category'));
+            if ($category)
+            {
+                return view('website.pages.shop',compact('category','products'));
+            }
+        }
+
         $categories = Category::where('category_id','<>',null)->withCount('products')->get('id','name');
         $brands = Brand::withCount('products')->orderBy('name','asc')->get('id','name');
-        $products = $product->findByFilter(\request()->get('per_page')??18,['categories','brand'],['active','latest']);
+
         return view('website.pages.shop',compact('products','categories','brands'));
     }
 

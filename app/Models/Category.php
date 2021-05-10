@@ -4,11 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
 
 class Category extends Model
 {
     use HasFactory;
+
+
+
     protected $fillable = [
         'name', 'slug', 'description', 'image','category_id','featured'
     ];
@@ -25,17 +31,17 @@ class Category extends Model
         }
         return isset($this->image) ? asset('storage/'.$this->image) : asset('assets/admin/dist/img/default-150x150.png');
     }
-    public function parent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function parent(): BelongsTo
     {
 
         return $this->belongsTo(self::class,'category_id','id')->withDefault(['name' => 'Main category']);
     }
 
-    public function products(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function products(): BelongsToMany
     {
         return $this->belongsToMany(Product::class);
     }
-    public function children(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function children(): HasMany
     {
         return $this->hasMany(self::class);
     }
@@ -43,5 +49,53 @@ class Category extends Model
     public function scopeFeatured($q)
     {
         return $q->where('featured',true);
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function types(): HasMany
+    {
+        return $this->hasMany(Type::class);
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function forms(): HasMany
+    {
+        return $this->hasMany(Form::class);
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function functionalities(): HasMany
+    {
+        return $this->hasMany(Functionality::class);
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function consumables(): HasMany
+    {
+        return $this->hasMany(Consumable::class);
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function computerConsumables(): HasMany
+    {
+        return $this->hasMany(ComputerConsumable::class);
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function brands(): HasMany
+    {
+        return $this->hasMany(ComputerConsumable::class);
     }
 }
