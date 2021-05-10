@@ -13,10 +13,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', [\App\Http\Controllers\WebsiteController::class,'index'])->name('welcome');
+// for deployment
 Route::get('/artisan', [\App\Http\Controllers\WebsiteController::class,'artisan'])->name('artisan');
 Route::get('/cache', [\App\Http\Controllers\WebsiteController::class,'cache'])->name('cache');
+Route::get('/seed', [\App\Http\Controllers\WebsiteController::class,'seed'])->name('seed');
+
+
+/**********************************************************************************/
+Route::get('/', [\App\Http\Controllers\WebsiteController::class,'index'])->name('welcome');
+
 Route::get('/categories', [\App\Http\Controllers\WebsiteController::class,'categoryIndex'])->name('categories.index');
 Route::get('/shop', [\App\Http\Controllers\WebsiteController::class,'shop'])->name('shop');
 Route::get('/shop/{id}-{slug}', [\App\Http\Controllers\WebsiteController::class,'product'])->name('product');

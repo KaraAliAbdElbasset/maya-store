@@ -24,9 +24,14 @@ class WebsiteController extends Controller
     public function artisan()
     {
         Artisan::call('migrate:fresh');
-        Artisan::call('db:seed');
-        Artisan::call('storage:link');
+//        Artisan::call('storage:link');
 
+        return 'DONE';
+    }
+
+    public function seeding()
+    {
+        Artisan::call('db:seed');
         return 'DONE';
     }
 
