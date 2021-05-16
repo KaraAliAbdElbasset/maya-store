@@ -64,6 +64,13 @@
                             >
                         </li>
                         @else
+                            <li class="nav-item">
+                                <a
+                                    class="nav-link text-white rounded-pill"
+                                    href="{{route('home')}}"
+                                >Home</a
+                                >
+                            </li>
                         <li class="nav-item">
                             <a
                                 class="nav-link text-white rounded-pill"
