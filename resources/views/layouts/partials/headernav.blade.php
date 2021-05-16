@@ -120,6 +120,13 @@
                         <li class="nav-item me-0 me-lg-3">
                             <a
                                 class="nav-link text-black fw-light"
+                                href="{{route('about')}}"
+                            >Notre société</a
+                            >
+                        </li>
+                        <li class="nav-item me-0 me-lg-3">
+                            <a
+                                class="nav-link text-black fw-light"
                                 href="{{route('shop')}}"
                             >Produits</a
                             >

@@ -92,4 +92,8 @@ class WebsiteController extends Controller
         }
         return view('website.pages.categories',compact('categories'));
     }
+    public function about()
+    {
+        return view('about');
+    }
 }

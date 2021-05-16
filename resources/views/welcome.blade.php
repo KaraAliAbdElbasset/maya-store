@@ -123,15 +123,21 @@
             </h2>
 
             <div class="row mt-0 mt-lg-5">
-                <div class="owl-carousel">
-                    @foreach($brands as $b)
-                        <div class="ratio ratio-16x9">
-                            <img src="{{$b->image_url}}" alt="{{$b->name}}" title="{{$b->name}}" class="img-fluid">
-                        </div>
-                    @endforeach
+          <div class="owl-carousel">
+            <img src="assets/images/brands/hp-logo.svg" alt="brand" class="img-fluid">
+            <img src="assets/images/brands/lenovo-logo.svg" alt="brand" class="img-fluid">
+            <img src="assets/images/brands/epson-logo.svg" alt="brand" class="img-fluid">
+            <img src="assets/images/brands/canon-logo.svg" alt="brand" class="img-fluid">
+            <img src="assets/images/brands/eaton-vector-logo.svg" alt="brand" class="img-fluid">
+            <img src="assets/images/brands/apc-logo-vector.svg" alt="brand" class="img-fluid">
+            <img src="assets/images/brands/kyocera-logo.svg" alt="brand" class="img-fluid">
+            
+            
+            
 
-                </div>
-            </div>
+            
+          </div>
+        </div>
 
             <div class="row mt-5 d-flex justify-content-center justify-content-lg-end">
                 <div class="col-auto">

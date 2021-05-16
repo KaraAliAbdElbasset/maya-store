@@ -63,7 +63,7 @@
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col-12">
-                                    <a href="{{route('admin.type.index')}}" class="btn btn-secondary">annuler</a>
+                                    <a href="{{route('admin.types.index')}}" class="btn btn-secondary">annuler</a>
                                     <input type="submit" value="Update" class="btn btn-success float-right">
                                 </div>
                             </div>
