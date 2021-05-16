@@ -112,26 +112,26 @@
 
                                 <div class="col-lg-12 mb-3">
                                     <p class="small fw-bold mb-2">Total De Votre Commande</p>
-                                    <p>4800,00 DZD</p>
+                                    <p>@price($order->total_price) DZD</p>
                                 </div>
 
-                                <div class="col-lg-12 mb-3">
-                                    <p class="small fw-bold mb-2">Frais De Livraison EMS</p>
-                                    <p>1000,00 Dzd</p>
-                                </div>
+{{--                                <div class="col-lg-12 mb-3">--}}
+{{--                                    <p class="small fw-bold mb-2">Frais De Livraison EMS</p>--}}
+{{--                                    <p>1000,00 Dzd</p>--}}
+{{--                                </div>--}}
 
-                                <div class="col-lg-12 mb-3">
-                                    <p class="small fw-bold mb-2">Total A Payer</p>
-                                    <p>5800,00 DZD</p>
-                                </div>
+{{--                                <div class="col-lg-12 mb-3">--}}
+{{--                                    <p class="small fw-bold mb-2">Total A Payer</p>--}}
+{{--                                    <p>5800,00 DZD</p>--}}
+{{--                                </div>--}}
 
-                                <div class="col-lg-12 mb-3">
-                                    <a href="javascript:void(0)" class="btn bg-white text-orange shadow-sm d-block">Confirmer Ma Commande</a>
-                                </div>
+{{--                                <div class="col-lg-12 mb-3">--}}
+{{--                                    <a href="javascript:void(0)" class="btn bg-white text-orange shadow-sm d-block">Confirmer Ma Commande</a>--}}
+{{--                                </div>--}}
 
-                                <div class="col-lg-12">
-                                    <a href="cart.html" class="btn bg-white text-orange shadow-sm d-block">Modifier Mes Information</a>
-                                </div>
+{{--                                <div class="col-lg-12">--}}
+{{--                                    <a href="cart.html" class="btn bg-white text-orange shadow-sm d-block">Modifier Mes Information</a>--}}
+{{--                                </div>--}}
 
                             </div>
                         </div>
