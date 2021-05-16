@@ -49,10 +49,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/order/{id}', [App\Http\Controllers\HomeController::class, 'orderShow'])->name('home.order');
-Route::get('/test', function (){
-    return view('test');
-})->name('test');
 
 
-
-Route::view('/profile/edit','website.pages.profileEdit');
+Route::get('/profile/edit',[App\Http\Controllers\HomeController::class,'profileEdit'])->name('profile.edit');
+Route::put('/profile/edit',[App\Http\Controllers\HomeController::class,'profileUpdate'])->name('profile.update');

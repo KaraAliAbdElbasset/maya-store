@@ -1,27 +1,23 @@
-
 @extends('layouts.app')
 
-
 @section('content')
-
-
 
 <section id="latest" class="py-6 products">
       <br><br><br><br><br>
       <div class="container">
-       
+
        <h3 class="fw-bold text-center text-lg-start  px-3">
         À propos
-         </h3> 
+         </h3>
          <table>
            <tr>
-            <td><img src="assets/images/cec.png" alt="img" width="400px" height="300px"  ></td>
+            <td><img src="{{asset('assets/images/cec.jpeg')}}" alt="img" width="400px" height="300px"  ></td>
 
             <td width="900px" style="text-align:center; ">
             CEC est une société informatique qui à plus de 30 années d'existence qui propose des solutuions professionnelles avec des véritable avantages.</td>
            </tr>
          </table>
-        
+
 
 </div>
        </div>
@@ -32,18 +28,18 @@
 
   <section id="latest" class="py-6 products">
       <div class="container">
-       
+
        <h3 class="fw-bold text-center text-lg-start  px-3">
         Services
-         </h3> 
+         </h3>
          <div class="row mt-0 mt-lg-5">
-          
+
             <div class="col-lg-4 mt-0 mt-5 mt-lg-0">
 
-          
-            
+
+
                 <div class="product-image">
-                  <img src="assets/images/images.png" alt="img" width="300px" height="200px"  >
+                  <img src="{{asset('assets/images/images.png')}}" alt="img" width="300px" height="200px"  >
                   <!--<span class="badge bg-orange rounded-2 product-discount">- 15%</span>-->
                  <div class="px-3 product-infos">
 
@@ -51,7 +47,7 @@
      <p class="mb-0 mt-4 text-truncate">
     <button class="first" style="border: none ; background:#87CEEB ; color:white ; padding:0.3em 1.2em;border-radius:2em; margin-left: 10%;
 margin-right: 30%" >Service Maintenance</button>
-    
+
      </p>
        <script>
   document.querySelector(".first").addEventListener("click", function() {
@@ -75,11 +71,11 @@ margin-right: 30%" >Service Maintenance</button>
  </div>
 </div>
 
-        
-       
 
 
-          
+
+
+
             <div class="col-lg-4 mt-0 mt-5 mt-lg-0">
                 <div class="product-image">
                   <img src="assets/images/img1.png" alt="img" width="300px" height="200px"  >
@@ -89,7 +85,7 @@ margin-right: 30%" >Service Maintenance</button>
               <div class="product-title">
      <p class="mb-0 mt-4 text-truncate">
 
-       
+
     <button class="second " style="border: none ; background:#87CEEB ; color:white ; padding:0.3em 1.2em;border-radius:2em; margin-left: 10%;
 margin-right: 30%" >Service commercial</button>
 
@@ -130,7 +126,7 @@ margin-right: 30%" >Service commercial</button>
      <p class="mb-0 mt-4 text-truncate">
     <button class="third" style="border: none ; background:#87CEEB ; color:white ; padding:0.3em 1.2em;border-radius:2em; margin-left: 10%;
 margin-right: 30%" >Service Maintenance</button>
-    
+
      </p>
        <script>
   document.querySelector(".third").addEventListener("click", function() {
@@ -151,17 +147,17 @@ margin-right: 30%" >Service Maintenance</button>
      </div>
    </div>
  </div>
- 
+
   </div>
 
-        
+
         </div>
 
     </div>
     </section>
 
-  
-   
+
+
 
 <br><br><br><br><br><br><br>
 
@@ -169,10 +165,10 @@ margin-right: 30%" >Service Maintenance</button>
     <!-- brand Start -->
     <section id="latest" class="py-5 products">
       <div class="container">
-       
+
        <h3 class="fw-bold text-center text-lg-start  px-3">
           Nos Clients
-        </h3> 
+        </h3>
 
         <div class="row mt-0 mt-lg-5">
           <div class="owl-carousel">
@@ -196,16 +192,16 @@ margin-right: 30%" >Service Maintenance</button>
             <img src="assets/client/APC.jpg"  alt="img"  style="border-radius:50%" width="150px" height="120px"/>
             <img src="assets/client/Naftal.png"  alt="img"  style="border-radius:50%" width="150px" height="120px"/>
             <img src="assets/client/CRMA.png"  alt="img"  style="border-radius:50%" width="150px" height="120px"/>
-            
-            
-            
 
-            
+
+
+
+
           </div>
         </div>
 
-      
-        
+
+
       </div>
     </section>
  @endsection

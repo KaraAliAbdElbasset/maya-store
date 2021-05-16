@@ -118,7 +118,9 @@
                             <div class="form-group">
                                 <label for="type_id">types</label>
                                 <select name="type_id" id="type_id" class="form-control select2 @error('type_id') is-invalid @enderror">
-                                    @foreach($types as $t)
+                                    <option selected disabled>...</option>
+
+                                @foreach($types as $t)
                                         <option value="{{$t->id}}" {{$t->id === old('brand_id') ? 'selected' : ''}}>{{$t->name}}</option>
                                     @endforeach
                                 </select>
@@ -130,7 +132,9 @@
                             <div class="form-group">
                                 <label for="form_id">forms</label>
                                 <select name="form_id" id="form_id" class="form-control select2 @error('form_id') is-invalid @enderror">
-                                    @foreach($forms as $fr)
+                                    <option selected disabled>...</option>
+
+                                @foreach($forms as $fr)
                                         <option value="{{$fr->id}}" {{$fr->id === old('form_id') ? 'selected' : ''}}>{{$fr->name}}</option>
                                     @endforeach
                                 </select>
@@ -142,7 +146,9 @@
                             <div class="form-group">
                                 <label for="functionality_id">functionalities</label>
                                 <select name="functionality_id" id="functionality_id" class="form-control select2 @error('functionality_id') is-invalid @enderror">
-                                    @foreach($functionalities as $f)
+                                    <option selected disabled>...</option>
+
+                                @foreach($functionalities as $f)
                                         <option value="{{$f->id}}" {{$f->id === old('functionality_id') ? 'selected' : ''}}>{{$f->name}}</option>
                                     @endforeach
                                 </select>
@@ -154,7 +160,9 @@
                             <div class="form-group">
                                 <label for="computerConsumable_id">computer consumables</label>
                                 <select name="computerConsumable_id" id="computerConsumable_id" class="form-control select2 @error('computerConsumable_id') is-invalid @enderror">
-                                    @foreach($computerConsumables as $cc)
+                                    <option selected disabled>...</option>
+
+                                @foreach($computerConsumables as $cc)
                                         <option value="{{$cc->id}}" {{$cc->id === old('computerConsumable_id') ? 'selected' : ''}}>{{$cc->name}}</option>
                                     @endforeach
                                 </select>
@@ -166,7 +174,9 @@
                             <div class="form-group">
                                 <label for="consumable_id">consumables</label>
                                 <select name="consumable_id" id="consumable_id" class="form-control select2 @error('consumable_id') is-invalid @enderror">
-                                    @foreach($consumables as $c)
+                                    <option selected disabled>...</option>
+
+                                @foreach($consumables as $c)
                                         <option value="{{$c->id}}" {{$c->id === old('consumable_id') ? 'selected' : ''}}>{{$c->name}}</option>
                                     @endforeach
                                 </select>

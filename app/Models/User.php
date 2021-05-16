@@ -18,8 +18,11 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $fillable = [
         'name',
-        'pic',
+//        'pic',
         'email',
+        'address',
+        'phone',
+        'city',
         'password',
     ];
 
@@ -42,12 +45,12 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    protected $appends = ['pic_url'];
-
-    public function getPicUrlAttribute()
-    {
-        return isset($this->pic) ? asset('storage/'.$this->pic) : asset('assets/admin/dist/img/default-150x150.png');
-    }
+//    protected $appends = ['pic_url'];
+//
+//    public function getPicUrlAttribute()
+//    {
+//        return isset($this->pic) ? asset('storage/'.$this->pic) : asset('assets/admin/dist/img/default-150x150.png');
+//    }
 
     public function orders()
     {

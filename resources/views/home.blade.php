@@ -89,7 +89,7 @@
 
                                 <div class="col-lg-12 mb-3">
                                     <p class="small fw-bold mb-2">Numéro de téléphone</p>
-                                    <p>{{auth()->user()->phone ?? "/"}}</p>
+                                    <p>{{auth()->user()->phone ?? "empty"}}</p>
                                 </div>
 
                                 <div class="col-lg-12 mb-3">
@@ -99,19 +99,19 @@
 
                                 <div class="col-lg-12 mb-3">
                                     <p class="small fw-bold mb-2">Adresse De Livraison</p>
-                                    <p>{{auth()->user()->address}}</p>
+                                    <p>{{auth()->user()->address ?? 'empty'}}</p>
                                 </div>
 
                                 <div class="col-lg-12">
                                     <p class="small fw-bold mb-2">Ville</p>
-                                    <p>{{auth()->user()->city}}</p>
+                                    <p>{{auth()->user()->city ?? 'empty'}}</p>
                                 </div>
 
                             </div>
 
                             <hr class="mb-5">
 
-                            <p class="text-center mb-0"><a href="#" class="text-decoration-underline text-black">Modifier</a></p>
+                            <p class="text-center mb-0"><a href="{{route('profile.edit')}}" class="text-decoration-underline text-black">Modifier</a></p>
 
                         </div>
                     </div>
