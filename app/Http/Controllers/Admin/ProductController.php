@@ -93,6 +93,22 @@ class ProductController extends Controller
         }
     }
 
+    public function updateProductMeta($id)
+    {
+        $data = request()->validate([
+            'meta' => 'required|array',
+            'meta.*.value' => 'required|string|max:200',
+            'meta.*.name' => 'required|string|max:100',
+        ]);
+
+        $product = $this->p->findOneById($id);
+        $product->update($data);
+        return response()->json([
+            'success' => true,
+            'message' => 'Product Has Been Updated Successfully',
+        ],200);
+    }
+
     public function destroy($id)
     {
         try {

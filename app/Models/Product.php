@@ -15,8 +15,12 @@ class Product extends Model
         'price', 'old_price', 'popularity', 'inspired', 'featured', 'is_active', 'qte',
         'brand_id', 'type_id', 'form_id', 'consumable_id', 'computerConsumable_id',
         'functionality_id',
+        'meta'
     ];
 
+    /**
+     * @var string[]
+     */
     protected $casts = [
         'price'     => 'double',
         'old_price' => 'double',
@@ -24,6 +28,7 @@ class Product extends Model
         'inspired' => 'boolean',
         'is_active' => 'boolean',
         'qte' => 'integer',
+        'meta' => 'array',
     ];
 
     public function scopeScopes($query, $scopes)

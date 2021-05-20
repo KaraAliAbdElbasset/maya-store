@@ -46,6 +46,7 @@
                         <a class="nav-link" id="vert-tabs-details-tab" data-toggle="pill" href="#vert-tabs-details" role="tab" aria-controls="vert-tabs-details" >Details</a>
                         <a class="nav-link" id="vert-tabs-description-tab" data-toggle="pill" href="#vert-tabs-description" role="tab" aria-controls="vert-tabs-description">Description</a>
                         <a class="nav-link " id="vert-tabs-images-tab" data-toggle="pill" href="#vert-tabs-images" role="tab" aria-controls="vert-tabs-images" >Images</a>
+                        <a class="nav-link " id="vert-tabs-meta-tab" data-toggle="pill" href="#vert-tabs-meta" role="tab" aria-controls="vert-tabs-meta" >Meta Info</a>
 
                     </div>
                 </div>
@@ -450,6 +451,21 @@
                                     </div>
                                 </div>
                             </div>
+
+                            {{-- ************************************************************ Vue Component ********************************************************* --}}
+
+                            <div class="tab-pane text-left fade show " id="vert-tabs-meta" role="tabpanel" aria-labelledby="vert-tabs-meta-tab">
+                                <div class="tab-pane" id="images">
+                                    <div class="tile">
+                                        <h3 class="tile-title">Add Meta info</h3>
+                                        <hr>
+                                        <div class="tile-body">
+                                            <product-meta-info-component :product-id="{{$p->id}}" :product="{{$p}}"></product-meta-info-component>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </form>
                 </div>
@@ -458,6 +474,8 @@
     </div>
 @endsection
 @push('js')
+
+    <script src="{{asset('js/app.js')}}"></script>
     <!-- Summernote -->
     <script src="{{asset("assets/admin/plugins/summernote/summernote-bs4.min.js")}}"></script>
     <!-- Select2 -->
@@ -470,7 +488,6 @@
         $('document').ready(function () {
             //Initialize Select2 Elements
             $('.select2').select2()
-            Dropzone.autoDiscover = false;
             myDropzone.on("queuecomplete", function (file) {
                 window.location.reload();
                 Toast.fire({
@@ -511,6 +528,9 @@
                 $('#slug').val(string_to_slug(e.target.value))
             });
         });
+
+        Dropzone.autoDiscover = false;
+
         let myDropzone = new Dropzone("#productImagesDropZone", {
             paramName: "image",
             addRemoveLinks: false,
