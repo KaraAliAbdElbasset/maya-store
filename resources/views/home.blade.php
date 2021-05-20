@@ -121,4 +121,47 @@
         </div>
     </section>
     <!-- Profile End -->
+    <div
+        class="modal fade"
+        id="payment-message-modal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+    >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-orange text-white">
+                    <h5 class="modal-title" id="staticBackdropLabel">Produit ajouté avec succes</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <i class="fas fa-check-circle text-success fa-6x"></i>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="{{route('cart.index')}}" class="btn bg-orange text-white w-100">Aller au panier</a>
+                    <button
+                        type="button"
+                        class="btn border border-dark text-orange w-100"
+                        data-bs-dismiss="modal">
+                        Continuer mes achats
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection
+
+
+@push('js')
+
+    @if(session('payment-message-modal'))
+        $('#staticBackdrop').modal('show')
+    @endif
+
+    payment-message
+
+@endpush

@@ -16,9 +16,7 @@ class CreateBrandsTable extends Migration
         Schema::create('brands', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->foreignId('category_id')->constrained()
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+
             $table->string('slug')->unique();
             $table->string('description')->nullable();
             $table->string('image')->nullable();
@@ -33,9 +31,7 @@ class CreateBrandsTable extends Migration
      */
     public function down(): void
     {
-        Schema::table('brands', function (Blueprint $table) {
-            $table->dropForeign('brands_category_id_foreign');
-        });
+
         Schema::dropIfExists('brands');
     }
 }

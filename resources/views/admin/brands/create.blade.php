@@ -51,13 +51,13 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="category_id">category</label>
-                                <select name="category_id" class="form-control select2" id="category_id">
+                                <label for="categories">categories</label>
+                                <select name="categories[]" multiple class="form-control select2" id="categories">
                                     @foreach($categories as $c)
-                                        <option value="{{$c->id}}" {{$c->id === old('category_id') ? 'selected' : ''}}>{{$c->name}}</option>
+                                        <option value="{{$c->id}}" {{$c->id === in_array($c->id, old('categories') ?? [], true) ? 'selected' : ''}}>{{$c->name}}</option>
                                     @endforeach
                                 </select>
-                                @error('category_id')
+                                @error('categories')
                                 <div class="invalid-feedback">{{$message}}</div>
                                 @enderror
                             </div>
@@ -78,7 +78,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="description"Brand Description</label>
+                                <label for="description">Brand Description</label>
                                 <textarea name="description" placeholder="..." id="description" class="form-control">{{old('description')}}</textarea>
                                 @error('description')
                                 <div class="invalid-feedback">{{$message}}</div>
@@ -105,9 +105,13 @@
 @endsection
 
 @push('js')
+    <!-- Select2 -->
+    <script src="{{asset('assets/admin/plugins/select2/js/select2.full.min.js')}}"></script>
+
     <script>
 
         $("document").ready(function () {
+            $('.select2').select2()
             $("#pic").change(function() {
                 readURL(this,'pic_preview');
             });

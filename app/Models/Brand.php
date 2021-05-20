@@ -4,15 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Str;
 
+/**
+ * @method static create(array $data)
+ */
 class Brand extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name', 'slug', 'description', 'image','category_id',
+        'name', 'slug', 'description', 'image',
     ];
 
     protected $appends = ['image_url'];
@@ -33,11 +36,11 @@ class Brand extends Model
 
 
     /**
-     * @return BelongsTo
+     * @return BelongsToMany
      */
-    public function category(): BelongsTo
+    public function categories(): BelongsToMany
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsToMany(Category::class)->withTimestamps();
     }
 
 }

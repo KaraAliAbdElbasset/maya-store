@@ -92,10 +92,10 @@ class Category extends Model
     }
 
     /**
-     * @return HasMany
+     * @return BelongsToMany
      */
-    public function brands(): HasMany
+    public function brands(): BelongsToMany
     {
-        return $this->hasMany(ComputerConsumable::class);
+        return $this->belongsToMany(Brand::class)->withTimestamps();
     }
 }

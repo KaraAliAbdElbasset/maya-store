@@ -52,9 +52,10 @@ class BrandController extends Controller
     public function edit($id)
     {
         $b = $this->b->findById($id);
+        $brand_categories = $b->categories->pluck('id')->all();
         $categories = Category::orderBy('name','asc')->get();
 
-        return view('admin.brands.edit',compact('b','categories'));
+        return view('admin.brands.edit',compact('b','categories','brand_categories'));
     }
 
     public function update($id,BrandRequest $request)

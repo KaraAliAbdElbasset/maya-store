@@ -149,10 +149,11 @@ class CartController extends Controller
             return redirect('/');
         }
 
-//        try {
+        try {
             auth()->user()->notify(new InvoiceNotification(['path' => $this->getInvoice($order)]));
-//        }catch (\Exception $exception){}
+        }catch (\Exception $exception){}
         session()->flash('success','Order Has Been Created Successfully');
+        session()->flash('payment-message','Order Has Been Created Successfully');
         return redirect('/home');
     }
 
