@@ -191,9 +191,9 @@ class CartController extends Controller
             ->currencyFormat('{SYMBOL}{VALUE}')
             ->currencyThousandsSeparator('.')
             ->currencyDecimalPoint(',')
-            ->filename(Str::slug($seller->name . '-' . $customer->name.'-invoice-'.$order->id))
+            ->filename(Str::slug($seller->name . '-' . $customer->name.'-invoice'))
             ->addItems($items)
-            ->logo(public_path('vendor/invoices/sample-logo.png'))
+            ->logo(public_path('assets/store/images/logo.svg'))
             // You can additionally save generated invoice to configured disk
             ->save('public');
 
