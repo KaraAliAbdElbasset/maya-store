@@ -9,6 +9,7 @@ use App\Models\Order;
 use App\Notifications\InvoiceNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class CartController extends Controller
 {
@@ -190,7 +191,7 @@ class CartController extends Controller
             ->currencyFormat('{SYMBOL}{VALUE}')
             ->currencyThousandsSeparator('.')
             ->currencyDecimalPoint(',')
-            ->filename($seller->name . '-' . $customer->name.'-invoice-'.$order->id)
+            ->filename(Str::slug($seller->name . '-' . $customer->name.'-invoice-'.$order->id))
             ->addItems($items)
             ->logo(public_path('vendor/invoices/sample-logo.png'))
             // You can additionally save generated invoice to configured disk
