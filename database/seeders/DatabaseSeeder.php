@@ -16,13 +16,13 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call(SettingSeeder::class);
         $this->call(AdminSeeder::class);
-        $this->call(CategorySeeder::class);
-        $this->call(BrandSeeder::class);
-        $this->call(FormSeeder::class);
-        $this->call(ComputerConsumableSeeder::class);
-        $this->call(ConsumableSeeder::class);
-        $this->call(FunctionalitySeeder::class);
-        $this->call(TypeSeeder::class);
-        $this->call(ProductSeeder::class);
+       // $this->call(CategorySeeder::class);
+       // $this->call(BrandSeeder::class);
+       // $this->call(FormSeeder::class);
+       // $this->call(ComputerConsumableSeeder::class);
+       // $this->call(ConsumableSeeder::class);
+       // $this->call(FunctionalitySeeder::class);
+       // $this->call(TypeSeeder::class);
+       // $this->call(ProductSeeder::class);
     }
 }
