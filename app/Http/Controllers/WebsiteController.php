@@ -38,6 +38,8 @@ class WebsiteController extends Controller
     public function cache()
     {
         Artisan::call('cache:clear');
+        Artisan::call('route:clear');
+         Artisan::call('config:clear');
         Artisan::call('route:cache');
         Artisan::call('config:cache');
 
