@@ -45,6 +45,15 @@
                     <hr class="text-muted my-5">
                     <label class="fw-bold">Déscription</label>
                     <p class="mt-3">{!! $p->description !!}</p>
+                    @if($p->meta)
+                        <ul>
+                            @foreach($p->meta as $m)
+                                <li>
+                                    {{$m['name']}} : {{$m['value']}}
+                                </li>
+                            @endforeach
+                        </ul>
+                    @endif
                 </div>
 
             </div>

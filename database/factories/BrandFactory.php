@@ -27,7 +27,6 @@ class BrandFactory extends Factory
         $name = $this->faker->unique()->words(2,true);
         return [
             'name' => $name,
-            'category_id' => random_int(11,60),
             'slug' => Str::slug($name),
             'description' => $this->faker->sentence,
             'image' => asset('assets/test/'.random_int(1,15).'.jpg'),

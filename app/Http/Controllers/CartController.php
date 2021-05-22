@@ -5,13 +5,11 @@ namespace App\Http\Controllers;
 use App\Contracts\ProductContract;
 use App\Helpers\Cart;
 use App\Http\Resources\CitiesResources;
-use App\Mail\AdminOrderMail;
-use App\Mail\ClientOrderMail;
 use App\Models\Order;
-use App\Models\Product;
+use App\Notifications\InvoiceNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class CartController extends Controller
 {
@@ -143,18 +141,63 @@ class CartController extends Controller
 //            mail to  admin
 //            Mail::to(config('settings.default_email_address'))->send(new AdminOrderMail($order));
 //            mail to client
-//            if ($order->email){
-//                Mail::to($order->email)->send(new ClientOrderMail($order));
-//            }
-
             session()->forget('cart');
             cache()->forget('NewestOrderCountCache');
-            session()->flash('success','Order Has Been Created Successfully');
-            return redirect('/home');
         }catch (\Exception $exception)
         {
             session()->flash('error',$exception->getMessage().'Oops! Something went wrong');
             return redirect('/');
         }
+
+        try {
+            auth()->user()->notify(new InvoiceNotification(['path' => $this->getInvoice($order)]));
+        }catch (\Exception $exception){}
+        session()->flash('success','Order Has Been Created Successfully');
+        session()->flash('payment-message','Order Has Been Created Successfully');
+        return redirect('/home');
+    }
+
+    private function getInvoice(Order $order){
+        $seller = new \LaravelDaily\Invoices\Classes\Party([
+            'name'          => 'SARL SEC',
+            'phone'         => config('settings.phone_1'),
+            'email'         => config('settings.contact_mail'),
+            'address'         => config('settings.address'),
+        ]);
+
+        $customer = new \LaravelDaily\Invoices\Classes\Party([
+            'name'          => $order->name,
+        ]);
+
+        $items = [];
+
+        foreach ($order->products as $p)
+        {
+            $items[] = (new \LaravelDaily\Invoices\Classes\InvoiceItem())
+                ->title($p->name)
+                ->pricePerUnit($p->pivot->price)
+                ->quantity($p->pivot->qty);
+        }
+
+
+        $invoice = \LaravelDaily\Invoices\Invoice::make('receipt')
+            ->sequence(667)
+            ->serialNumberFormat('{SEQUENCE}')
+            ->seller($seller)
+            ->buyer($customer)
+            ->date($order->created_at)
+            ->dateFormat('m/d/Y')
+            ->currencySymbol(config('settings.currency_code')??'dzd')
+            ->currencyCode(config('settings.currency_code')??'dzd')
+            ->currencyFormat('{SYMBOL}{VALUE}')
+            ->currencyThousandsSeparator('.')
+            ->currencyDecimalPoint(',')
+            ->filename(Str::slug($seller->name . '-' . $customer->name.'-invoice'))
+            ->addItems($items)
+            ->logo(public_path('assets/store/images/logo.svg'))
+            // You can additionally save generated invoice to configured disk
+            ->save('public');
+
+        return $invoice->url();
     }
 }

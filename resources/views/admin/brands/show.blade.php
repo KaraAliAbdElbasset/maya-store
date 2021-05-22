@@ -47,8 +47,18 @@
                                 <p>{{$b->name}}</p>
                             </div>
                             <div class="form-group">
-                                <label for="Slug">marque</label>
+                                <label for="Slug">slug</label>
                                 <p>{{$b->slug}}</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="Slug">categories</label>
+                                <p>
+                                    @foreach($b->categories as $c)
+                                        <a href="{{route('admin.categories.show',$c->id)}}">
+                                            <span class="badge badge-info">{{$c->name}}</span>
+                                        </a>
+                                    @endforeach
+                                </p>
                             </div>
                             <div class="form-group">
                                 <label for="Description">Description</label>

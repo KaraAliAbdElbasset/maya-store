@@ -34,6 +34,7 @@ Route::middleware('auth:admin')->group(static function(){
     Route::resource('brands',App\Http\Controllers\Admin\BrandController::class);
 
     Route::resource('orders',App\Http\Controllers\Admin\OrderController::class)->except(['edit','create','store']);
+    Route::post('products/{id}/meta',[App\Http\Controllers\Admin\ProductController::class,'updateProductMeta'])->name('products.meta');
     Route::resource('products',App\Http\Controllers\Admin\ProductController::class);
     Route::post('products/image/upload',[App\Http\Controllers\Admin\ImageController::class,'store'])->name('products.images.upload');
     Route::get('products/{image}/delete',[App\Http\Controllers\Admin\ImageController::class,'destroy'])->name('products.images.delete');

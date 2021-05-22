@@ -58,7 +58,9 @@ class BrandRepository implements \App\Contracts\BrandContract
             $data['image'] = $this->uploadOne($data['image'],'brand','public');
         }
         $data['slug'] = Str::slug($data['name']);
-        return brand::create($data);
+        $b =  brand::create($data);
+        $b->categories()->attach($data['categories']);
+        return $b;
     }
 
     /**
@@ -77,6 +79,7 @@ class BrandRepository implements \App\Contracts\BrandContract
         }
         $data['slug'] = Str::slug($data['name']);
         $brand->update($data);
+        $brand->categories()->sync($data['categories']);
         return $brand->refresh();
     }
 
