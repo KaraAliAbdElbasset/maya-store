@@ -21,7 +21,7 @@ class WebsiteController extends Controller
         return view('welcome',compact('brands','categories','l_products','top_products'));
     }
 
-    public function artisan()
+    public function artisan(): string
     {
         Artisan::call('migrate:fresh');
 //        Artisan::call('storage:link');
@@ -92,7 +92,7 @@ class WebsiteController extends Controller
         }
         return view('website.pages.categories',compact('categories'));
     }
-    
+
     public function about()
     {
         return view('about');
