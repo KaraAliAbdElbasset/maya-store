@@ -21,14 +21,11 @@
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
                         <li class="nav-item me-0 me-lg-3">
-                            <div class="dropdown">
-                                <button class="btn text-white dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="">
+                                <button class="btn text-white " type="button" id="" data-bs-toggle="" aria-expanded="false">
                                     DZD<img src="{{asset('assets/store/images/dz.png')}}" alt="flag" height="15" class="ms-2">
                                 </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">FR</a></li>
-                                    <li><a class="dropdown-item" href="#">EN</a></li>
-                                </ul>
+                             
                             </div>
                         </li>
                     </ul>
@@ -68,7 +65,7 @@
                                 <a
                                     class="nav-link text-white rounded-pill"
                                     href="{{route('home')}}"
-                                >Home</a
+                                >Profile</a
                                 >
                             </li>
                         <li class="nav-item">

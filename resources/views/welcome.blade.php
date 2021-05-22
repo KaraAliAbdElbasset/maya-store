@@ -119,7 +119,7 @@
         <div class="container">
 
             <h2 class="fw-bold text-center text-lg-start border-start px-3">
-                Nos clients
+                Nos partenaires
             </h2>
 
             <div class="row mt-0 mt-lg-5">

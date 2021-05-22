@@ -49,11 +49,7 @@
                                     S'inscrire
                                 </button>
                             </div>
-                            <div class="col-12 text-center">
-                                <p>
-                                    <a href="#" class="text-decoration-none text-dark">Mot de passe oublié ?</a>
-                                </p>
-                            </div>
+                           
                         </form>
                     </div>
                 </div>

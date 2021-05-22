@@ -154,7 +154,7 @@
                     <div class="card bg-orange text-light py-5 border-0 shadow-sm rounded">
                         <div class="card-body">
                             <i class="fas fa-smile fa-3x"></i>
-                            <p class="mb-0 mt-4">Livraison Rapide</p>
+                            <p class="mb-0 mt-4">Service aprés vente</p>
                         </div>
                     </div>
                 </div>

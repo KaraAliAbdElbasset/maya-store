@@ -3,7 +3,7 @@
 @section('content')
 
 <section id="latest" class="py-6 products">
-      <br><br><br><br><br>
+      <br><br><br><br>
       <div class="container">
 
        <h3 class="fw-bold text-center text-lg-start  px-3">
@@ -11,7 +11,7 @@
          </h3>
          <table>
            <tr>
-            <td><img src="{{asset('assets/images/cec.jpeg')}}" alt="img" width="400px" height="300px"  ></td>
+            <td><img src="{{asset('assets/images/cecimg.jpeg')}}" alt="img" width="400px" height="300px"  ></td>
 
             <td width="900px" style="text-align:center; ">
             CEC est une société informatique qui à plus de 30 années d'existence qui propose des solutuions professionnelles avec des véritable avantages.</td>
@@ -70,10 +70,6 @@ margin-right: 30%" >Service Maintenance</button>
    </div>
  </div>
 </div>
-
-
-
-
 
 
             <div class="col-lg-4 mt-0 mt-5 mt-lg-0">
@@ -159,7 +155,7 @@ margin-right: 30%" >Service Maintenance</button>
 
 
 
-<br><br><br><br><br><br><br>
+<br><br><br><br>
 
 
     <!-- brand Start -->

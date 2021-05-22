@@ -83,7 +83,7 @@
                     >
                 </p>
                 <p>
-                    <a href="#" class="text-decoration-none text-white">A propos</a>
+                    <a href="{{route('about')}}" class="text-decoration-none text-white">A propos</a>
                 </p>
                 <p>
                     <a href="{{route('contact')}}" class="text-decoration-none text-white">Contact</a>
