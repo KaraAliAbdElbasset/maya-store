@@ -24,7 +24,7 @@ class WebsiteController extends Controller
     public function artisan(): string
     {
         Artisan::call('migrate:fresh');
-//        Artisan::call('storage:link');
+        Artisan::call('storage:link');
 
         return 'DONE';
     }
@@ -38,6 +38,8 @@ class WebsiteController extends Controller
     public function cache()
     {
         Artisan::call('cache:clear');
+        Artisan::call('route:clear');
+         Artisan::call('config:clear');
         Artisan::call('route:cache');
         Artisan::call('config:cache');
 

@@ -6,6 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sarl CEC</title>
 
     <!-- Title Icon -->
     <link rel="icon" href="https://www.flaticon.com/svg/static/icons/svg/891/891462.svg"/>
@@ -39,7 +40,6 @@
     <link rel="stylesheet" href="{{asset('assets/store/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/store/css/owl.theme.default.min.css')}}">
 
-    <title>{{config('app.name')}}</title>
 </head>
 
 <body>
