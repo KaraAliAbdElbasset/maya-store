@@ -45,19 +45,28 @@
                     <hr class="text-muted my-5">
                     <label class="fw-bold">Déscription</label>
                     <p class="mt-3">{!! $p->description !!}</p>
-                    @if($p->meta)
-                        <ul>
-                            @foreach($p->meta as $m)
-                                <li>
-                                    {{$m['name']}} : {{$m['value']}}
-                                </li>
-                            @endforeach
-                        </ul>
-                    @endif
+            
                 </div>
 
             </div>
+            <br><br>
+            @if($p->meta)
+                   <thead class="bg-orange text-white">
+                          	<h2  class="bg-orange text-white text-center" >Fiche technique</h2>
+                          </thead >
+                        <table class="table">
+                         
+                            @foreach($p->meta as $m)
+                                <tr>
+                                <td> {{$m['name']}}</td>  <td>{{$m['value']}}</td>
+                                    </tr>
+                            @endforeach
+                           
+                              </table>
+                       
+                    @endif
         </div>
+        
     </section>
     <!-- Product End -->
 

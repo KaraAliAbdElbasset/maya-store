@@ -9,7 +9,9 @@
             <div class="row text-center text-lg-start">
                 <div class="col-lg-6">
                     <h1 class="fw-bold text-capitalize text-center text-lg-start">Contactez <span class="text-orange">Nous</span></h1>
-                    <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora sapiente molestiae quod ipsum totam fugiat, neque eveniet cumque placeat reiciendis et cum odit adipisci aut perspiciatis fugit soluta voluptatibus rerum.</p>
+                    <p class="mt-5">Nos clients sont ce qu’il y a de plus précieux à nos yeux et nous serions ravis de pouvoir vous assister.
+Pour nous aider à toujours mieux répondre à vos attentes, n'hésitez pas à nous contacter.
+</p>
                 </div>
             </div>
 
@@ -41,10 +43,10 @@
 
                         <div class="col-lg-12 mb-3">
                             <select name="subject" class="form-select border-0 shadow-sm py-2 @error('subject') is-invalid @enderror">
-                                <option value="Sujet 1" {{old('subject') === 'Sujet 1' ? 'selected' : ''}}>Sujet 1</option>
-                                <option value="Sujet 2" {{old('subject') === 'Sujet 2' ? 'selected' : ''}}>Sujet 2</option>
-                                <option value="Sujet 3" {{old('subject') === 'Sujet 3' ? 'selected' : ''}}>Sujet 3</option>
-                                <option value="Sujet 4" {{old('subject') === 'Sujet 4' ? 'selected' : ''}}>Sujet 4</option>
+                                <option value="Sujet 1" {{old('subject') === 'Sujet 1' ? 'selected' : ''}}>Renseignemen</option>
+                                <option value="Sujet 2" {{old('subject') === 'Sujet 2' ? 'selected' : ''}}>Devis</option>
+                                <option value="Sujet 3" {{old('subject') === 'Sujet 3' ? 'selected' : ''}}>Information sur produit</option>
+                                <option value="Sujet 4" {{old('subject') === 'Autre' ? 'selected' : ''}}>Autre</option>
                             </select>
                             @error('subject')
                             <div class="invalid-feedback">{{$message}}</div>

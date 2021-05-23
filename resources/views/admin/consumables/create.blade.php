@@ -9,7 +9,7 @@
 @section('header')
     <div class="row mb-2">
         <div class="col-sm-6">
-            <h1>Consumables</h1>
+            <h1>consommables</h1>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -39,7 +39,7 @@
                         <div class="card-body">
 
                             <div class="form-group">
-                                <label for="name"> Functionality name</label>
+                                <label for="name"> consommables</label>
                                 <input type="text" id="name" name="name" value="{{old('name')}}" class="form-control @error('name') is-invalid @enderror" required>
                                 @error('name')
                                     <div class="invalid-feedback">{{$message}}</div>
