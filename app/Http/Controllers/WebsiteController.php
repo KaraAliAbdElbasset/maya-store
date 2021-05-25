@@ -35,6 +35,12 @@ class WebsiteController extends Controller
         return 'DONE';
     }
 
+    public function storage(){
+    	 Artisan::call('storage:link');
+
+        return 'DONE';
+    }
+
     public function cache()
     {
         Artisan::call('cache:clear');
