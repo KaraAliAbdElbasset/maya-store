@@ -43,7 +43,7 @@ Pour nous aider à toujours mieux répondre à vos attentes, n'hésitez pas à n
 
                         <div class="col-lg-12 mb-3">
                             <select name="subject" class="form-select border-0 shadow-sm py-2 @error('subject') is-invalid @enderror">
-                                <option value="Sujet 1" {{old('subject') === 'Sujet 1' ? 'selected' : ''}}>Renseignemen</option>
+                                <option value="Sujet 1" {{old('subject') === 'Sujet 1' ? 'selected' : ''}}>Renseignement</option>
                                 <option value="Sujet 2" {{old('subject') === 'Sujet 2' ? 'selected' : ''}}>Devis</option>
                                 <option value="Sujet 3" {{old('subject') === 'Sujet 3' ? 'selected' : ''}}>Information sur produit</option>
                                 <option value="Sujet 4" {{old('subject') === 'Autre' ? 'selected' : ''}}>Autre</option>
