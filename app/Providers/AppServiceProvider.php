@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use function Symfony\Component\String\s;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -26,6 +28,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if (config('app.env') === 'production')
+        {
+            $this->app->bind('path.public', function() {
+                return base_path().'/../../public_html';
+            });
+        }
+
         Schema::defaultStringLength(191);
         Blade::directive('price', function ($money) {
             return "<?php echo number_format($money, 0); ?>";
