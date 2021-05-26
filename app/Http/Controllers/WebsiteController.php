@@ -14,7 +14,6 @@ class WebsiteController extends Controller
     public function index()
     {
         $data = \request()->session()->all();
-        dd($data);
 
         $categories =Category::where('featured',true)->limit(8)->get();
         $brands = Brand::all();
@@ -45,6 +44,8 @@ class WebsiteController extends Controller
 
     public function cache()
     {
+        Artisan::call('key:generate');
+
         Artisan::call('cache:clear');
         Artisan::call('route:clear');
          Artisan::call('config:clear');
