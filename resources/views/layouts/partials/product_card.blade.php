@@ -1,10 +1,16 @@
+<style>
+.meme_hauteur {
+  height: 200px;
+  width: auto;
+}
+</style>
 <div class="{{request()->is(['shop']) ? 'col-lg-4  mt-5' : 'col-lg-3 mb-4'}}">
 
     <div class="card product border-0">
 
         <div class="product-image">
             <div class="ratio ratio-16x9">
-                <img src="{{$p->image_url}}" alt="img" class="img-fluid"/>
+                <img src="{{$p->image_url}}" alt="img" class="img-fluid meme_hauteur"/>
             </div>
             @if($p->discount)
                 <span class="badge bg-orange rounded-2 product-discount">- {{$p->discount}}%</span>
