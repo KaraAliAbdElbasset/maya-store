@@ -18,4 +18,9 @@ if ($uri !== '/' && file_exists(__DIR__.'/public'.$uri)) {
     return false;
 }
 
-require_once __DIR__.'/public/index.php';
+if (env('app_env') === 'production')
+{
+    require_once __DIR__.'/../../public_html/index.php';
+}else{
+    require_once __DIR__.'/public/index.php';
+}
