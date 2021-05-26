@@ -6,7 +6,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sarl CEC</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{config('app.name')}}</title>
 
     <!-- Title Icon -->
     <link rel="icon" href="https://www.flaticon.com/svg/static/icons/svg/891/891462.svg"/>
