@@ -1,9 +1,3 @@
-<style>
-.meme_hauteur {
-  height: 200px;
-  width: auto;
-}
-</style>
 <div class="{{request()->is(['shop']) ? 'col-lg-4  mt-5' : 'col-lg-3 mb-4'}}">
 
     <div class="card product border-0">
@@ -29,6 +23,7 @@
         </div>
 
     </div>
+    <br>
 
     <div class="px-3 product-infos">
 
