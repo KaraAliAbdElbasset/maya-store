@@ -30,6 +30,10 @@
                                 <a href="javascript:void(0)" onclick="document.getElementById('login-form').submit()" class="btn bg-orange text-white rounded-pill px-4">
                                     Se Connecter
                                 </a>
+                           <br><br>
+                                <a href="{{route('register')}}"  class="btn bg-orange text-white rounded-pill px-4">
+                                S'inscrire
+                                </a>
                             </div>
                             <div class="col-12 text-center">
                                 <p>

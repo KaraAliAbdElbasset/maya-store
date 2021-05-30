@@ -1,9 +1,3 @@
-<style>
-.meme_hauteur {
-  height: 200px;
-  width: auto;
-}
-</style>
 <div class="{{request()->is(['shop']) ? 'col-lg-4  mt-5' : 'col-lg-3 mb-4'}}">
 
     <div class="card product border-0">
@@ -16,19 +10,20 @@
                 <span class="badge bg-orange rounded-2 product-discount">- {{$p->discount}}%</span>
             @endif
         </div>
-
+        <br><br>
         <div class="content">
 
             <a href="javascript:void(0)" onclick="document.getElementById('form-card-add-{{$p->id}}').submit()"  class="btn bg-white text-orange rounded-0 text-capitalize w-25 py-3 rounded-2 shadow-sm">
                 <i class="fas fa-shopping-cart"></i>
             </a>
             <a href="{{$p->path()}}" class="btn bg-white text-orange rounded-0 text-capitalize w-25 py-3 rounded-2 shadow-sm">
-                <i class="fas fa-search"></i>
+                <i class="fas fa-eye"></i>
             </a>
 
         </div>
 
     </div>
+    <br>
 
     <div class="px-3 product-infos">
 
