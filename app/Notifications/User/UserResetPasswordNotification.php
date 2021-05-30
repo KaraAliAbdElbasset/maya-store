@@ -55,7 +55,7 @@ class UserResetPasswordNotification extends Notification
 
         return (new MailMessage)
             ->subject(Lang::get('Notification de réinitialisation du mot de passe'))
-            ->salutation('Bonjour')
+            ->greeting('Bonjour')
             ->line(Lang::get('Vous recevez cet email suite à votre demande de réinitialisation de mot de passe de votre compte.'))
             ->action(Lang::get('réinitialiser le mot de passe'), $url)
             ->line(Lang::get('Ce lien de réinitialisation du mot de passe expirera dans :count minutes.', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')]))
