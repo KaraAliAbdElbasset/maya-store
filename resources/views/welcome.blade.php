@@ -1,24 +1,90 @@
 @extends('layouts.app')
 
+@push('css')
+    <style>
+        #carousel .item {
+            min-height: 450px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            background-repeat: no-repeat !important;
+            background-position: center !important;
+            background-size: cover !important;
+        }
+        #carousel .item h1 {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    </style>
+@endpush
 
 @section('content')
 
-    <!-- Cover Start -->
-    <section id="cover" class="py-2 py-lg-5 px-2 px-lg-0">
+    <!-- Carousel Start -->
+    <section id="carousel" class="pt-3 pt-lg-5 pb-5 px-3 px-lg-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 px-0">
+                    <div class="owl-one owl-carousel owl-theme text-center">
 
-        <div class="container cover">
-            <div class="row d-flex justify-content-center text-center bg-black py-75">
-                <div class="col-lg-5 my-5 py-5 px-5 text-white">
-                    <h1 class="fw-bold">
-                        Lorem ipsum dolor <span class="text-orange">sit amet</span>
-                    </h1>
-                    <p class="my-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore alias ipsum quisquam eum saepe voluptates beatae tempora itaque dolore, quo atque a, dicta explicabo aut nemo neque.</p>
-                    <a href="#" class="btn bg-orange text-white px-5 shadow-sm">Decouvrir !</a>
+                        <div class="item"
+                             style="background: linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)), url('{{asset('assets/front/images/img1.png')}}');">
+                            <div class="container text-white">
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-lg-6 py-5">
+                                        <h1>welcome to <span class="text-blue">SARL CEC</span></h1>
+                                        <p class="mt-5">
+                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. At debitis animi
+                                            expedita similique iste libero ratione asperiores hic, sit aut consectetur,
+                                            labore quo voluptas! Minus voluptates culpa exercitationem quasi illum.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item"
+                             style="background: linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)), url('{{asset('assets/front/images/img2.jpg')}}');">
+                            <div class="container text-white">
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-lg-6 py-5">
+                                        <h1>welcome to <span class="text-blue">SARL CEC</span></h1>
+                                        <p class="mt-5">
+                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. At debitis animi
+                                            expedita similique iste libero ratione asperiores hic, sit aut consectetur,
+                                            labore quo voluptas! Minus voluptates culpa exercitationem quasi illum.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item"
+                             style="background: linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)), url('{{asset('assets/front/images/img3.jpeg')}}');">
+                            <div class="container text-white">
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-lg-6 py-5">
+                                        <h1>welcome to <span class="text-blue">SARL CEC</span></h1>
+                                        <p class="mt-5">
+                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. At debitis animi
+                                            expedita similique iste libero ratione asperiores hic, sit aut consectetur,
+                                            labore quo voluptas! Minus voluptates culpa exercitationem quasi illum.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
+
         </div>
     </section>
-    <!-- Cover End -->
+    <!-- Carousel End -->
 
 
     <!-- Categories Start -->
@@ -123,17 +189,37 @@
             </h2>
 
             <div class="row mt-0 mt-lg-5">
-          <div class="owl-carousel">
-            <img src="{{asset('assets/images/brands/hp-logo.svg')}}" alt="brand" class="img-fluid">
-            <img src="{{asset('assets/images/brands/lenovo-logo.svg')}}" alt="brand" class="img-fluid">
-            <img src="{{asset('assets/images/brands/epson-logo.svg')}}" alt="brand" class="img-fluid">
-            <img src="{{asset('assets/images/brands/canon-logo.svg')}}" alt="brand" class="img-fluid">
-            <img src="{{asset('assets/images/brands/eaton-vector-logo.svg')}}" alt="brand" class="img-fluid">
-            <img src="{{asset('assets/images/brands/apc-logo-vector.svg')}}" alt="brand" class="img-fluid">
-            <img src="{{asset('assets/images/brands/kyocera-logo.svg')}}" alt="brand" class="img-fluid">
+              <div class="owl-gallery owl-carousel owl-theme">
 
-          </div>
-        </div>
+                  <div class="row d-flex justify-content-around">
+                      <div class="col-3">
+                          <img src="{{asset('assets/images/brands/hp-logo.svg')}}" alt="brand" class="img-fluid">
+                      </div>
+                      <div class="col-3">
+                          <img src="{{asset('assets/images/brands/lenovo-logo.svg')}}" alt="brand" class="img-fluid">
+                      </div>
+                      <div class="col-3">
+                          <img src="{{asset('assets/images/brands/epson-logo.svg')}}" alt="brand" class="img-fluid">
+                      </div>
+                      <div class="col-3">
+                          <img src="{{asset('assets/images/brands/canon-logo.svg')}}" alt="brand" class="img-fluid">
+                      </div>
+                  </div>
+
+                  <div class="row d-flex justify-content-around">
+                      <div class="col-3">
+                          <img src="{{asset('assets/images/brands/eaton-vector-logo.svg')}}" alt="brand" class="img-fluid">
+                      </div>
+                      <div class="col-3">
+                          <img src="{{asset('assets/images/brands/apc-logo-vector.svg')}}" alt="brand" class="img-fluid">
+                      </div>
+                      <div class="col-3">
+                          <img src="{{asset('assets/images/brands/kyocera-logo.svg')}}" alt="brand" class="img-fluid">
+                      </div>
+                  </div>
+
+              </div>
+            </div>
 
             <div class="row mt-5 d-flex justify-content-center justify-content-lg-end">
                 <div class="col-auto">
