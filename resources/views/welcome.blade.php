@@ -31,51 +31,18 @@
                     <div class="owl-one owl-carousel owl-theme text-center">
 
                         <div class="item"
-                             style="background: linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)), url('{{asset('assets/front/images/img1.png')}}');">
-                            <div class="container text-white">
-                                <div class="row d-flex justify-content-center">
-                                    <div class="col-lg-6 py-5">
-                                        <h1>welcome to <span class="text-blue">SARL CEC</span></h1>
-                                        <p class="mt-5">
-                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. At debitis animi
-                                            expedita similique iste libero ratione asperiores hic, sit aut consectetur,
-                                            labore quo voluptas! Minus voluptates culpa exercitationem quasi illum.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                             style="background: url('{{asset('assets/front/images/img1.png')}}');">
+                            
                         </div>
 
                         <div class="item"
-                             style="background: linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)), url('{{asset('assets/front/images/img2.jpg')}}');">
-                            <div class="container text-white">
-                                <div class="row d-flex justify-content-center">
-                                    <div class="col-lg-6 py-5">
-                                        <h1>welcome to <span class="text-blue">SARL CEC</span></h1>
-                                        <p class="mt-5">
-                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. At debitis animi
-                                            expedita similique iste libero ratione asperiores hic, sit aut consectetur,
-                                            labore quo voluptas! Minus voluptates culpa exercitationem quasi illum.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                             style="background: url('{{asset('assets/front/images/img2.jpg')}}');">
+                            
                         </div>
 
                         <div class="item"
-                             style="background: linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)), url('{{asset('assets/front/images/img3.jpeg')}}');">
-                            <div class="container text-white">
-                                <div class="row d-flex justify-content-center">
-                                    <div class="col-lg-6 py-5">
-                                        <h1>welcome to <span class="text-blue">SARL CEC</span></h1>
-                                        <p class="mt-5">
-                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. At debitis animi
-                                            expedita similique iste libero ratione asperiores hic, sit aut consectetur,
-                                            labore quo voluptas! Minus voluptates culpa exercitationem quasi illum.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                             style="background: url('{{asset('assets/front/images/img3.jpeg')}}');">
+                           
                         </div>
 
                     </div>

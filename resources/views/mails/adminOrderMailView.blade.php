@@ -4,7 +4,7 @@ visitez le panneau d'administration pour effectuer une action
 
 
 
-@component('mail::button', ['url' => 'https://www.7clics.com/admin/orders/'])
+@component('mail::button', ['url' => 'https://www.sarl-cec.com/admin/orders/'])
 VOIR LA COMMANDE
 @endcomponent
 

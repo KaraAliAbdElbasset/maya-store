@@ -25,7 +25,7 @@
                 @foreach($categories as $c)
                     <div class="col-lg-3 mt-3 mb-0 mb-lg-3 mt-lg-0 text-center">
                         <a href="{{route('shop',['category' => $c->id])}}" class="text-decoration-none">
-                           <div class="card category border-0" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{$c->image_url}}');">
+                           <div class="card category border-0" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{$c->image_url}}');background-repeat: no-repeat;background-position: center; background-size: cover">
                           
                                 <div class="card-body text-white">
                                     <h3 class="font-weight-bold my-3">{{$c->name}}</h3>

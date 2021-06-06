@@ -86,17 +86,8 @@ Pour nous aider à toujours mieux répondre à vos attentes, n'hésitez pas à n
                     <h2 class="fw-bold text-center text-lg-start border-start px-3">
                         Ou nous <span class="text-orange">Trouver</span>
                     </h2>
-                </div>
-
-                <div class="col-lg-12 mt-5">
-
-                    <a href="javascript:void(0)" class="text-decoration-none">
-                        <img src="{{asset('assets/store/images/map.png')}}" alt="map" class="img-fluid">
-                    </a>
-
-                </div>
-
-            </div>
+                    <br><br>
+                    <div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1606.1752063937904!2d6.630168233574743!3d36.37651031983105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDIyJzM1LjQiTiA2wrAzNyc1MS4wIkU!5e0!3m2!1sen!2sus!4v1622972256663!5m2!1sen!2sus"></iframe><a href="https://www.fridaynightfunkin.net/">FNF PC</a></div><style>.mapouter{position:relative;text-align:right;width:100%;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:400px;}.gmap_iframe {height:400px!important;}</style></div>
 
         </div>
     </section>
