@@ -100,7 +100,7 @@
                 @foreach($categories as $cat)
                     <div class="col-lg-3 my-2 mt-lg-0 text-center">
                         <a href="{{route('shop',['category' => $cat->id])}}" class="text-decoration-none">
-                            <div class="card category border-0" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{$cat->image_url}}');">
+                            <div class="card category border-0" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{$cat->image_url}}');background-repeat: no-repeat;background-position: center; background-size: cover">
                                 <div class="card-body text-white">
                                     <h3 class="font-weight-bold my-3">{{$cat->name}}</h3>
                                 </div>
