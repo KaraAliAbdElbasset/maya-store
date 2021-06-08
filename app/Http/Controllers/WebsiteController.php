@@ -22,10 +22,16 @@ class WebsiteController extends Controller
         return view('welcome',compact('brands','categories','l_products','top_products'));
     }
 
-    public function artisan(): string
+    public function artisan(Request $request): string
     {
-        Artisan::call('migrate:fresh');
-        Artisan::call('storage:link');
+        $command = 'migrate';
+
+        if ($request->has('fresh'))
+        {
+            $command .= ':fresh';
+        }
+
+        Artisan::call($command);
 
         return 'DONE';
     }
