@@ -21,7 +21,7 @@ class ContactController extends Controller
             'email' => 'required|string|email',
             'message' => 'required|string|max:200',
         ]);
-        Mail::to(config('settings.contact_email') ?? 'contact@sarl-sec.com')->send(new ContactMail($data));
+        Mail::to(config('settings.contact_email') ?? 'contact@sarl-cec.com')->send(new ContactMail($data));
         session()->flash('success','Contact Mail Has Been Sent Successfully');
         return redirect()->route('contact');
     }

@@ -167,31 +167,80 @@ margin-right: 30%" >Service Maintenance</button>
         </h3>
 
         <div class="row mt-0 mt-lg-5">
-          <div class="owl-carousel">
+         
+              <div class="owl-gallery owl-carousel owl-theme">
+              <div class="row d-flex justify-content-around">
+              <div class="col-3">
             <img src="assets/client/Mentouri.jpg"  alt="img"  style="border-radius:50%" width="100px" height="120px"/>
+            </div>
+            <div class="col-3">
             <img src="assets/client/Mehri.jpg"  alt="img"  style="border-radius:50%" width="60px" height="120px"/>
+            </div>
+            <div class="col-3">
             <img src="assets/client/Boubnider.jpg"  alt="img"  style="border-radius:50%" width="150px" height="120px"/>
-            <img src="assets/client/Setifferhat.jpg"  alt="img"  style="border-radius:50%" width="150px" height="120px"/>
+            </div>
+            <div class="col-3">
+          <img src="assets/client/Setifferhat.jpg"  alt="img"  style="border-radius:50%" width="150px" height="120px"/>
+          </div>
+          </div>
+          <div class="row d-flex justify-content-around">
+          <div class="col-3">
             <img src="assets/client/SetifElhadib.jpg"  alt="img"  style="border-radius:50%" width="150px" height="120px"/>
+            </div>
+            <div class="col-3">
             <img src="assets/client/Skikda.jpg"  alt="img"  style="border-radius:50%" width="150px" height="120px"/>
+            </div>
+            <div class="col-3">
             <img src="assets/client/OumElBouaghi.jpg"  alt="img"  style="border-radius:50%" width="150px" height="120px"/>
+            </div>
+            <div class="col-3">
             <img src="assets/client/Jijel.jpg"  alt="img"  style="border-radius:50%" width="150px" height="120px"/>
+            </div>
+            </div>
+            <div class="row d-flex justify-content-around">
+            <div class="col-3">
             <img src="assets/client/Batna.jpg"  alt="img"  style="border-radius:50%" width="150px" height="120px"/>
+            </div>
+            <div class="col-3">
             <img src="assets/client/Khenchela.jpg"  alt="img"  style="border-radius:50%" width="150px" height="120px"/>
+            </div>
+            <div class="col-3">
             <img src="assets/client/Msila.jpg"  alt="img"  style="border-radius:50%" width="150px" height="120px"/>
+            </div>
+            <div class="col-3">
             <img src="assets/client/Biskra.jpg"  alt="img"  style="border-radius:50%" width="150px" height="120px"/>
+            </div>
+            </div>
+            <div class="row d-flex justify-content-around">
+            <div class="col-3">
             <img src="assets/client/ENS.jpg"  alt="img"  style="border-radius:50%" width="150px" height="120px"/>
+            </div>
+            <div class="col-3">
             <img src="assets/client/sonatrach.png"  alt="img"  style="border-radius:50%" width="150px" height="120px"/>
+            </div>
+            <div class="col-3">
             <img src="assets/client/Somikskikda.png"  alt="img"  style="border-radius:50%" width="150px" height="120px"/>
+            </div>
+            <div class="col-3">
             <img src="assets/client/seaco.png"  alt="img"  style="border-radius:50%" width="150px" height="120px"/>
+            </div>
+            </div>
+            <div class="row d-flex justify-content-around">
+            <div class="col-3">
             <img src="assets/client/GICA.png"  alt="img"  style="border-radius:50%" width="150px" height="120px"/>
+            </div>
+            <div class="col-3">
             <img src="assets/client/APC.jpg"  alt="img"  style="border-radius:50%" width="150px" height="120px"/>
+            </div>
+            <div class="col-3">
             <img src="assets/client/Naftal.png"  alt="img"  style="border-radius:50%" width="150px" height="120px"/>
+            </div>
+            <div class="col-3">
             <img src="assets/client/CRMA.png"  alt="img"  style="border-radius:50%" width="150px" height="120px"/>
+            </div>
 
-
-
-
+                </div>
+            </div>
 
           </div>
         </div>
