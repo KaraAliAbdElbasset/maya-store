@@ -37,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
 
         Schema::defaultStringLength(191);
         Blade::directive('price', function ($money) {
-            return "<?php echo number_format($money, 0); ?>";
+            return "<?php echo number_format($money, 2, '.', ' '); ?>";
         });
         Paginator::useBootstrap();
         View::composer(['admin.layouts.partials.sideBar'],\App\Http\Views\Composers\Admin\NewestOrderCount::class);
