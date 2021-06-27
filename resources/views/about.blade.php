@@ -121,17 +121,18 @@ margin-right: 30%" >Service commercial</button>
               <div class="product-title">
      <p class="mb-0 mt-4 text-truncate">
     <button class="third" style="border: none ; background:#87CEEB ; color:white ; padding:0.3em 1.2em;border-radius:2em; margin-left: 10%;
-margin-right: 30%" >Service Maintenance</button>
+margin-right: 30%" >Service Marché</button>
 
      </p>
        <script>
   document.querySelector(".third").addEventListener("click", function() {
   Swal.fire({
-  title: 'Service Maintenance ',
+  title: 'Service Marché ',
   html:
     ' <br><b> Le service commercial regroupe une équipe spécialiste prête à vous apporter:  <br><br>' +
     "  -Un meilleur service et un confort d'achat amélioré<br><br>"+
-    '  -Des conseils et des réponses à toutes vos questions concernant le secteur de la mico-informatique et accessoires <br>',
+    " -Des conseils et des réponses à toutes vos questions concernant le secteur de la mico-informatique et accessoires <br><br>"+
+    'Num : 05.61.87.98.25 // 05.55.03.68.50<br>'
   showClass: {
     popup: 'animate__animated animate__fadeInDown'
   },
