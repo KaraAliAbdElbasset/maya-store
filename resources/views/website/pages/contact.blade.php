@@ -72,8 +72,9 @@ Pour nous aider à toujours mieux répondre à vos attentes, n'hésitez pas à n
                 </div>
 
                 <div class="col-lg-5 mt-5 mt-lg-0 text-center text-lg-start">
-                    <p><i class="fas fa-map-marker-alt me-2 text-orange"></i>Constantine, Algérie.</p>
-                    <p><i class="fas fa-phone-alt me-2 text-orange"></i>00 (213) xxx xx xx xx</p>
+                    <p><i class="fas fa-map-marker-alt me-2 text-orange"></i>15, Rue A, Cité Eak.25000 Constantine, Algérie.</p>
+                    <p><i class="fas fa-phone-alt me-2 text-orange"></i>05.61.49.68.42</p>
+                    <p><i class="fas fa-phone-alt me-2 text-orange"></i>05.61.83.62.84</p>
                     <p><i class="fas fa-at me-2 text-orange"></i>contact@sarl-cec.com</p>
                     <p><i class="fas fa-globe-africa me-2 text-orange"></i>https://www.sarl-cec.com</p>
                 </div>
