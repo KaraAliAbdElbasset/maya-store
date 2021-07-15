@@ -14,7 +14,14 @@
             <td><img src="{{asset('assets/images/cecimg.jpeg')}}" alt="img" width="400px" height="300px"  ></td>
 
             <td width="900px" style="text-align:center; ">
-            CEC est une société informatique qui à plus de 30 années d'existence qui propose des solutuions professionnelles avec des véritable avantages.</td>
+            Sarl CEC (Consulting Engineering & Computer) a été créée en  Mai 1990 par le fondateur Meghezzi  Nasreddine avec l’envie de contribuer a l’évolution de la nouvelle technologie de notre pays.  <br>
+La Sarl C.E.C est une société spécialisée dans la vente de matériel informatique de grande marque, Installation de réseaux et de la maintenance. <br>
+Nous somme des partenaires agrée de plusieurs  constructeurs comme HP, LENOVO, DELL, CANON, EPSON, Kyocera, APC 
+Nous vous proposons la vente de tout type de matériel informatique, Notre équipe commercial et e -commerce  saura vous conseiller afin de définir vos besoins et vous propose des produits fiable et performants.<br>
+Nos experts techniques spécialisent dans toutes les réparations informatiques et installation du logiciel.<br> Nous vous assurant aussi la garantie du matériel et service âpres vente  efficace et réactif 
+Nous somme la pour vous accompagner dans tout vos besoin.<br> Notre objectif est de fidélise notre partenariat. 
+
+            </td>
            </tr>
          </table>
 
@@ -108,10 +115,6 @@ margin-right: 30%" >Service commercial</button>
 
   </div>
 
-
-
-
-
             <div class="col-lg-3 mt-0 mt-5 mt-lg-0">
                 <div class="product-image">
                   <img src="assets/images/marketing.png" alt="img"  width="300px" height="200px" style=" background:white "  >
@@ -132,7 +135,7 @@ margin-right: 30%" >Service Marché</button>
     ' <br><b> Le service commercial regroupe une équipe spécialiste prête à vous apporter:  <br><br>' +
     "  -Un meilleur service et un confort d'achat amélioré<br><br>"+
     " -Des conseils et des réponses à toutes vos questions concernant le secteur de la mico-informatique et accessoires <br><br>"+
-    'Num : 05.61.87.98.25 // 05.55.03.68.50<br>'
+    'Num : 05.61.87.98.25 // 05.55.03.68.50<br>',
   showClass: {
     popup: 'animate__animated animate__fadeInDown'
   },
