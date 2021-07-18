@@ -125,9 +125,9 @@
                                 <div class="form-check">
                                     <lable class="form-check-label">
                                         <input type="checkbox"
-                                               {{is_array(request('computerConsumables')) && in_array($cc->id, request('computerConsumables')) ? 'checked' :''}}
+                                               {{is_array(request('computer_consumables')) && in_array($cc->id, request('computer_consumables')) ? 'checked' :''}}
 
-                                               name="computerConsumables[]"
+                                               name="computer_consumables[]"
                                                class=" form-check-input common_selector categorie" value="{{$cc->id}}"  >{{$cc->name}}
                                     </lable>
                                 </div>
