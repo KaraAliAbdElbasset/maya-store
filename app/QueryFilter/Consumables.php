@@ -10,6 +10,7 @@ class Consumables extends Filter
     protected function applyFilters($builder)
     {
         $cs = request()->get($this->filterName());
+        dd($cs);
         if (is_array($cs))
         {
             return $builder->whereIn('consumable_id',$cs);

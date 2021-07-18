@@ -17,9 +17,9 @@ class CategorySeeder extends Seeder
     {
 //        main categories
         Category::factory(10)->create();
-
-
-        Category::factory(50)->create(['category_id' => random_int(1,10)]);
+//
+//
+//        Category::factory(50)->create(['category_id' => random_int(1,10)]);
 
     }
 }

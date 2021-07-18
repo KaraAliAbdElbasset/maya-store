@@ -16,7 +16,7 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         Product::factory(1000)->create()->each(function ($p){
-            $p->categories()->attach([random_int(11,20),random_int(21,30),random_int(31,40),random_int(41,50),random_int(51,60)]);
+            $p->categories()->attach([random_int(1,3),random_int(4,6),random_int(7,10)]);
         });
     }
 }

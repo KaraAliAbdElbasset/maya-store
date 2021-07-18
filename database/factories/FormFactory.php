@@ -23,7 +23,7 @@ class FormFactory extends Factory
     {
         return [
             'name' => $this->faker->words(2,true),
-            'category_id' => random_int(11,60)
+            'category_id' => random_int(1,10)
         ];
     }
 }

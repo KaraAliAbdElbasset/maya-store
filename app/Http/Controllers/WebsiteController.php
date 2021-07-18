@@ -22,47 +22,6 @@ class WebsiteController extends Controller
         return view('welcome',compact('brands','categories','l_products','top_products'));
     }
 
-    public function artisan(Request $request): string
-    {
-        $command = 'migrate';
-
-        if ($request->has('fresh'))
-        {
-            $command .= ':fresh';
-        }
-
-        Artisan::call($command);
-
-        return 'DONE';
-    }
-
-    public function seeding()
-    {
-        Artisan::call('db:seed');
-        return 'DONE';
-    }
-
-    public function storage(){
-    	 Artisan::call('storage:link');
-
-        return 'DONE';
-    }
-
-    public function cache()
-    {
-        Artisan::call('key:generate');
-
-        Artisan::call('cache:clear');
-        Artisan::call('route:clear');
-         Artisan::call('config:clear');
-        Artisan::call('route:cache');
-        Artisan::call('config:cache');
-
-        Artisan::call('view:clear');
-        Artisan::call('view:cache');
-        return 'DONE';
-    }
-
     public function shop(ProductContract $product)
     {
 
@@ -77,7 +36,11 @@ class WebsiteController extends Controller
             }
         }
 
-        $categories = Category::where('category_id',null)->withCount('products')->get('id','name');
+        $categories = Category::where('category_id',null)
+            ->withCount(['products' => function($p){
+                $p->where('is_active',true);
+            }])->get('id','name');
+
         $brands = Brand::withCount('products')->orderBy('name','asc')->get('id','name');
 
         return view('website.pages.shop',compact('products','categories','brands'));
@@ -86,7 +49,8 @@ class WebsiteController extends Controller
     public function product($id,ProductContract $product)
     {
         $categories =Category::with('children')->get();
-        $p = $product->findOneBy(['id'=>$id],['categories:id,name','brand:id,name','images']);
+        $p = $product->findOneBy(['id'=>$id,'is_active' => true],['categories:id,name','brand:id,name','images']);
+
 //        $images = $p->images->pluck('url')->prepend($p->image_url);
         $product = Product::where('brand_id','=',$p->brand_id)
             ->orWhereHas('categories',function ($q) use ($p){
@@ -114,4 +78,48 @@ class WebsiteController extends Controller
     {
         return view('about');
     }
+
+
+
+    public function artisan(Request $request): string
+    {
+        $command = 'migrate';
+
+        if ($request->has('fresh'))
+        {
+            $command .= ':fresh';
+        }
+
+        Artisan::call($command);
+
+        return 'DONE';
+    }
+
+    public function seeding()
+    {
+        Artisan::call('db:seed');
+        return 'DONE';
+    }
+
+    public function storage(){
+        Artisan::call('storage:link');
+
+        return 'DONE';
+    }
+
+    public function cache()
+    {
+        Artisan::call('key:generate');
+
+        Artisan::call('cache:clear');
+        Artisan::call('route:clear');
+        Artisan::call('config:clear');
+        Artisan::call('route:cache');
+        Artisan::call('config:cache');
+
+        Artisan::call('view:clear');
+        Artisan::call('view:cache');
+        return 'DONE';
+    }
+
 }
