@@ -31,7 +31,7 @@
                     <div class="owl-one owl-carousel owl-theme text-center">
 
                         <div class="item"
-                             style="background: url('{{asset('assets/front/images/img1.png')}}');">
+                             style="background: url('{{asset('assets/front/images/img1.jpg')}}');">
                             
                         </div>
 
