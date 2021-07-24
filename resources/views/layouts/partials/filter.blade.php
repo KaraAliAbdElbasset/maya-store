@@ -11,10 +11,10 @@
                      <input type="hidden" name="sort" value="{{request('sort')}}">
                  @endif
 
-            <h5>Filter Product </h5>
+            <h5>Filtrer le Produit </h5>
             <hr>
             @if($category->brands->count() > 0)
-                <h6 class = "text-info">Select brand </h6>
+                <h6 class = "text-info">Selectionner une marque </h6>
                 <lu class="list-group">
                     @foreach($category->brands as $br)
                         <li class="list-group-item checkbox">
@@ -36,7 +36,7 @@
 
 
             @if($category->forms->count() > 0)
-                <h6 class = "text-info">Select Form </h6>
+                <h6 class = "text-info">Selectionner une Forme </h6>
                 <lu class="list-group">
                     @foreach($category->forms as $fr)
                         <li class="list-group-item checkbox">
@@ -56,7 +56,7 @@
             @endif
 
             @if($category->types->count() > 0)
-                <h6 class = "text-info">Select Type </h6>
+                <h6 class = "text-info">Selectionner un Type </h6>
                 <lu class="list-group">
                     @foreach($category->types as $t)
                         <li class="list-group-item checkbox">
@@ -75,7 +75,7 @@
                 <br>
             @endif
             @if($category->functionalities->count() > 0)
-                <h6 class = "text-info">Select Functionality </h6>
+                <h6 class = "text-info">Selectionner une Fonctionnalité </h6>
                 <lu class="list-group">
                     @foreach($category->functionalities as $f)
                             <li class="list-group-item checkbox">
@@ -98,7 +98,7 @@
                 @endif
 
                 @if($category->consumables->count() > 0)
-                    <h6 class = "text-info">Select Consumable </h6>
+                    <h6 class = "text-info">Selectionner Consommable </h6>
                     <lu class="list-group">
                         @foreach($category->consumables as $c)
                             <li class="list-group-item checkbox">
@@ -118,7 +118,7 @@
                 @endif
 
                 @if($category->computerConsumables->count() > 0)
-                    <h6 class = "text-info">Select Computer Consumable </h6>
+                    <h6 class = "text-info">Selectionner Consommable informatique </h6>
                     <lu class="list-group">
                         @foreach($category->computerConsumables as $cc)
                             <li class="list-group-item checkbox">
