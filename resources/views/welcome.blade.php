@@ -110,7 +110,7 @@
 
             <div class="row mt-5 d-flex justify-content-center justify-content-lg-end">
                 <div class="col-auto">
-                    <a href="#" class="text-orange fw-bold text-decoration-underline text-capitalize">Voir tout</a>
+                    <a href="{{route('shop')}}" class="text-orange fw-bold text-decoration-underline text-capitalize">Voir tout</a>
                 </div>
             </div>
 
@@ -138,7 +138,7 @@
 
             <div class="row mt-5 d-flex justify-content-center justify-content-lg-end">
                 <div class="col-auto">
-                    <a href="#" class="text-orange fw-bold text-decoration-underline text-capitalize">Voir tout</a>
+                    <a href="{{route('shop')}}" class="text-orange fw-bold text-decoration-underline text-capitalize">Voir tout</a>
                 </div>
             </div>
 

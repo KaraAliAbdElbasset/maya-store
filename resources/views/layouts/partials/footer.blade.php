@@ -44,6 +44,12 @@
                     {{config('settings.phone_1')}}
                 </p>
                 @endif
+                @if(config('settings.phone_2'))
+                <p>
+                    <i class="fas fa-phone-alt me-2"></i>
+                    {{config('settings.phone_2')}}
+                </p>
+                @endif
                 @if(config('settings.contact_email'))
                     <p class="text-lowercase">
                         <i class="fas fa-at me-2"></i>{{config('settings.contact_email')}}
