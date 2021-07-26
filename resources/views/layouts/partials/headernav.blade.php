@@ -25,16 +25,17 @@
                                 <button class="btn text-white " type="button" id="" data-bs-toggle="" aria-expanded="false">
                                     DZD<img src="{{asset('assets/store/images/dz.png')}}" alt="flag" height="15" class="ms-2">
                                 </button>
-                             
+
                             </div>
                         </li>
                     </ul>
-
+                    <form action="{{route('shop')}}">
                     <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-center">
                         <li class="nav-item me-0 me-lg-3">
-                            <input type="text" class="form-control border-0 rounded-pill px-3" placeholder="Recherche">
+                            <input type="text" name="search" class="form-control border-0 rounded-pill px-3" placeholder="Recherche">
                         </li>
                     </ul>
+                    </form>
 
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
 
