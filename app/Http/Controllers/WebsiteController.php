@@ -17,8 +17,8 @@ class WebsiteController extends Controller
 
         $categories =Category::where('featured',true)->limit(8)->get();
         $brands = Brand::all();
-        $l_products  = Product::latest()->limit(8)->get();
-        $top_products = Product::orderBy('popularity','desc')->limit(8)->get();
+        $l_products  = Product::latest()->active()->limit(8)->get();
+        $top_products = Product::orderBy('popularity','desc')->active()->limit(8)->get();
         return view('welcome',compact('brands','categories','l_products','top_products'));
     }
 
