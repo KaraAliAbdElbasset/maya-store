@@ -41,6 +41,7 @@ class ProductRepository implements \App\Contracts\ProductContract
                 \App\QueryFilter\Brands::class,
                 \App\QueryFilter\Consumables::class,
                 \App\QueryFilter\ComputerConsumables::class,
+                \App\QueryFilter\Functionalities::class,
                 \App\QueryFilter\Forms::class,
                 \App\QueryFilter\Types::class,
                 \App\QueryFilter\Sort::class,
