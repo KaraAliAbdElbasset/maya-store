@@ -77,7 +77,9 @@
                                 <td>{{$o->created_at->format('d-m-Y')}}</td>
                                 <td>
                                     <a href="{{route('admin.orders.show',$o->id)}}" class="btn btn-sm btn-info"><i class="fa fa-eye"></i></a>
-                                    <a href="javascript:void(0)" class="btn btn-sm btn-danger" onclick="deleteForm({{$o->id}})"><i class="fa fa-trash"></i></a>
+                                    <button type="button" class="btn btn-sm btn-danger" onclick="deleteForm({{$o->id}})">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
                                 </td>
                             </tr>
                         @endforeach
@@ -107,37 +109,11 @@
     <script src="{{asset('assets/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
     <script src="{{asset('assets/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
     <script src="{{asset('assets/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+
     <!-- SweetAlert2 -->
     <script src="{{asset('assets/admin/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
-    <script>
-        $('#table').DataTable({
-            "paging": false,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": false,
-            "info": false,
-            "autoWidth": false,
-            "responsive": true,
-        });
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000
-        });
-        @if(session()->has('error'))
-        Toast.fire({
-            icon: 'error',
-            title: '{{session('error')}}'
-        })
-        @endif
 
-        @if(session()->has('success'))
-        Toast.fire({
-            icon: 'success',
-            title: '{{session('success')}}'
-        })
-        @endif
+    <script>
 
         const deleteForm = id => {
 
@@ -154,6 +130,7 @@
                 if (result.value) {
                     createForm(id).submit();
                 }
+
             });
         }
         const createForm = id => {
@@ -176,5 +153,36 @@
             document.body.appendChild(f);
             return f;
         }
+        $('#table').DataTable({
+            "paging": false,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": false,
+            "info": false,
+            "autoWidth": false,
+            "responsive": true,
+        });
+
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+
+        @if(session()->has('error'))
+        Toast.fire({
+            icon: 'error',
+            title: '{{session('error')}}'
+        })
+        @endif
+
+        @if(session()->has('success'))
+        Toast.fire({
+            icon: 'success',
+            title: '{{session('success')}}'
+        })
+        @endif
+
     </script>
 @endpush

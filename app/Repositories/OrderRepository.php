@@ -75,7 +75,7 @@ class OrderRepository implements \App\Contracts\OrderContract
      */
     public function delete($id)
     {
-            $o = $this->findById($id);
-            $o->delete();
+        $o = $this->findById($id);
+        $o->delete();
     }
 }
