@@ -115,6 +115,26 @@
 
     <script>
 
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+
+        @if(session()->has('error'))
+        Toast.fire({
+            icon: 'error',
+            title: '{{session('error')}}'
+        })
+        @endif
+
+        @if(session()->has('success'))
+        Toast.fire({
+            icon: 'success',
+            title: '{{session('success')}}'
+        })
+        @endif
         const deleteForm = id => {
 
             Swal.fire({
@@ -163,26 +183,6 @@
             "responsive": true,
         });
 
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000
-        });
-
-        @if(session()->has('error'))
-        Toast.fire({
-            icon: 'error',
-            title: '{{session('error')}}'
-        })
-        @endif
-
-        @if(session()->has('success'))
-        Toast.fire({
-            icon: 'success',
-            title: '{{session('success')}}'
-        })
-        @endif
 
     </script>
 @endpush
