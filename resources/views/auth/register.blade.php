@@ -17,7 +17,7 @@
                                 <input type="text"
                                        class="form-control rounded-pill px-4 py-2 @error('name') is-invalid @enderror"
                                        placeholder="Nom et prénom" value="{{old('name')}}" name="name">
-                                @error('password')
+                                @error('name')
                                 <small class="text-danger text-capitalize invalid-feedback"><i class="fas fa-exclamation-circle mr-2"></i>{{$message}}</small>
                                 @enderror
                             </div>
@@ -49,7 +49,7 @@
                                     S'inscrire
                                 </button>
                             </div>
-                           
+
                         </form>
                     </div>
                 </div>
