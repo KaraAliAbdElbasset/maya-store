@@ -91,6 +91,14 @@
 
                                     <tr>
                                         <td colspan="3">
+                                            Frais de livraison <br>
+                                            <span class="small text-muted">Voir les tarifs en bas</span>
+                                        </td>
+                                        <td class="text-center"><B> YALIDINE </B></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td colspan="3">
                                             Total de votre commande<br>
                                             <span class="small text-muted">Sans frais de livraison</span>
                                         </td>
