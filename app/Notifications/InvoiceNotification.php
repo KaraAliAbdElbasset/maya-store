@@ -41,10 +41,10 @@ class InvoiceNotification extends Notification
     public function toMail($notifiable): MailMessage
     {
         return (new MailMessage)
-            ->subject('New Invoice Notification')
-            ->greeting('Hi '.$notifiable->name)
-            ->line('Hope this email finds you well! Please see attached invoice, Feel free to reach out if you have any questions.')
-            ->line('Thank you for using our application!')
+            ->subject('Facturation')
+            ->greeting('salut '.$notifiable->name)
+            ->line("J'espère que ce courriel vous trouvera à ta convenance! Veuillez consulter la facture ci-jointe, n'hésitez pas à nous contacter si vous avez des questions.")
+            ->line("Merci d'utiliser notre application!")
             ->attach(asset($this->data['path']), [
                 'mime' => 'application/pdf',
             ]);
