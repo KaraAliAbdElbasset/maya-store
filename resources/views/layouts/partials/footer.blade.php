@@ -76,7 +76,7 @@
                 <p class="text-uppercase fw-bold mb-4 mt-5 mt-lg-0">Aide</p>
                 <p><a href="#" class="text-decoration-none text-white">FAQ</a></p>
                 <p>
-                    <a href="#" class="text-decoration-none text-white">Livraison</a>
+                    <a href="{{asset('pdf/yalidine-tarif.pdf')}}" class="text-decoration-none text-white">Livraison</a>
                 </p>
                 <p>
                     <a href="#" class="text-decoration-none text-white"
