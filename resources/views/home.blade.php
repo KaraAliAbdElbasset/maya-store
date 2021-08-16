@@ -28,7 +28,7 @@
                                 <table class="table">
                                     <thead class="bg-orange text-white">
                                     <tr>
-                                        <th class="text-center">#</th>
+                                        
                                         <th class="text-center">Date</th>
                                         <th class="text-center">Montant</th>
                                         <th class="text-center">État</th>
@@ -38,7 +38,7 @@
                                     <tbody>
                                     @forelse($orders as $o)
                                         <tr>
-                                            <th class="text-center">{{$o->id}}</th>
+                                            
                                             <td class="text-center">{{$o->created_at->format('d-m-Y')}}</td>
                                             <td class="text-center">@price($o->total_price) {{config('settings.currency_code')}}</td>
                                             @switch($o->state)
