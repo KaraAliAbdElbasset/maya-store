@@ -38,6 +38,21 @@ class HomeController extends Controller
         return view('myOrders',compact('order'));
     }
 
+    public function orderDelete($id)
+    {
+        $order = Order::where('user_id',auth()->id())
+            ->findOrFail($id);
+        if ($order->state !== 'pending')
+        {
+            session()->flash('error','can\'t delete this order');
+            return redirect()->route('home');
+        }
+
+        $order->delete();
+        session()->flash('success','Order Has been deleted successfully');
+        return redirect()->route('home');
+    }
+
     public function profileEdit()
     {
         $user = Auth::user();
@@ -51,7 +66,7 @@ class HomeController extends Controller
             'name' => 'required|string|max:200',
             'email' => 'required|email|unique:users,email,'.auth()->id(),
             'address' => 'sometimes|nullable|string',
-            'phone' => 'sometimes|nullable|string',
+            'phone' => 'sometimes|nullable|string|regex:/^([0-9\s\-\+\(\)]*)$/|max:10',
             'city' => 'sometimes|nullable|string',
         ]);
 
