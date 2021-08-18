@@ -54,7 +54,13 @@
                                                 <td class="text-center text-warning">Annulé</td>
                                                 @break
                                             @endswitch
-                                            <td class="text-center"><a href="{{route('home.order',$o->id)}}" class="text-decoration-none text-black"><i class="fas fa-eye"></i></a></td>
+                                            <td class="text-center d-flex">
+                                                <a href="{{route('home.order',$o->id)}}" class="text-decoration-none text-black mx-2"><i class="fas fa-eye"></i></a>
+                                                @if($o->state === 'pending')
+                                                    <a href="javascript:void(0)" onclick="deleteForm('{{route('home.order.delete',$o->id)}}')" class="text-decoration-none text-black"><i class="fas fa-trash"></i></a>
+
+                                                @endif
+                                            </td>
 
                                         </tr>
 
@@ -67,7 +73,9 @@
                                     </tbody>
                                 </table>
                             </div>
-
+                            <div class="d-flex justify-content-center">
+                                {{$orders->links()}}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -157,11 +165,45 @@
 
 
 @push('js')
+    <script>
 
-    @if(session('payment-message-modal'))
-        $('#staticBackdrop').modal('show')
-    @endif
+        const deleteForm = url => {
+            console.log(url)
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
 
-    payment-message
+                if (result.value) {
+                    createForm(url).submit();
+                }
+            });
+        }
+        const createForm = url => {
+            let f = document.createElement("form");
+            f.setAttribute('method',"post");
+            f.setAttribute('action',`${url}`);
+
+            let i1 = document.createElement("input"); //input element, text
+            i1.setAttribute('type',"hidden");
+            i1.setAttribute('name','_token');
+            i1.setAttribute('value','{{csrf_token()}}');
+
+            let i2 = document.createElement("input"); //input element, text
+            i2.setAttribute('type',"hidden");
+            i2.setAttribute('name','_method');
+            i2.setAttribute('value','DELETE');
+
+            f.appendChild(i1);
+            f.appendChild(i2);
+            document.body.appendChild(f);
+            return f;
+        }
+    </script>
 
 @endpush

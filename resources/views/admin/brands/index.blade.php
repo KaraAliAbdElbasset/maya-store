@@ -73,7 +73,7 @@
                         @endforeach
                         </tbody>
                         <tfoot class="d-flex justify-content-center">
-                            {{$brands->links()}}
+                        {{$brands->links()}}
                         </tfoot>
                     </table>
                 </div>

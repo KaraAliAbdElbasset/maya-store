@@ -50,6 +50,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/order/{id}', [App\Http\Controllers\HomeController::class, 'orderShow'])->name('home.order');
+Route::delete('/order/{id}', [App\Http\Controllers\HomeController::class, 'orderDelete'])->name('home.order.delete');
 
 
 Route::get('/profile/edit',[App\Http\Controllers\HomeController::class,'profileEdit'])->name('profile.edit');
