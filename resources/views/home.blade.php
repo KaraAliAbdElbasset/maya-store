@@ -57,7 +57,7 @@
                                             <td class="text-center d-flex">
                                                 <a href="{{route('home.order',$o->id)}}" class="text-decoration-none text-black mx-2"><i class="fas fa-eye"></i></a>
                                                 @if($o->state === 'pending')
-                                                    <a href="javascript:void(0)" onclick="deleteForm('{{route('home.order.delete',$o->id)}}')" class="text-decoration-none text-black"><i class="fas fa-trash"></i></a>
+                                                    <a href="javascript:void(0)" onclick="deleteForm('/order/{{$o->id}}')" class="text-decoration-none text-black"><i class="fas fa-trash"></i></a>
 
                                                 @endif
                                             </td>
