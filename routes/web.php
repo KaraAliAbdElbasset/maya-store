@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/cache', [\App\Http\Controllers\WebsiteController::class,'cache'])->name('cache');
 //Route::get('/seed', [\App\Http\Controllers\WebsiteController::class,'seeding'])->name('seed');
 
-//Route::get('/storage', [\App\Http\Controllers\WebsiteController::class,'storage'])->name('storage');
+Route::get('/storage', [\App\Http\Controllers\WebsiteController::class,'storage'])->name('storage');
 
 /**********************************************************************************/
 Route::get('/', [\App\Http\Controllers\WebsiteController::class,'index'])->name('welcome');
