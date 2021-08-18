@@ -109,7 +109,7 @@ class WebsiteController extends Controller
 
     public function cache()
     {
-        Artisan::call('key:generate');
+        //Artisan::call('key:generate');
 
         Artisan::call('cache:clear');
         Artisan::call('route:clear');
