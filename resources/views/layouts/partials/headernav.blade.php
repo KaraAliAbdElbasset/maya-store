@@ -98,7 +98,7 @@
             <div class="container">
 
                 <a class="navbar-brand" href="{{route('welcome')}}">
-                    <img src="{{asset('assets/store/images/logooo.jpg')}}" alt="logo" height="30" />
+                    <img src="{{asset('assets/store/images/loggo.png')}}" alt="logo" height="30" />
                 </a>
 
                 <button
