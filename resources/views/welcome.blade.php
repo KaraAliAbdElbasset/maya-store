@@ -36,12 +36,12 @@
                         </div>
 
                         <div class="item"
-                             style="background: url('{{asset('assets/front/images/pc.jpg')}}');">
+                             style="background: url('{{asset('assets/front/images/img2.jpg')}}');">
                             
                         </div>
 
                         <div class="item"
-                             style="background: url('{{asset('assets/front/images/imprimante.jpg')}}');">
+                             style="background: url('{{asset('assets/front/images/img3..jpeg')}}');">
                            
                         </div>
 
