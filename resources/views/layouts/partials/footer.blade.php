@@ -74,17 +74,17 @@
             </div>
             <div class="col-lg-3">
                 <p class="text-uppercase fw-bold mb-4 mt-5 mt-lg-0">Aide</p>
-                <p><a href="#" class="text-decoration-none text-white">FAQ</a></p>
+               
                 <p>
                     <a href="{{asset('pdf/yalidine-tarif.pdf')}}" class="text-decoration-none text-white">Livraison</a>
                 </p>
                 <p>
-                    <a href="#" class="text-decoration-none text-white"
+                    <a href="{{asset('pdf/Politique de confidentialité.pdf')}}" class="text-decoration-none text-white"
                     >Politique de confidentialité
                     </a>
                 </p>
                 <p>
-                    <a href="#" class="text-decoration-none text-white"
+                    <a href="{{asset('pdf/Conditions générales de ventes.pdf')}}" class="text-decoration-none text-white"
                     >Conditions d’utilisation</a
                     >
                 </p>
