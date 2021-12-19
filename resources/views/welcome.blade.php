@@ -36,7 +36,7 @@
                         </div>
 
                         <div class="item"
-                             style="background: url('{{asset('assets/front/images/img2.jpg')}}');">
+                             style="background: url('{{asset('assets/front/images/tic.jpg')}}');">
                             
                         </div>
 
